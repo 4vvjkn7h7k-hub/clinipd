@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Outcome measures — CliniPD</title>
+<meta name="description" content="Patient-reported and performance measures, each with its MCID and MDC — so a change score means something.">
+<link rel="stylesheet" href="site.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+<link rel="stylesheet" href="listing.css">
+</head>
+<body>
+<header class="top" id="site-top"></header>
+
+<section class="az-head">
+  <div class="wrap">
+    <nav class="crumb"><a href="index.html">CliniPD</a> &nbsp;/&nbsp; <a href="library.html">Library</a> &nbsp;/&nbsp; Outcome measures</nav>
+    <h1 class="h1">Outcome measures A to Z</h1>
+    <p class="lede">Patient-reported and performance measures, each with its MCID and MDC — so a change score means something.</p>
+    <p style="margin-top:22px"><span class="pill t"><span class="dot"></span>Free · no account needed</span></p>
+  </div>
+</section>
+
+<div class="az-tools" id="azTools">
+  <div class="wrap">
+    <div class="az-srch" id="sbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="Search 99 outcome measures…" aria-label="Search Outcome measures" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <button class="x" id="x" type="button" aria-label="Clear search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="az-filters" id="filters" role="group" aria-label="Category"></div>
+
+    <div class="az-sort">
+      <label for="sort">Sort
+        <select id="sort">
+          <option value="az">A to Z</option>
+          <option value="za">Z to A</option>
+          <option value="upd">Recently updated</option>
+          <option value="yld">Highest yield</option>
+        </select>
+      </label>
+      <label for="per">Per page
+        <select id="per">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+          <option value="0">All</option>
+        </select>
+      </label>
+    </div>
+
+    <nav class="az-bar" id="azbar" aria-label="Jump to letter"></nav>
+  </div>
+</div>
+
+<main class="wrap">
+  
+  <p class="az-count" id="count"></p>
+  <div class="az-body" id="body"></div>
+  <div class="az-none" id="none" hidden><b>Nothing matches that</b><p>Try a shorter word, or clear the filter.</p></div>
+  <nav class="pagi" id="pagi" aria-label="Pagination"></nav>
+  <p class="pagi-note" id="pnote"></p>
+</main>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="site.js"></script>
+<script src="glossary.js"></script>
+<script>
+/* ============================================================
+   Data for this index.
+     t  title        g  top-level group      r  where it sits
+     i  page id      f  flag (red|postop)    k  glossary term
+     y  yield 3=high 2=medium 1=standard     u  updated (ISO) or null
+   YIELD is provisional — see README §19. Override any id here.
+   ============================================================ */
+const ITEMS = [{"t":"10-Metre Walk Test","i":"measures-mobility-and-balance-10-metre-walk-test","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"30-Second Chair Stand","i":"measures-mobility-and-balance-30-second-chair-stand","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"4AT delirium screen","i":"measures-gerontology-4at-delirium-screen","g":"Gerontology","r":"Gerontology","f":"","y":1,"u":null},{"t":"6-Minute Walk Test","i":"measures-mobility-and-balance-6-minute-walk-test","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"ACL-RSI","i":"measures-proms-lower-limb-acl-rsi","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Action Research Arm Test","i":"measures-neurological-action-research-arm-test","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Activities-specific Balance Confidence Scale","i":"measures-vestibular-activities-specific-balance-confidence-scale","g":"Vestibular","r":"Vestibular","f":"","y":1,"u":null},{"t":"Alberta Infant Motor Scale","i":"measures-paediatric-alberta-infant-motor-scale","g":"Paediatric","r":"Paediatric","f":"","y":1,"u":null},{"t":"Anterior Knee Pain Scale (Kujala)","i":"measures-proms-lower-limb-anterior-knee-pain-scale-kujala","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Barthel Index","i":"measures-neurological-barthel-index","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Berg Balance Scale","i":"measures-mobility-and-balance-berg-balance-scale","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Bladder diary","i":"measures-pelvic-health-bladder-diary","g":"Pelvic health","r":"Pelvic health","f":"","y":1,"u":null},{"t":"Borg RPE scale","i":"measures-cardiorespiratory-borg-rpe-scale","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Boston Carpal Tunnel Questionnaire","i":"measures-proms-upper-limb-boston-carpal-tunnel-questionnaire","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"Box and Block Test","i":"measures-neurological-box-and-block-test","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Brief Pain Inventory","i":"measures-pain-and-psychosocial-brief-pain-inventory","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null},{"t":"Central Sensitisation Inventory","i":"measures-pain-and-psychosocial-central-sensitisation-inventory","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null,"k":"central sensitisation"},{"t":"Chelsea Critical Care Physical Assessment","i":"measures-cardiorespiratory-chelsea-critical-care-physical-assessment","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Chronic Respiratory Questionnaire","i":"measures-cardiorespiratory-chronic-respiratory-questionnaire","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Clinical Frailty Scale","i":"measures-gerontology-clinical-frailty-scale","g":"Gerontology","r":"Gerontology","f":"","y":1,"u":null},{"t":"COPD Assessment Test","i":"measures-cardiorespiratory-copd-assessment-test","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Countermovement jump","i":"measures-performance-lower-limb-countermovement-jump","g":"Performance · lower limb","r":"Performance · lower limb","f":"","y":1,"u":null},{"t":"Cumberland Ankle Instability Tool","i":"measures-proms-lower-limb-cumberland-ankle-instability-tool","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"DASH","i":"measures-proms-upper-limb-dash","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"DASS-21","i":"measures-pain-and-psychosocial-dass-21","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null},{"t":"de Morton Mobility Index","i":"measures-mobility-and-balance-de-morton-mobility-index","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Dizziness Handicap Inventory","i":"measures-vestibular-dizziness-handicap-inventory","g":"Vestibular","r":"Vestibular","f":"","y":1,"u":null},{"t":"Dynamic Gait Index","i":"measures-mobility-and-balance-dynamic-gait-index","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Elderly Mobility Scale","i":"measures-gerontology-elderly-mobility-scale","g":"Gerontology","r":"Gerontology","f":"","y":1,"u":null},{"t":"Endurance Shuttle Walk Test","i":"measures-cardiorespiratory-endurance-shuttle-walk-test","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"FAAM","i":"measures-proms-lower-limb-faam","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Falls Efficacy Scale–International","i":"measures-gerontology-falls-efficacy-scale-international","g":"Gerontology","r":"Gerontology","f":"","y":1,"u":null},{"t":"Five Times Sit-to-Stand","i":"measures-mobility-and-balance-five-times-sit-to-stand","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Four-Stage Balance Test","i":"measures-mobility-and-balance-four-stage-balance-test","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Fugl-Meyer Assessment (upper extremity)","i":"measures-neurological-fugl-meyer-assessment-upper-extremity","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Functional Gait Assessment","i":"measures-mobility-and-balance-functional-gait-assessment","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Functional Independence Measure","i":"measures-neurological-functional-independence-measure","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"GMFCS","i":"measures-paediatric-gmfcs","g":"Paediatric","r":"Paediatric","f":"","y":1,"u":null},{"t":"Gross Motor Function Measure","i":"measures-paediatric-gross-motor-function-measure","g":"Paediatric","r":"Paediatric","f":"","y":1,"u":null},{"t":"HAGOS","i":"measures-proms-lower-limb-hagos","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"HOOS","i":"measures-proms-lower-limb-hoos","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Hop test battery","i":"measures-performance-lower-limb-hop-test-battery","g":"Performance · lower limb","r":"Performance · lower limb","f":"","y":1,"u":null},{"t":"ICIQ-UI Short Form","i":"measures-pelvic-health-iciq-ui-short-form","g":"Pelvic health","r":"Pelvic health","f":"","y":1,"u":null},{"t":"ICU Mobility Scale","i":"measures-cardiorespiratory-icu-mobility-scale","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"iHOT-12","i":"measures-proms-lower-limb-ihot-12","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"IKDC Subjective Knee Form","i":"measures-proms-lower-limb-ikdc-subjective-knee-form","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Incremental Shuttle Walk Test","i":"measures-cardiorespiratory-incremental-shuttle-walk-test","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"ISNCSCI (ASIA) examination","i":"measures-neurological-isncsci-asia-examination","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Isometric strength and LSI","i":"measures-performance-lower-limb-isometric-strength-and-lsi","g":"Performance · lower limb","r":"Performance · lower limb","f":"","y":1,"u":null,"k":"isometric"},{"t":"KOOS","i":"measures-proms-lower-limb-koos","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null,"k":"KOOS"},{"t":"Lower Extremity Functional Scale","i":"measures-proms-lower-limb-lower-extremity-functional-scale","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Lysholm score","i":"measures-proms-lower-limb-lysholm-score","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"MDS-UPDRS","i":"measures-neurological-mds-updrs","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Mini-BESTest","i":"measures-mobility-and-balance-mini-bestest","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"mMRC dyspnoea scale","i":"measures-cardiorespiratory-mmrc-dyspnoea-scale","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null,"k":"dyspnoea"},{"t":"Modified Ashworth Scale","i":"measures-neurological-modified-ashworth-scale","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Modified Borg dyspnoea scale","i":"measures-cardiorespiratory-modified-borg-dyspnoea-scale","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null,"k":"dyspnoea"},{"t":"Modified Oxford Scale","i":"measures-pelvic-health-modified-oxford-scale","g":"Pelvic health","r":"Pelvic health","f":"","y":1,"u":null},{"t":"Montreal Cognitive Assessment","i":"measures-gerontology-montreal-cognitive-assessment","g":"Gerontology","r":"Gerontology","f":"","y":1,"u":null},{"t":"Motor Assessment Scale","i":"measures-neurological-motor-assessment-scale","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Movement ABC-2","i":"measures-paediatric-movement-abc-2","g":"Paediatric","r":"Paediatric","f":"","y":1,"u":null},{"t":"MRC muscle grading","i":"measures-neurological-mrc-muscle-grading","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Neck Disability Index","i":"measures-proms-spine-neck-disability-index","g":"PROMs · spine","r":"PROMs · spine","f":"","y":1,"u":null},{"t":"Nine-Hole Peg Test","i":"measures-neurological-nine-hole-peg-test","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Numeric Pain Rating Scale","i":"measures-pain-and-psychosocial-numeric-pain-rating-scale","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null},{"t":"Oswestry Disability Index","i":"measures-proms-spine-oswestry-disability-index","g":"PROMs · spine","r":"PROMs · spine","f":"","y":1,"u":null},{"t":"Oxford Hip Score","i":"measures-proms-lower-limb-oxford-hip-score","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Oxford Knee Score","i":"measures-proms-lower-limb-oxford-knee-score","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Oxford Shoulder Score","i":"measures-proms-upper-limb-oxford-shoulder-score","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"Pain Catastrophising Scale","i":"measures-pain-and-psychosocial-pain-catastrophising-scale","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null,"k":"catastrophising"},{"t":"Pain Self-Efficacy Questionnaire","i":"measures-pain-and-psychosocial-pain-self-efficacy-questionnaire","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null},{"t":"Patient-Specific Functional Scale","i":"measures-proms-spine-patient-specific-functional-scale","g":"PROMs · spine","r":"PROMs · spine","f":"","y":1,"u":null},{"t":"Perme ICU Mobility Score","i":"measures-cardiorespiratory-perme-icu-mobility-score","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"PFDI-20","i":"measures-pelvic-health-pfdi-20","g":"Pelvic health","r":"Pelvic health","f":"","y":1,"u":null},{"t":"POP-Q","i":"measures-pelvic-health-pop-q","g":"Pelvic health","r":"Pelvic health","f":"","y":1,"u":null},{"t":"PRTEE","i":"measures-proms-upper-limb-prtee","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"PRWE","i":"measures-proms-upper-limb-prwe","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"QuickDASH","i":"measures-proms-upper-limb-quickdash","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"Roland-Morris Disability Questionnaire","i":"measures-proms-spine-roland-morris-disability-questionnaire","g":"PROMs · spine","r":"PROMs · spine","f":"","y":1,"u":null},{"t":"Short Physical Performance Battery","i":"measures-mobility-and-balance-short-physical-performance-battery","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Single-leg heel raise endurance","i":"measures-performance-lower-limb-single-leg-heel-raise-endurance","g":"Performance · lower limb","r":"Performance · lower limb","f":"","y":1,"u":null},{"t":"Single-leg squat assessment","i":"measures-performance-lower-limb-single-leg-squat-assessment","g":"Performance · lower limb","r":"Performance · lower limb","f":"","y":1,"u":null},{"t":"SPADI","i":"measures-proms-upper-limb-spadi","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"St George's Respiratory Questionnaire","i":"measures-cardiorespiratory-st-georges-respiratory-questionnaire","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"STarT Back Tool","i":"measures-proms-spine-start-back-tool","g":"PROMs · spine","r":"PROMs · spine","f":"","y":1,"u":null},{"t":"Tampa Scale of Kinesiophobia","i":"measures-pain-and-psychosocial-tampa-scale-of-kinesiophobia","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null,"k":"kinesiophobia"},{"t":"Tardieu Scale","i":"measures-neurological-tardieu-scale","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Tegner activity scale","i":"measures-proms-lower-limb-tegner-activity-scale","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Timed Up and Go","i":"measures-mobility-and-balance-timed-up-and-go","g":"Mobility & balance","r":"Mobility & balance","f":"","y":1,"u":null},{"t":"Trunk Impairment Scale","i":"measures-neurological-trunk-impairment-scale","g":"Neurological","r":"Neurological","f":"","y":1,"u":null},{"t":"Vestibular Activities and Participation Measure","i":"measures-vestibular-vestibular-activities-and-participation-measure","g":"Vestibular","r":"Vestibular","f":"","y":1,"u":null},{"t":"VISA-A","i":"measures-proms-lower-limb-visa-a","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"VISA-G","i":"measures-proms-lower-limb-visa-g","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"VISA-P","i":"measures-proms-lower-limb-visa-p","g":"PROMs · lower limb","r":"PROMs · lower limb","f":"","y":1,"u":null},{"t":"Visual Analogue Scale","i":"measures-pain-and-psychosocial-visual-analogue-scale","g":"Pain & psychosocial","r":"Pain & psychosocial","f":"","y":1,"u":null},{"t":"WORC","i":"measures-proms-upper-limb-worc","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"WOSI","i":"measures-proms-upper-limb-wosi","g":"PROMs · upper limb","r":"PROMs · upper limb","f":"","y":1,"u":null},{"t":"Y-Balance Test","i":"measures-performance-lower-limb-y-balance-test","g":"Performance · lower limb","r":"Performance · lower limb","f":"","y":1,"u":null},{"t":"Örebro Musculoskeletal Pain Screening Questionnaire","i":"measures-proms-spine-orebro-musculoskeletal-pain-screening-questionnaire","g":"PROMs · spine","r":"PROMs · spine","f":"","y":1,"u":null}];
+const GROUPS = ["Mobility & balance","Gerontology","PROMs · lower limb","Neurological","Vestibular","Paediatric","Pelvic health","Cardiorespiratory","PROMs · upper limb","Pain & psychosocial","Performance · lower limb","PROMs · spine"];
+const UNIT = "outcome measures";
+
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sbox'),
+      x=document.getElementById('x'), body=document.getElementById('body'),
+      none=document.getElementById('none'), count=document.getElementById('count'),
+      filters=document.getElementById('filters'), sortSel=document.getElementById('sort'),
+      perSel=document.getElementById('per'), pagi=document.getElementById('pagi'),
+      pnote=document.getElementById('pnote'), azbar=document.getElementById('azbar'),
+      tools=document.getElementById('azTools');
+
+  var state={ term:'', group:'', sort:'az', per:50, page:1 };
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function norm(s){return s.toLowerCase();}
+  function letter(t){var c=t.trim().charAt(0).toUpperCase();return /[A-Z]/.test(c)?c:'#';}
+
+  /* ---- filter pills ---- */
+  filters.innerHTML = '<button type="button" data-g="" aria-pressed="true">All'
+    + '<span class="c">' + ITEMS.length + '</span></button>'
+    + GROUPS.map(function(g){
+        var n=ITEMS.filter(function(it){return it.g===g;}).length;
+        return '<button type="button" data-g="'+esc(g)+'" aria-pressed="false">'+esc(g)
+             + '<span class="c">'+n+'</span></button>';
+      }).join('');
+
+  function matches(){
+    var t=state.term.trim().toLowerCase();
+    return ITEMS.filter(function(it){
+      if(state.group && it.g!==state.group) return false;
+      if(!t) return true;
+      return norm(it.t).indexOf(t)>=0 || norm(it.r).indexOf(t)>=0;
+    });
+  }
+
+  function sorted(list){
+    var s=state.sort, out=list.slice();
+    if(s==='az') out.sort(function(a,b){return a.t.localeCompare(b.t);});
+    else if(s==='za') out.sort(function(a,b){return b.t.localeCompare(a.t);});
+    else if(s==='upd') out.sort(function(a,b){
+      if(a.u&&b.u&&a.u!==b.u) return a.u<b.u?1:-1;
+      if(a.u&&!b.u) return -1;
+      if(!a.u&&b.u) return 1;
+      return a.t.localeCompare(b.t);
+    });
+    else out.sort(function(a,b){
+      if(b.y!==a.y) return b.y-a.y;
+      return a.t.localeCompare(b.t);
+    });
+    return out;
+  }
+
+  function hi(label,t){
+    if(!t) return esc(label);
+    var i=label.toLowerCase().indexOf(t);
+    if(i<0) return esc(label);
+    return esc(label.slice(0,i))+'<mark>'+esc(label.slice(i,i+t.length))+'</mark>'+esc(label.slice(i+t.length));
+  }
+
+  var ARROW='<svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg>';
+
+  function rowHTML(it,t){
+    var cls='az-row'+(it.f?' '+it.f:'')+(it.k?' gl-link':'');
+    var gt=it.k?' data-gterm="'+esc(it.k)+'"':'';
+    var meta='';
+    if(state.sort==='yld' && it.y>1)
+      meta='<span class="yq '+(it.y===3?'hi':'med')+'">'+(it.y===3?'High yield':'Medium')+'</span>';
+    if(state.sort==='upd')
+      meta='<span class="yq">'+(it.u?esc(it.u):'Not updated')+'</span>';
+    return '<li><a class="'+cls+'" href="p/'+esc(it.i)+'.html"'+gt+'>'
+      + '<span class="d"></span><span class="tx"><b class="lbl">'+hi(it.t,t)+'</b>'
+      + '<em>'+esc(it.r)+'</em></span>'
+      + (meta?'<span class="meta">'+meta+'</span>':'') + ARROW + '</a></li>';
+  }
+
+  function render(){
+    var t=state.term.trim().toLowerCase();
+    var list=sorted(matches());
+    var total=list.length;
+    var per=state.per||total||1;
+    var pages=Math.max(1, Math.ceil(total/per));
+    if(state.page>pages) state.page=pages;
+    var from=(state.page-1)*per, to=state.per?Math.min(from+per,total):total;
+    var slice=list.slice(from,to);
+
+    var alpha=(state.sort==='az'||state.sort==='za');
+    azbar.hidden = !alpha || !!t;
+
+    if(!slice.length){ body.innerHTML=''; none.hidden=false; }
+    else {
+      none.hidden=true;
+      if(alpha){
+        var html='', cur=null, buf=[];
+        slice.forEach(function(it){
+          var L=letter(it.t);
+          if(L!==cur){
+            if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+            cur=L; buf=[];
+          }
+          buf.push(rowHTML(it,t));
+        });
+        if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+        body.innerHTML=html;
+      } else {
+        body.innerHTML='<section class="az-grp"><ul class="az-list">'
+          + slice.map(function(it){return rowHTML(it,t);}).join('') + '</ul></section>';
+      }
+    }
+
+    count.textContent = total
+      ? (state.per ? (from+1)+'–'+to+' of '+total+' '+UNIT : total+' '+UNIT)
+      : 'No '+UNIT;
+
+    /* letters present anywhere in the current filter, for the jump bar */
+    if(alpha && !t){
+      var have={};
+      list.forEach(function(it){ have[letter(it.t)]=true; });
+      var L='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      azbar.innerHTML=L.map(function(c){
+        return '<button type="button" data-l="'+c+'"'+(have[c]?'':' disabled')+'>'+c+'</button>';
+      }).join('') + (have['#']?'<button type="button" data-l="#">#</button>':'');
+    }
+
+    drawPagi(pages,total);
+    if(window.glossLinks) glossLinks(body);
+  }
+
+  function drawPagi(pages,total){
+    if(!state.per || pages<=1){ pagi.innerHTML=''; pnote.textContent=''; return; }
+    var p=state.page, out=[];
+    out.push('<button type="button" class="nav" data-p="'+(p-1)+'"'+(p===1?' disabled':'')+' aria-label="Previous page">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6m0 0 5-5m-5 5 5 5"/></svg>Prev</button>');
+    var nums=[];
+    for(var i=1;i<=pages;i++){
+      if(i===1||i===pages||Math.abs(i-p)<=1) nums.push(i);
+      else if(nums[nums.length-1]!=='…') nums.push('…');
+    }
+    nums.forEach(function(n){
+      if(n==='…') out.push('<span class="gap">…</span>');
+      else out.push('<button type="button" data-p="'+n+'"'+(n===p?' aria-current="page"':'')+'>'+n+'</button>');
+    });
+    out.push('<button type="button" class="nav" data-p="'+(p+1)+'"'+(p===pages?' disabled':'')+' aria-label="Next page">Next'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></button>');
+    pagi.innerHTML=out.join('');
+    pnote.textContent='Page '+p+' of '+pages;
+  }
+
+  function toTop(){
+    var y=tools.getBoundingClientRect().top+window.scrollY-10;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+
+  var tmr=null;
+  q.addEventListener('input',function(){
+    box.classList.toggle('has',!!q.value);
+    clearTimeout(tmr); tmr=setTimeout(function(){ state.term=q.value; state.page=1; render(); },80);
+  });
+  x.addEventListener('click',function(){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); q.focus(); });
+  filters.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-g]'); if(!b) return;
+    state.group=b.dataset.g; state.page=1;
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c===b)); });
+    render();
+  });
+  sortSel.addEventListener('change',function(){ state.sort=sortSel.value; state.page=1; render(); });
+  perSel.addEventListener('change',function(){ state.per=parseInt(perSel.value,10); state.page=1; render(); });
+  pagi.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-p]'); if(!b||b.disabled) return;
+    state.page=parseInt(b.dataset.p,10); render(); toTop();
+  });
+  azbar.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-l]'); if(!b||b.disabled) return;
+    var L=b.dataset.l;
+    /* find which page that letter starts on, go there, then scroll to it */
+    var list=sorted(matches());
+    var idx=list.findIndex(function(it){ return letter(it.t)===L; });
+    if(idx<0) return;
+    if(state.per) state.page=Math.floor(idx/state.per)+1;
+    render();
+    var el=document.getElementById('L'+(L==='#'?'num':L));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/' && document.activeElement!==q){ e.preventDefault(); q.focus(); }
+    if(e.key==='Escape' && document.activeElement===q){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); }
+  });
+
+  var params=new URLSearchParams(location.search);
+  if(params.get('q')){ q.value=params.get('q'); state.term=q.value; box.classList.add('has'); }
+  if(params.get('g')){ state.group=params.get('g');
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c.dataset.g===state.group)); }); }
+
+  var onS=function(){ tools.classList.toggle('stuck', window.scrollY>170); };
+  window.addEventListener('scroll',onS,{passive:true}); onS();
+  render();
+})();
+</script>
+</body>
+</html>

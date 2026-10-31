@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOAP documentation — CliniPD</title>
+<meta name="description" content="SOAP documentation — Handover &amp;amp; documentation. OSCE station on CliniPD.">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../article.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+</head>
+<body>
+<header class="top" id="site-top"></header>
+
+<article>
+<section class="art-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="../index.html">CliniPD</a><span class="sep">/</span><a href="../osce.html">OSCE stations</a><span class="sep">/</span><a href="osce-handover-and-documentation.html">Handover &amp; documentation</a><span class="sep">/</span><span aria-current="page">SOAP documentation</span></nav>
+    <p class="kind">OSCE station</p>
+    <h1 class="h1">SOAP documentation</h1>
+    <p class="lede">Handover &amp; documentation</p>
+    <div class="chips"><span class="chip empty">Not written yet</span><span class="chip">7 sections</span><span class="chip">0 references</span></div>
+  </div>
+</section>
+
+<div class="wrap art-wrap">
+    <div class="save-wrap">
+      <button class="save-btn" id="saveBtn" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16l-7-3.4L5 20Z"/></svg>
+        <span>Save</span>
+      </button>
+    </div>
+
+  
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol><li><a href="#s1">Station brief</a></li><li><a href="#s2">Timing</a></li><li><a href="#s3">Marking checklist</a></li><li><a href="#s4">Global rating</a></li><li><a href="#s5">Model performance</a></li><li><a href="#s6">Common fails</a></li><li><a href="#s7">Linked articles</a></li><li><a href="#references">References</a></li></ol>
+  </nav>
+
+  <section class="sec-a" id="s1"><h2><span class="sn">01</span>Station brief</h2><div class="flds"><div class="fld"><b>Candidate instructions</b><span>Not written yet</span></div><div class="fld"><b>Examiner instructions</b><span>Not written yet</span></div><div class="fld"><b>Simulated patient script</b><span>Not written yet</span></div></div></section><section class="sec-a" id="s2"><h2><span class="sn">02</span>Timing</h2><div class="flds"><div class="fld"><b>Reading time</b><span>Not written yet</span></div><div class="fld"><b>Station time</b><span>Not written yet</span></div></div></section><section class="sec-a" id="s3"><h2><span class="sn">03</span>Marking checklist</h2><div class="flds"><div class="fld wide"><span>Not written yet</span></div></div></section><section class="sec-a" id="s4"><h2><span class="sn">04</span>Global rating</h2><div class="flds"><div class="fld wide"><span>Not written yet</span></div></div></section><section class="sec-a" id="s5"><h2><span class="sn">05</span>Model performance</h2><div class="flds"><div class="fld wide"><span>Not written yet</span></div></div></section><section class="sec-a" id="s6"><h2><span class="sn">06</span>Common fails</h2><div class="flds"><div class="fld"><b>Common fail 1</b><span>Not written yet</span></div><div class="fld"><b>Common fail 2</b><span>Not written yet</span></div></div></section><section class="sec-a" id="s7"><h2><span class="sn">07</span>Linked articles</h2><div class="flds"><div class="fld"><b>Presentations</b><span>Not written yet</span></div><div class="fld"><b>Special tests</b><span>Not written yet</span></div><div class="fld"><b>Techniques</b><span>Not written yet</span></div></div></section>
+
+  <section class="refs" id="references">
+    <h2>References</h2>
+    <p class="none">No references yet. Every claim on this page will carry a numbered source before it is marked written.</p>
+  </section>
+
+  <nav class="pager" aria-label="Nearby pages"><a class="pg prev" href="osce-handover-and-documentation-isbar-handover.html"><span>Previous</span><b>ISBAR handover</b></a></nav>
+
+  <p class="pid">Page id <code>osce-handover-and-documentation-soap-documentation</code> · <a href="../osce.html">All osce stations</a> · <a href="../app.html#osce-handover-and-documentation-soap-documentation">Open in the workspace</a></p>
+</div>
+</article>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="../site.js"></script>
+<script src="../glossary.js"></script>
+<script>
+(function(){
+  var KEY='clinipd:saved';
+  var btn=document.getElementById('saveBtn'); if(!btn) return;
+  var id=(location.pathname.split('/').pop()||'').replace(/\.html$/,'');
+  var title=(document.querySelector('h1')||{}).textContent||id;
+  var where=(document.querySelector('.art-head .lede')||{}).textContent||'';
+  function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function write(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  function has(){ return read().some(function(x){ return x.i===id; }); }
+  function paint(){
+    var on=has();
+    btn.setAttribute('aria-pressed', String(on));
+    btn.querySelector('span').textContent = on ? 'Saved' : 'Save';
+  }
+  btn.addEventListener('click', function(){
+    var a=read();
+    if(has()) a=a.filter(function(x){ return x.i!==id; });
+    else a.unshift({i:id, t:title.trim(), w:where.trim()});
+    write(a); paint();
+  });
+  paint();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Foundations — CliniPD</title>
+<meta name="description" content="The underpinning science and professional knowledge — anatomy, physiology, pathology, biomechanics and practice.">
+<link rel="stylesheet" href="site.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+<link rel="stylesheet" href="listing.css">
+</head>
+<body>
+<header class="top" id="site-top"></header>
+
+<section class="az-head">
+  <div class="wrap">
+    <nav class="crumb"><a href="index.html">CliniPD</a> &nbsp;/&nbsp; <a href="library.html">Library</a> &nbsp;/&nbsp; Foundations</nav>
+    <h1 class="h1">Foundations A to Z</h1>
+    <p class="lede">The underpinning science and professional knowledge — anatomy, physiology, pathology, biomechanics and practice.</p>
+    <p style="margin-top:22px"><span class="pill t"><span class="dot"></span>Free · no account needed</span></p>
+  </div>
+</section>
+
+<div class="az-tools" id="azTools">
+  <div class="wrap">
+    <div class="az-srch" id="sbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="Search 86 topics…" aria-label="Search Foundations" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <button class="x" id="x" type="button" aria-label="Clear search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="az-filters" id="filters" role="group" aria-label="Area"></div>
+
+    <div class="az-sort">
+      <label for="sort">Sort
+        <select id="sort">
+          <option value="az">A to Z</option>
+          <option value="za">Z to A</option>
+          <option value="upd">Recently updated</option>
+          <option value="yld">Highest yield</option>
+        </select>
+      </label>
+      <label for="per">Per page
+        <select id="per">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+          <option value="0">All</option>
+        </select>
+      </label>
+    </div>
+
+    <nav class="az-bar" id="azbar" aria-label="Jump to letter"></nav>
+  </div>
+</div>
+
+<main class="wrap">
+  
+  <p class="az-count" id="count"></p>
+  <div class="az-body" id="body"></div>
+  <div class="az-none" id="none" hidden><b>Nothing matches that</b><p>Try a shorter word, or clear the filter.</p></div>
+  <nav class="pagi" id="pagi" aria-label="Pagination"></nav>
+  <p class="pagi-note" id="pnote"></p>
+</main>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="site.js"></script>
+<script src="glossary.js"></script>
+<script>
+/* ============================================================
+   Data for this index.
+     t  title        g  top-level group      r  where it sits
+     i  page id      f  flag (red|postop)    k  glossary term
+     y  yield 3=high 2=medium 1=standard     u  updated (ISO) or null
+   YIELD is provisional — see README §19. Override any id here.
+   ============================================================ */
+const ITEMS = [{"t":"Advertising rules","i":"foundations-professional-practice-advertising-rules","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null},{"t":"Ahpra registration and codes of conduct","i":"foundations-professional-practice-ahpra-registration-and-codes-of-conduct","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null,"k":"Ahpra"},{"t":"Analgesics and NSAIDs","i":"foundations-pharmacology-for-physios-analgesics-and-nsaids","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Anticoagulants and antiplatelets","i":"foundations-pharmacology-for-physios-anticoagulants-and-antiplatelets","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Antispasticity medications","i":"foundations-pharmacology-for-physios-antispasticity-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Arthrokinematics","i":"foundations-biomechanics-arthrokinematics","g":"Biomechanics","r":"Biomechanics","f":"","y":1,"u":null,"k":"arthrokinematics"},{"t":"Blood tests for physios","i":"foundations-imaging-and-investigations-blood-tests-for-physios","g":"Imaging & investigations","r":"Imaging & investigations","f":"","y":1,"u":null},{"t":"Bone adaptation","i":"foundations-physiology-and-tissue-science-bone-adaptation","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"Bone health medications","i":"foundations-pharmacology-for-physios-bone-health-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Cardiac medications","i":"foundations-pharmacology-for-physios-cardiac-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Cardiovascular anatomy","i":"foundations-anatomy-cardiovascular-anatomy","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Cardiovascular physiology","i":"foundations-physiology-and-tissue-science-cardiovascular-physiology","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"Clinical practice guidelines","i":"foundations-evidence-based-practice-clinical-practice-guidelines","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"Clinical prediction rules","i":"foundations-clinical-reasoning-clinical-prediction-rules","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null},{"t":"Consent and capacity","i":"foundations-professional-practice-consent-and-capacity","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null},{"t":"Corticosteroids and injections","i":"foundations-pharmacology-for-physios-corticosteroids-and-injections","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Critical appraisal","i":"foundations-evidence-based-practice-critical-appraisal","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"CT basics","i":"foundations-imaging-and-investigations-ct-basics","g":"Imaging & investigations","r":"Imaging & investigations","f":"","y":1,"u":null},{"t":"Cultural safety and Aboriginal and Torres Strait Islander health","i":"foundations-professional-practice-cultural-safety-and-aboriginal-and-torres-strait-islander-health","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null},{"t":"Dermatomes, myotomes and nerve fields","i":"foundations-anatomy-dermatomes-myotomes-and-nerve-fields","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null,"k":"dermatome"},{"t":"Diabetes medications","i":"foundations-pharmacology-for-physios-diabetes-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Diagnostic statistics","i":"foundations-clinical-reasoning-diagnostic-statistics","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null},{"t":"Documentation and record keeping","i":"foundations-professional-practice-documentation-and-record-keeping","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null},{"t":"Dry needling and acupuncture","i":"foundations-intervention-principles-dry-needling-and-acupuncture","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"DVA","i":"foundations-australian-health-system-dva","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"Education and behaviour change","i":"foundations-intervention-principles-education-and-behaviour-change","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"Effect sizes and confidence intervals","i":"foundations-evidence-based-practice-effect-sizes-and-confidence-intervals","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null,"k":"confidence interval"},{"t":"Electrophysical agents","i":"foundations-intervention-principles-electrophysical-agents","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"Exercise physiology","i":"foundations-physiology-and-tissue-science-exercise-physiology","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"Exercise therapy","i":"foundations-intervention-principles-exercise-therapy","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"Fracture screening","i":"foundations-red-flags-and-screening-fracture-screening","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null},{"t":"Gait cycle","i":"foundations-biomechanics-gait-cycle","g":"Biomechanics","r":"Biomechanics","f":"","y":1,"u":null},{"t":"Glossary of physio terms","i":"foundations-glossary-glossary-of-physio-terms","g":"Glossary","r":"Glossary","f":"","y":1,"u":null},{"t":"GRADE","i":"foundations-evidence-based-practice-grade","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"Hypothesis categories","i":"foundations-clinical-reasoning-hypothesis-categories","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null},{"t":"ICF framework","i":"foundations-clinical-reasoning-icf-framework","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null},{"t":"Imaging decision rules","i":"foundations-imaging-and-investigations-imaging-decision-rules","g":"Imaging & investigations","r":"Imaging & investigations","f":"","y":1,"u":null},{"t":"Infection screening","i":"foundations-red-flags-and-screening-infection-screening","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null},{"t":"Inflammatory disease screening","i":"foundations-red-flags-and-screening-inflammatory-disease-screening","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null},{"t":"Interprofessional practice","i":"foundations-professional-practice-interprofessional-practice","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null},{"t":"Irritability and SIN","i":"foundations-clinical-reasoning-irritability-and-sin","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null,"k":"irritability"},{"t":"Lifting biomechanics","i":"foundations-biomechanics-lifting-biomechanics","g":"Biomechanics","r":"Biomechanics","f":"","y":1,"u":null},{"t":"Lower limb anatomy","i":"foundations-anatomy-lower-limb-anatomy","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Malignancy screening","i":"foundations-red-flags-and-screening-malignancy-screening","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null},{"t":"Manual therapy","i":"foundations-intervention-principles-manual-therapy","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"MCID and MDC","i":"foundations-evidence-based-practice-mcid-and-mdc","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"Medicare chronic disease management","i":"foundations-australian-health-system-medicare-chronic-disease-management","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"Motor vehicle injury claims in WA","i":"foundations-australian-health-system-motor-vehicle-injury-claims-in-wa","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"MRI basics","i":"foundations-imaging-and-investigations-mri-basics","g":"Imaging & investigations","r":"Imaging & investigations","f":"","y":1,"u":null},{"t":"Muscle physiology","i":"foundations-physiology-and-tissue-science-muscle-physiology","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"NDIS","i":"foundations-australian-health-system-ndis","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"Neuroanatomy","i":"foundations-anatomy-neuroanatomy","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Neurological red flags","i":"foundations-red-flags-and-screening-neurological-red-flags","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null,"k":"red flag"},{"t":"Neuroplasticity","i":"foundations-physiology-and-tissue-science-neuroplasticity","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null,"k":"neuroplasticity"},{"t":"NHMRC levels of evidence","i":"foundations-evidence-based-practice-nhmrc-levels-of-evidence","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"Opioids","i":"foundations-pharmacology-for-physios-opioids","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Pain mechanism classification","i":"foundations-clinical-reasoning-pain-mechanism-classification","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null},{"t":"Parkinson's medications","i":"foundations-pharmacology-for-physios-parkinsons-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"PEDro scale","i":"foundations-evidence-based-practice-pedro-scale","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"Posture and load","i":"foundations-biomechanics-posture-and-load","g":"Biomechanics","r":"Biomechanics","f":"","y":1,"u":null},{"t":"Private health insurance and HICAPS","i":"foundations-australian-health-system-private-health-insurance-and-hicaps","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"Psychotropic medications","i":"foundations-pharmacology-for-physios-psychotropic-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Public and private sectors","i":"foundations-australian-health-system-public-and-private-sectors","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"Reading a systematic review","i":"foundations-evidence-based-practice-reading-a-systematic-review","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null,"k":"systematic review"},{"t":"Red flags overview","i":"foundations-red-flags-and-screening-red-flags-overview","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null,"k":"red flag"},{"t":"Respiratory anatomy","i":"foundations-anatomy-respiratory-anatomy","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Respiratory medications","i":"foundations-pharmacology-for-physios-respiratory-medications","g":"Pharmacology for physios","r":"Pharmacology for physios","f":"","y":1,"u":null},{"t":"Respiratory physiology","i":"foundations-physiology-and-tissue-science-respiratory-physiology","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"Running biomechanics","i":"foundations-biomechanics-running-biomechanics","g":"Biomechanics","r":"Biomechanics","f":"","y":1,"u":null},{"t":"Scope of practice","i":"foundations-professional-practice-scope-of-practice","g":"Professional practice","r":"Professional practice","f":"","y":1,"u":null,"k":"scope of practice"},{"t":"Serious spinal pathology","i":"foundations-red-flags-and-screening-serious-spinal-pathology","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null},{"t":"Shared decision-making","i":"foundations-clinical-reasoning-shared-decision-making","g":"Clinical reasoning","r":"Clinical reasoning","f":"","y":1,"u":null},{"t":"Spine and pelvis anatomy","i":"foundations-anatomy-spine-and-pelvis-anatomy","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Study designs","i":"foundations-evidence-based-practice-study-designs","g":"Evidence-based practice","r":"Evidence-based practice","f":"","y":1,"u":null},{"t":"Surface anatomy and palpation","i":"foundations-anatomy-surface-anatomy-and-palpation","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Taping and bracing","i":"foundations-intervention-principles-taping-and-bracing","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"Telehealth","i":"foundations-intervention-principles-telehealth","g":"Intervention principles","r":"Intervention principles","f":"","y":1,"u":null},{"t":"Tendon physiology","i":"foundations-physiology-and-tissue-science-tendon-physiology","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"Tissue healing","i":"foundations-physiology-and-tissue-science-tissue-healing","g":"Physiology & tissue science","r":"Physiology & tissue science","f":"","y":1,"u":null},{"t":"Ultrasound basics","i":"foundations-imaging-and-investigations-ultrasound-basics","g":"Imaging & investigations","r":"Imaging & investigations","f":"","y":1,"u":null},{"t":"Upper limb anatomy","i":"foundations-anatomy-upper-limb-anatomy","g":"Anatomy","r":"Anatomy","f":"","y":1,"u":null},{"t":"Vascular red flags","i":"foundations-red-flags-and-screening-vascular-red-flags","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null,"k":"red flag"},{"t":"Visceral referral patterns","i":"foundations-red-flags-and-screening-visceral-referral-patterns","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null},{"t":"WA workers' compensation","i":"foundations-australian-health-system-wa-workers-compensation","g":"Australian health system","r":"Australian health system","f":"","y":1,"u":null},{"t":"X-ray basics","i":"foundations-imaging-and-investigations-x-ray-basics","g":"Imaging & investigations","r":"Imaging & investigations","f":"","y":1,"u":null},{"t":"Yellow, blue, black and orange flags","i":"foundations-red-flags-and-screening-yellow-blue-black-and-orange-flags","g":"Red flags & screening","r":"Red flags & screening","f":"","y":1,"u":null}];
+const GROUPS = ["Professional practice","Pharmacology for physios","Biomechanics","Imaging & investigations","Physiology & tissue science","Anatomy","Evidence-based practice","Clinical reasoning","Intervention principles","Australian health system","Red flags & screening","Glossary"];
+const UNIT = "topics";
+
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sbox'),
+      x=document.getElementById('x'), body=document.getElementById('body'),
+      none=document.getElementById('none'), count=document.getElementById('count'),
+      filters=document.getElementById('filters'), sortSel=document.getElementById('sort'),
+      perSel=document.getElementById('per'), pagi=document.getElementById('pagi'),
+      pnote=document.getElementById('pnote'), azbar=document.getElementById('azbar'),
+      tools=document.getElementById('azTools');
+
+  var state={ term:'', group:'', sort:'az', per:50, page:1 };
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function norm(s){return s.toLowerCase();}
+  function letter(t){var c=t.trim().charAt(0).toUpperCase();return /[A-Z]/.test(c)?c:'#';}
+
+  /* ---- filter pills ---- */
+  filters.innerHTML = '<button type="button" data-g="" aria-pressed="true">All'
+    + '<span class="c">' + ITEMS.length + '</span></button>'
+    + GROUPS.map(function(g){
+        var n=ITEMS.filter(function(it){return it.g===g;}).length;
+        return '<button type="button" data-g="'+esc(g)+'" aria-pressed="false">'+esc(g)
+             + '<span class="c">'+n+'</span></button>';
+      }).join('');
+
+  function matches(){
+    var t=state.term.trim().toLowerCase();
+    return ITEMS.filter(function(it){
+      if(state.group && it.g!==state.group) return false;
+      if(!t) return true;
+      return norm(it.t).indexOf(t)>=0 || norm(it.r).indexOf(t)>=0;
+    });
+  }
+
+  function sorted(list){
+    var s=state.sort, out=list.slice();
+    if(s==='az') out.sort(function(a,b){return a.t.localeCompare(b.t);});
+    else if(s==='za') out.sort(function(a,b){return b.t.localeCompare(a.t);});
+    else if(s==='upd') out.sort(function(a,b){
+      if(a.u&&b.u&&a.u!==b.u) return a.u<b.u?1:-1;
+      if(a.u&&!b.u) return -1;
+      if(!a.u&&b.u) return 1;
+      return a.t.localeCompare(b.t);
+    });
+    else out.sort(function(a,b){
+      if(b.y!==a.y) return b.y-a.y;
+      return a.t.localeCompare(b.t);
+    });
+    return out;
+  }
+
+  function hi(label,t){
+    if(!t) return esc(label);
+    var i=label.toLowerCase().indexOf(t);
+    if(i<0) return esc(label);
+    return esc(label.slice(0,i))+'<mark>'+esc(label.slice(i,i+t.length))+'</mark>'+esc(label.slice(i+t.length));
+  }
+
+  var ARROW='<svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg>';
+
+  function rowHTML(it,t){
+    var cls='az-row'+(it.f?' '+it.f:'')+(it.k?' gl-link':'');
+    var gt=it.k?' data-gterm="'+esc(it.k)+'"':'';
+    var meta='';
+    if(state.sort==='yld' && it.y>1)
+      meta='<span class="yq '+(it.y===3?'hi':'med')+'">'+(it.y===3?'High yield':'Medium')+'</span>';
+    if(state.sort==='upd')
+      meta='<span class="yq">'+(it.u?esc(it.u):'Not updated')+'</span>';
+    return '<li><a class="'+cls+'" href="p/'+esc(it.i)+'.html"'+gt+'>'
+      + '<span class="d"></span><span class="tx"><b class="lbl">'+hi(it.t,t)+'</b>'
+      + '<em>'+esc(it.r)+'</em></span>'
+      + (meta?'<span class="meta">'+meta+'</span>':'') + ARROW + '</a></li>';
+  }
+
+  function render(){
+    var t=state.term.trim().toLowerCase();
+    var list=sorted(matches());
+    var total=list.length;
+    var per=state.per||total||1;
+    var pages=Math.max(1, Math.ceil(total/per));
+    if(state.page>pages) state.page=pages;
+    var from=(state.page-1)*per, to=state.per?Math.min(from+per,total):total;
+    var slice=list.slice(from,to);
+
+    var alpha=(state.sort==='az'||state.sort==='za');
+    azbar.hidden = !alpha || !!t;
+
+    if(!slice.length){ body.innerHTML=''; none.hidden=false; }
+    else {
+      none.hidden=true;
+      if(alpha){
+        var html='', cur=null, buf=[];
+        slice.forEach(function(it){
+          var L=letter(it.t);
+          if(L!==cur){
+            if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+            cur=L; buf=[];
+          }
+          buf.push(rowHTML(it,t));
+        });
+        if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+        body.innerHTML=html;
+      } else {
+        body.innerHTML='<section class="az-grp"><ul class="az-list">'
+          + slice.map(function(it){return rowHTML(it,t);}).join('') + '</ul></section>';
+      }
+    }
+
+    count.textContent = total
+      ? (state.per ? (from+1)+'–'+to+' of '+total+' '+UNIT : total+' '+UNIT)
+      : 'No '+UNIT;
+
+    /* letters present anywhere in the current filter, for the jump bar */
+    if(alpha && !t){
+      var have={};
+      list.forEach(function(it){ have[letter(it.t)]=true; });
+      var L='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      azbar.innerHTML=L.map(function(c){
+        return '<button type="button" data-l="'+c+'"'+(have[c]?'':' disabled')+'>'+c+'</button>';
+      }).join('') + (have['#']?'<button type="button" data-l="#">#</button>':'');
+    }
+
+    drawPagi(pages,total);
+    if(window.glossLinks) glossLinks(body);
+  }
+
+  function drawPagi(pages,total){
+    if(!state.per || pages<=1){ pagi.innerHTML=''; pnote.textContent=''; return; }
+    var p=state.page, out=[];
+    out.push('<button type="button" class="nav" data-p="'+(p-1)+'"'+(p===1?' disabled':'')+' aria-label="Previous page">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6m0 0 5-5m-5 5 5 5"/></svg>Prev</button>');
+    var nums=[];
+    for(var i=1;i<=pages;i++){
+      if(i===1||i===pages||Math.abs(i-p)<=1) nums.push(i);
+      else if(nums[nums.length-1]!=='…') nums.push('…');
+    }
+    nums.forEach(function(n){
+      if(n==='…') out.push('<span class="gap">…</span>');
+      else out.push('<button type="button" data-p="'+n+'"'+(n===p?' aria-current="page"':'')+'>'+n+'</button>');
+    });
+    out.push('<button type="button" class="nav" data-p="'+(p+1)+'"'+(p===pages?' disabled':'')+' aria-label="Next page">Next'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></button>');
+    pagi.innerHTML=out.join('');
+    pnote.textContent='Page '+p+' of '+pages;
+  }
+
+  function toTop(){
+    var y=tools.getBoundingClientRect().top+window.scrollY-10;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+
+  var tmr=null;
+  q.addEventListener('input',function(){
+    box.classList.toggle('has',!!q.value);
+    clearTimeout(tmr); tmr=setTimeout(function(){ state.term=q.value; state.page=1; render(); },80);
+  });
+  x.addEventListener('click',function(){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); q.focus(); });
+  filters.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-g]'); if(!b) return;
+    state.group=b.dataset.g; state.page=1;
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c===b)); });
+    render();
+  });
+  sortSel.addEventListener('change',function(){ state.sort=sortSel.value; state.page=1; render(); });
+  perSel.addEventListener('change',function(){ state.per=parseInt(perSel.value,10); state.page=1; render(); });
+  pagi.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-p]'); if(!b||b.disabled) return;
+    state.page=parseInt(b.dataset.p,10); render(); toTop();
+  });
+  azbar.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-l]'); if(!b||b.disabled) return;
+    var L=b.dataset.l;
+    /* find which page that letter starts on, go there, then scroll to it */
+    var list=sorted(matches());
+    var idx=list.findIndex(function(it){ return letter(it.t)===L; });
+    if(idx<0) return;
+    if(state.per) state.page=Math.floor(idx/state.per)+1;
+    render();
+    var el=document.getElementById('L'+(L==='#'?'num':L));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/' && document.activeElement!==q){ e.preventDefault(); q.focus(); }
+    if(e.key==='Escape' && document.activeElement===q){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); }
+  });
+
+  var params=new URLSearchParams(location.search);
+  if(params.get('q')){ q.value=params.get('q'); state.term=q.value; box.classList.add('has'); }
+  if(params.get('g')){ state.group=params.get('g');
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c.dataset.g===state.group)); }); }
+
+  var onS=function(){ tools.classList.toggle('stuck', window.scrollY>170); };
+  window.addEventListener('scroll',onS,{passive:true}); onS();
+  render();
+})();
+</script>
+</body>
+</html>

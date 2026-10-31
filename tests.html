@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Special tests — CliniPD</title>
+<meta name="description" content="Orthopaedic and neurological special tests, each with its sensitivity, specificity and likelihood ratios.">
+<link rel="stylesheet" href="site.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+<link rel="stylesheet" href="listing.css">
+</head>
+<body>
+<header class="top" id="site-top"></header>
+
+<section class="az-head">
+  <div class="wrap">
+    <nav class="crumb"><a href="index.html">CliniPD</a> &nbsp;/&nbsp; <a href="library.html">Library</a> &nbsp;/&nbsp; Special tests</nav>
+    <h1 class="h1">Special tests A to Z</h1>
+    <p class="lede">Orthopaedic and neurological special tests, each with its sensitivity, specificity and likelihood ratios.</p>
+    <p style="margin-top:22px"><span class="pill t"><span class="dot"></span>Free · no account needed</span></p>
+  </div>
+</section>
+
+<div class="az-tools" id="azTools">
+  <div class="wrap">
+    <div class="az-srch" id="sbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="Search 134 special tests…" aria-label="Search Special tests" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <button class="x" id="x" type="button" aria-label="Clear search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="az-filters" id="filters" role="group" aria-label="Body region"></div>
+
+    <div class="az-sort">
+      <label for="sort">Sort
+        <select id="sort">
+          <option value="az">A to Z</option>
+          <option value="za">Z to A</option>
+          <option value="upd">Recently updated</option>
+          <option value="yld">Highest yield</option>
+        </select>
+      </label>
+      <label for="per">Per page
+        <select id="per">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+          <option value="0">All</option>
+        </select>
+      </label>
+    </div>
+
+    <nav class="az-bar" id="azbar" aria-label="Jump to letter"></nav>
+  </div>
+</div>
+
+<main class="wrap">
+  
+  <p class="az-count" id="count"></p>
+  <div class="az-body" id="body"></div>
+  <div class="az-none" id="none" hidden><b>Nothing matches that</b><p>Try a shorter word, or clear the filter.</p></div>
+  <nav class="pagi" id="pagi" aria-label="Pagination"></nav>
+  <p class="pagi-note" id="pnote"></p>
+</main>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="site.js"></script>
+<script src="glossary.js"></script>
+<script>
+/* ============================================================
+   Data for this index.
+     t  title        g  top-level group      r  where it sits
+     i  page id      f  flag (red|postop)    k  glossary term
+     y  yield 3=high 2=medium 1=standard     u  updated (ISO) or null
+   YIELD is provisional — see README §19. Override any id here.
+   ============================================================ */
+const ITEMS = [{"t":"30-second single-leg stance","i":"tests-hip-and-groin-30-second-single-leg-stance","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Active straight leg raise","i":"tests-lumbar-spine-and-sij-active-straight-leg-raise","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Adam's forward bend test","i":"tests-thoracic-spine-and-ribs-adams-forward-bend-test","g":"Thoracic spine & ribs","r":"Thoracic spine & ribs","f":"","y":1,"u":null},{"t":"Adductor squeeze test","i":"tests-hip-and-groin-adductor-squeeze-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Alar ligament stress test","i":"tests-cervical-spine-alar-ligament-stress-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Anatomical snuffbox tenderness","i":"tests-wrist-and-hand-anatomical-snuffbox-tenderness","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Ankle anterior drawer test","i":"tests-ankle-and-foot-ankle-anterior-drawer-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Anterior drawer test","i":"tests-knee-anterior-drawer-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Apley's compression test","i":"tests-knee-apleys-compression-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Apprehension test","i":"tests-shoulder-apprehension-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null,"k":"apprehension"},{"t":"Auscultation","i":"tests-cardiorespiratory-auscultation","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null,"k":"auscultation"},{"t":"Babinski sign","i":"tests-neurological-examination-babinski-sign","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Belly press test","i":"tests-shoulder-belly-press-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Biceps load II test","i":"tests-shoulder-biceps-load-ii-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Carpal compression test","i":"tests-wrist-and-hand-carpal-compression-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Carpal tunnel Tinel's sign","i":"tests-wrist-and-hand-carpal-tunnel-tinels-sign","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Cervical arterial dysfunction screen","i":"tests-cervical-spine-cervical-arterial-dysfunction-screen","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Cervical distraction test","i":"tests-cervical-spine-cervical-distraction-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Cervical flexion-rotation test","i":"tests-cervical-spine-cervical-flexion-rotation-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Chest expansion","i":"tests-cardiorespiratory-chest-expansion","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Clonus","i":"tests-neurological-examination-clonus","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Cough assessment","i":"tests-cardiorespiratory-cough-assessment","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Cozen's test","i":"tests-elbow-cozens-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Craniocervical flexion test","i":"tests-cervical-spine-craniocervical-flexion-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Cross-body adduction test","i":"tests-shoulder-cross-body-adduction-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Crossed straight leg raise","i":"tests-lumbar-spine-and-sij-crossed-straight-leg-raise","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Cubital tunnel Tinel's sign","i":"tests-elbow-cubital-tunnel-tinels-sign","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Deep tendon reflexes","i":"tests-neurological-examination-deep-tendon-reflexes","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Dermatomes","i":"tests-neurological-examination-dermatomes","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null,"k":"dermatome"},{"t":"Dial test","i":"tests-knee-dial-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Dix-Hallpike test","i":"tests-vestibular-and-oculomotor-dix-hallpike-test","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Drop arm test","i":"tests-shoulder-drop-arm-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Dynamic visual acuity","i":"tests-vestibular-and-oculomotor-dynamic-visual-acuity","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Dysdiadochokinesia","i":"tests-neurological-examination-dysdiadochokinesia","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Elbow extension test","i":"tests-elbow-elbow-extension-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Elbow flexion test","i":"tests-elbow-elbow-flexion-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Elson's test","i":"tests-wrist-and-hand-elsons-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Empty can test","i":"tests-shoulder-empty-can-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"External rotation lag sign","i":"tests-shoulder-external-rotation-lag-sign","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"External rotation stress test","i":"tests-ankle-and-foot-external-rotation-stress-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"FABER test","i":"tests-hip-and-groin-faber-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"FADIR test","i":"tests-hip-and-groin-fadir-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Femoral nerve slump","i":"tests-neurological-examination-femoral-nerve-slump","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Finger-nose test","i":"tests-neurological-examination-finger-nose-test","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Finkelstein's test","i":"tests-wrist-and-hand-finkelsteins-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Froment's sign","i":"tests-wrist-and-hand-froments-sign","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Gaenslen's test","i":"tests-lumbar-spine-and-sij-gaenslens-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Hawkins-Kennedy test","i":"tests-shoulder-hawkins-kennedy-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Head impulse test","i":"tests-vestibular-and-oculomotor-head-impulse-test","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Head-shaking nystagmus","i":"tests-vestibular-and-oculomotor-head-shaking-nystagmus","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null,"k":"nystagmus"},{"t":"Heel-shin test","i":"tests-neurological-examination-heel-shin-test","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"HINTS examination","i":"tests-vestibular-and-oculomotor-hints-examination","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Hip scour test","i":"tests-hip-and-groin-hip-scour-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Hoffmann's sign","i":"tests-cervical-spine-hoffmanns-sign","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Hook test","i":"tests-elbow-hook-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Hornblower's sign","i":"tests-shoulder-hornblowers-sign","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Internal rotation lag sign","i":"tests-shoulder-internal-rotation-lag-sign","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Joint line tenderness","i":"tests-knee-joint-line-tenderness","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Lachman test","i":"tests-knee-lachman-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Lever sign","i":"tests-knee-lever-sign","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Lift-off test","i":"tests-shoulder-lift-off-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Load and shift test","i":"tests-shoulder-load-and-shift-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Log roll test","i":"tests-hip-and-groin-log-roll-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Maudsley's test","i":"tests-elbow-maudsleys-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"McMurray's test","i":"tests-knee-mcmurrays-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Milking manoeuvre","i":"tests-elbow-milking-manoeuvre","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Mill's test","i":"tests-elbow-mills-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null},{"t":"Moving patellar apprehension test","i":"tests-knee-moving-patellar-apprehension-test","g":"Knee","r":"Knee","f":"","y":1,"u":null,"k":"apprehension"},{"t":"Moving valgus stress test","i":"tests-elbow-moving-valgus-stress-test","g":"Elbow","r":"Elbow","f":"","y":1,"u":null,"k":"valgus"},{"t":"Mulder's click","i":"tests-ankle-and-foot-mulders-click","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Myotomes","i":"tests-neurological-examination-myotomes","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null,"k":"myotome"},{"t":"Neer's test","i":"tests-shoulder-neers-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Noble compression test","i":"tests-knee-noble-compression-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"O'Brien's active compression test","i":"tests-shoulder-obriens-active-compression-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Ober's test","i":"tests-hip-and-groin-obers-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Ottawa ankle and foot rules","i":"tests-ankle-and-foot-ottawa-ankle-and-foot-rules","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Ottawa knee rules","i":"tests-knee-ottawa-knee-rules","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Painful arc","i":"tests-shoulder-painful-arc","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Passive lumbar extension test","i":"tests-lumbar-spine-and-sij-passive-lumbar-extension-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Patellar apprehension test","i":"tests-knee-patellar-apprehension-test","g":"Knee","r":"Knee","f":"","y":1,"u":null,"k":"apprehension"},{"t":"Patellar tap test","i":"tests-knee-patellar-tap-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Peak cough flow","i":"tests-cardiorespiratory-peak-cough-flow","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Percussion note","i":"tests-cardiorespiratory-percussion-note","g":"Cardiorespiratory","r":"Cardiorespiratory","f":"","y":1,"u":null},{"t":"Phalen's test","i":"tests-wrist-and-hand-phalens-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Pivot shift test","i":"tests-knee-pivot-shift-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Posterior drawer test","i":"tests-knee-posterior-drawer-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Posterior pelvic pain provocation test","i":"tests-lumbar-spine-and-sij-posterior-pelvic-pain-provocation-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Posterior sag sign","i":"tests-knee-posterior-sag-sign","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Prone instability test","i":"tests-lumbar-spine-and-sij-prone-instability-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Prone knee bend","i":"tests-lumbar-spine-and-sij-prone-knee-bend","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Relocation test","i":"tests-shoulder-relocation-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Resisted external derotation test","i":"tests-hip-and-groin-resisted-external-derotation-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Rib spring test","i":"tests-thoracic-spine-and-ribs-rib-spring-test","g":"Thoracic spine & ribs","r":"Thoracic spine & ribs","f":"","y":1,"u":null},{"t":"Romberg test","i":"tests-neurological-examination-romberg-test","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Royal London Hospital test","i":"tests-ankle-and-foot-royal-london-hospital-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Sacral thrust test","i":"tests-lumbar-spine-and-sij-sacral-thrust-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Scapular assistance test","i":"tests-shoulder-scapular-assistance-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Scapular retraction test","i":"tests-shoulder-scapular-retraction-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Sharp-Purser test","i":"tests-cervical-spine-sharp-purser-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"SIJ compression test","i":"tests-lumbar-spine-and-sij-sij-compression-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"SIJ distraction test","i":"tests-lumbar-spine-and-sij-sij-distraction-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Single-leg heel raise test","i":"tests-ankle-and-foot-single-leg-heel-raise-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Slump test","i":"tests-lumbar-spine-and-sij-slump-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Slump test (thoracic bias)","i":"tests-thoracic-spine-and-ribs-slump-test-thoracic-bias","g":"Thoracic spine & ribs","r":"Thoracic spine & ribs","f":"","y":1,"u":null},{"t":"Smooth pursuit and saccades","i":"tests-vestibular-and-oculomotor-smooth-pursuit-and-saccades","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Speed's test","i":"tests-shoulder-speeds-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Spurling's test","i":"tests-cervical-spine-spurlings-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Squeeze test (syndesmosis)","i":"tests-ankle-and-foot-squeeze-test-syndesmosis","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Straight leg raise","i":"tests-lumbar-spine-and-sij-straight-leg-raise","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Sulcus sign","i":"tests-shoulder-sulcus-sign","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Supine roll test","i":"tests-vestibular-and-oculomotor-supine-roll-test","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Surprise (release) test","i":"tests-shoulder-surprise-release-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null},{"t":"Sweep test","i":"tests-knee-sweep-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Talar tilt test","i":"tests-ankle-and-foot-talar-tilt-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Tarsal tunnel Tinel's sign","i":"tests-ankle-and-foot-tarsal-tunnel-tinels-sign","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"TFCC load test","i":"tests-wrist-and-hand-tfcc-load-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Thessaly test","i":"tests-knee-thessaly-test","g":"Knee","r":"Knee","f":"","y":1,"u":null},{"t":"Thigh thrust test","i":"tests-lumbar-spine-and-sij-thigh-thrust-test","g":"Lumbar spine & SIJ","r":"Lumbar spine & SIJ","f":"","y":1,"u":null},{"t":"Thomas test","i":"tests-hip-and-groin-thomas-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Thompson test","i":"tests-ankle-and-foot-thompson-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Thumb CMC grind test","i":"tests-wrist-and-hand-thumb-cmc-grind-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Transverse ligament stress test","i":"tests-cervical-spine-transverse-ligament-stress-test","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"Trendelenburg test","i":"tests-hip-and-groin-trendelenburg-test","g":"Hip & groin","r":"Hip & groin","f":"","y":1,"u":null},{"t":"Ulnar fovea sign","i":"tests-wrist-and-hand-ulnar-fovea-sign","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"ULNT1 (median nerve bias)","i":"tests-cervical-spine-ulnt1-median-nerve-bias","g":"Cervical spine","r":"Cervical spine","f":"","y":1,"u":null},{"t":"ULNT2a (median)","i":"tests-neurological-examination-ulnt2a-median","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"ULNT2b (radial)","i":"tests-neurological-examination-ulnt2b-radial","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"ULNT3 (ulnar)","i":"tests-neurological-examination-ulnt3-ulnar","g":"Neurological examination","r":"Neurological examination","f":"","y":1,"u":null},{"t":"Valgus stress test","i":"tests-knee-valgus-stress-test","g":"Knee","r":"Knee","f":"","y":1,"u":null,"k":"valgus"},{"t":"Varus stress test","i":"tests-knee-varus-stress-test","g":"Knee","r":"Knee","f":"","y":1,"u":null,"k":"varus"},{"t":"VOMS","i":"tests-vestibular-and-oculomotor-voms","g":"Vestibular & oculomotor","r":"Vestibular & oculomotor","f":"","y":1,"u":null},{"t":"Watson scaphoid shift test","i":"tests-wrist-and-hand-watson-scaphoid-shift-test","g":"Wrist & hand","r":"Wrist & hand","f":"","y":1,"u":null},{"t":"Windlass test","i":"tests-ankle-and-foot-windlass-test","g":"Ankle & foot","r":"Ankle & foot","f":"","y":1,"u":null},{"t":"Yergason's test","i":"tests-shoulder-yergasons-test","g":"Shoulder","r":"Shoulder","f":"","y":1,"u":null}];
+const GROUPS = ["Hip & groin","Lumbar spine & SIJ","Thoracic spine & ribs","Cervical spine","Wrist & hand","Ankle & foot","Knee","Shoulder","Cardiorespiratory","Neurological examination","Elbow","Vestibular & oculomotor"];
+const UNIT = "special tests";
+
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sbox'),
+      x=document.getElementById('x'), body=document.getElementById('body'),
+      none=document.getElementById('none'), count=document.getElementById('count'),
+      filters=document.getElementById('filters'), sortSel=document.getElementById('sort'),
+      perSel=document.getElementById('per'), pagi=document.getElementById('pagi'),
+      pnote=document.getElementById('pnote'), azbar=document.getElementById('azbar'),
+      tools=document.getElementById('azTools');
+
+  var state={ term:'', group:'', sort:'az', per:50, page:1 };
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function norm(s){return s.toLowerCase();}
+  function letter(t){var c=t.trim().charAt(0).toUpperCase();return /[A-Z]/.test(c)?c:'#';}
+
+  /* ---- filter pills ---- */
+  filters.innerHTML = '<button type="button" data-g="" aria-pressed="true">All'
+    + '<span class="c">' + ITEMS.length + '</span></button>'
+    + GROUPS.map(function(g){
+        var n=ITEMS.filter(function(it){return it.g===g;}).length;
+        return '<button type="button" data-g="'+esc(g)+'" aria-pressed="false">'+esc(g)
+             + '<span class="c">'+n+'</span></button>';
+      }).join('');
+
+  function matches(){
+    var t=state.term.trim().toLowerCase();
+    return ITEMS.filter(function(it){
+      if(state.group && it.g!==state.group) return false;
+      if(!t) return true;
+      return norm(it.t).indexOf(t)>=0 || norm(it.r).indexOf(t)>=0;
+    });
+  }
+
+  function sorted(list){
+    var s=state.sort, out=list.slice();
+    if(s==='az') out.sort(function(a,b){return a.t.localeCompare(b.t);});
+    else if(s==='za') out.sort(function(a,b){return b.t.localeCompare(a.t);});
+    else if(s==='upd') out.sort(function(a,b){
+      if(a.u&&b.u&&a.u!==b.u) return a.u<b.u?1:-1;
+      if(a.u&&!b.u) return -1;
+      if(!a.u&&b.u) return 1;
+      return a.t.localeCompare(b.t);
+    });
+    else out.sort(function(a,b){
+      if(b.y!==a.y) return b.y-a.y;
+      return a.t.localeCompare(b.t);
+    });
+    return out;
+  }
+
+  function hi(label,t){
+    if(!t) return esc(label);
+    var i=label.toLowerCase().indexOf(t);
+    if(i<0) return esc(label);
+    return esc(label.slice(0,i))+'<mark>'+esc(label.slice(i,i+t.length))+'</mark>'+esc(label.slice(i+t.length));
+  }
+
+  var ARROW='<svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg>';
+
+  function rowHTML(it,t){
+    var cls='az-row'+(it.f?' '+it.f:'')+(it.k?' gl-link':'');
+    var gt=it.k?' data-gterm="'+esc(it.k)+'"':'';
+    var meta='';
+    if(state.sort==='yld' && it.y>1)
+      meta='<span class="yq '+(it.y===3?'hi':'med')+'">'+(it.y===3?'High yield':'Medium')+'</span>';
+    if(state.sort==='upd')
+      meta='<span class="yq">'+(it.u?esc(it.u):'Not updated')+'</span>';
+    return '<li><a class="'+cls+'" href="p/'+esc(it.i)+'.html"'+gt+'>'
+      + '<span class="d"></span><span class="tx"><b class="lbl">'+hi(it.t,t)+'</b>'
+      + '<em>'+esc(it.r)+'</em></span>'
+      + (meta?'<span class="meta">'+meta+'</span>':'') + ARROW + '</a></li>';
+  }
+
+  function render(){
+    var t=state.term.trim().toLowerCase();
+    var list=sorted(matches());
+    var total=list.length;
+    var per=state.per||total||1;
+    var pages=Math.max(1, Math.ceil(total/per));
+    if(state.page>pages) state.page=pages;
+    var from=(state.page-1)*per, to=state.per?Math.min(from+per,total):total;
+    var slice=list.slice(from,to);
+
+    var alpha=(state.sort==='az'||state.sort==='za');
+    azbar.hidden = !alpha || !!t;
+
+    if(!slice.length){ body.innerHTML=''; none.hidden=false; }
+    else {
+      none.hidden=true;
+      if(alpha){
+        var html='', cur=null, buf=[];
+        slice.forEach(function(it){
+          var L=letter(it.t);
+          if(L!==cur){
+            if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+            cur=L; buf=[];
+          }
+          buf.push(rowHTML(it,t));
+        });
+        if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+        body.innerHTML=html;
+      } else {
+        body.innerHTML='<section class="az-grp"><ul class="az-list">'
+          + slice.map(function(it){return rowHTML(it,t);}).join('') + '</ul></section>';
+      }
+    }
+
+    count.textContent = total
+      ? (state.per ? (from+1)+'–'+to+' of '+total+' '+UNIT : total+' '+UNIT)
+      : 'No '+UNIT;
+
+    /* letters present anywhere in the current filter, for the jump bar */
+    if(alpha && !t){
+      var have={};
+      list.forEach(function(it){ have[letter(it.t)]=true; });
+      var L='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      azbar.innerHTML=L.map(function(c){
+        return '<button type="button" data-l="'+c+'"'+(have[c]?'':' disabled')+'>'+c+'</button>';
+      }).join('') + (have['#']?'<button type="button" data-l="#">#</button>':'');
+    }
+
+    drawPagi(pages,total);
+    if(window.glossLinks) glossLinks(body);
+  }
+
+  function drawPagi(pages,total){
+    if(!state.per || pages<=1){ pagi.innerHTML=''; pnote.textContent=''; return; }
+    var p=state.page, out=[];
+    out.push('<button type="button" class="nav" data-p="'+(p-1)+'"'+(p===1?' disabled':'')+' aria-label="Previous page">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6m0 0 5-5m-5 5 5 5"/></svg>Prev</button>');
+    var nums=[];
+    for(var i=1;i<=pages;i++){
+      if(i===1||i===pages||Math.abs(i-p)<=1) nums.push(i);
+      else if(nums[nums.length-1]!=='…') nums.push('…');
+    }
+    nums.forEach(function(n){
+      if(n==='…') out.push('<span class="gap">…</span>');
+      else out.push('<button type="button" data-p="'+n+'"'+(n===p?' aria-current="page"':'')+'>'+n+'</button>');
+    });
+    out.push('<button type="button" class="nav" data-p="'+(p+1)+'"'+(p===pages?' disabled':'')+' aria-label="Next page">Next'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></button>');
+    pagi.innerHTML=out.join('');
+    pnote.textContent='Page '+p+' of '+pages;
+  }
+
+  function toTop(){
+    var y=tools.getBoundingClientRect().top+window.scrollY-10;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+
+  var tmr=null;
+  q.addEventListener('input',function(){
+    box.classList.toggle('has',!!q.value);
+    clearTimeout(tmr); tmr=setTimeout(function(){ state.term=q.value; state.page=1; render(); },80);
+  });
+  x.addEventListener('click',function(){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); q.focus(); });
+  filters.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-g]'); if(!b) return;
+    state.group=b.dataset.g; state.page=1;
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c===b)); });
+    render();
+  });
+  sortSel.addEventListener('change',function(){ state.sort=sortSel.value; state.page=1; render(); });
+  perSel.addEventListener('change',function(){ state.per=parseInt(perSel.value,10); state.page=1; render(); });
+  pagi.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-p]'); if(!b||b.disabled) return;
+    state.page=parseInt(b.dataset.p,10); render(); toTop();
+  });
+  azbar.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-l]'); if(!b||b.disabled) return;
+    var L=b.dataset.l;
+    /* find which page that letter starts on, go there, then scroll to it */
+    var list=sorted(matches());
+    var idx=list.findIndex(function(it){ return letter(it.t)===L; });
+    if(idx<0) return;
+    if(state.per) state.page=Math.floor(idx/state.per)+1;
+    render();
+    var el=document.getElementById('L'+(L==='#'?'num':L));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/' && document.activeElement!==q){ e.preventDefault(); q.focus(); }
+    if(e.key==='Escape' && document.activeElement===q){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); }
+  });
+
+  var params=new URLSearchParams(location.search);
+  if(params.get('q')){ q.value=params.get('q'); state.term=q.value; box.classList.add('has'); }
+  if(params.get('g')){ state.group=params.get('g');
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c.dataset.g===state.group)); }); }
+
+  var onS=function(){ tools.classList.toggle('stuck', window.scrollY>170); };
+  window.addEventListener('scroll',onS,{passive:true}); onS();
+  render();
+})();
+</script>
+</body>
+</html>

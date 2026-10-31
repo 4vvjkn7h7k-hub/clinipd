@@ -1,0 +1,269 @@
+/* ============================================================
+   CliniPD — article pages (everything under /p/)
+   Loaded after site.css. Deliberately roomy: this is a
+   reference you read, not a dashboard you scan.
+   ============================================================ */
+
+.art-head{
+  padding:clamp(48px,6vw,86px) 0 clamp(34px,4vw,54px);
+  background:var(--bg-2);text-align:center;
+}
+.art-head .crumb{
+  display:flex;flex-wrap:wrap;gap:9px;justify-content:center;align-items:center;
+  font:500 13.5px/1.5 var(--sans);color:var(--muted);margin-bottom:22px;
+}
+.art-head .crumb a{text-decoration:none;color:var(--brand-ink)}
+.art-head .crumb a:hover{text-decoration:underline}
+.art-head .crumb .sep{color:var(--line-2)}
+.art-head .kind{
+  font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brand);margin-bottom:16px;
+}
+.art-head .h1{max-width:20ch;margin-inline:auto;font-size:clamp(32px,5vw,56px)}
+.art-head .lede{margin-top:18px;font-size:clamp(15px,1.5vw,17.5px);color:var(--muted)}
+.chips{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.chip{
+  font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 11px;border-radius:999px;border:1px solid var(--line-2);
+  color:var(--muted);background:var(--bg);
+}
+.chip.empty{color:var(--muted)}
+.chip.red{color:var(--coral);border-color:var(--coral);background:var(--coral-soft)}
+.chip.warn{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+
+/* one readable column, centred */
+.art-wrap{max-width:760px;padding-bottom:40px}
+
+/* ---------- on this page ---------- */
+.toc{
+  margin:clamp(40px,5vw,64px) 0 0;padding:26px 30px;
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-2);
+}
+.toc h2{
+  font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 16px;
+}
+.toc ol{margin:0;padding:0;list-style:none;counter-reset:toc;
+  columns:2;column-gap:34px}
+@media (max-width:620px){.toc ol{columns:1}}
+.toc li{counter-increment:toc;break-inside:avoid;margin-bottom:9px}
+.toc a{
+  display:flex;gap:11px;text-decoration:none;color:var(--ink-2);
+  font-size:14.5px;line-height:1.45;transition:color .16s var(--e-out)
+}
+.toc a::before{
+  content:counter(toc,decimal-leading-zero);
+  font:600 10.5px/1.6 var(--mono);color:var(--muted);flex:none;
+}
+.toc a:hover{color:var(--brand-ink)}
+
+/* ---------- video slot ---------- */
+.vid{margin:clamp(40px,5vw,64px) 0 0}
+.vid h2{
+  display:flex;align-items:center;gap:12px;justify-content:center;
+  font:600 17px/1.2 var(--display);margin:0 0 16px;letter-spacing:-.02em;
+}
+.vid-box{
+  border:1.5px dashed var(--line-2);border-radius:var(--r-lg);background:var(--bg-2);
+  padding:40px 28px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:9px;
+  transition:border-color .24s var(--e-out),background .24s var(--e-out);
+}
+.vid-box:hover{border-color:var(--brand);background:var(--brand-soft)}
+.vid-box svg{width:42px;height:42px;color:var(--muted);opacity:.7}
+.vid-box b{font:600 16px/1.2 var(--display);color:var(--ink)}
+.vid-box p{font-size:13.5px;color:var(--muted);margin:0;max-width:48ch;line-height:1.55}
+.vid-box iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--r-lg)}
+
+/* ---------- the sections ---------- */
+.sec-a{
+  margin-top:clamp(40px,5vw,64px);
+  padding-top:clamp(32px,4vw,44px);
+  border-top:1px solid var(--line);
+}
+.sec-a:first-of-type{border-top:0}
+.sec-a > h2{
+  display:flex;align-items:baseline;gap:16px;
+  font:600 clamp(20px,2.4vw,26px)/1.22 var(--display);letter-spacing:-.025em;
+  margin:0 0 24px;
+}
+.sec-a > h2 .sn{
+  font:600 12px/1 var(--mono);color:var(--brand);flex:none;
+  letter-spacing:.06em;
+}
+.flds{display:grid;gap:12px}
+.fld{
+  border:1px dashed var(--line-2);border-radius:14px;
+  padding:18px 20px;background:var(--bg);
+  transition:border-color .2s var(--e-out),background .2s var(--e-out);
+}
+.fld:hover{border-color:var(--brand);background:var(--brand-soft)}
+.fld b{
+  display:block;font:600 14.5px/1.35 var(--sans);color:var(--ink);margin-bottom:5px;
+}
+.fld span{display:block;font-size:14px;color:var(--muted);font-style:italic}
+.fld.wide{text-align:center}
+
+/* ---------- references ---------- */
+.refs{
+  margin-top:clamp(40px,5vw,64px);padding-top:clamp(32px,4vw,44px);
+  border-top:1px solid var(--line);
+}
+.refs h2{font:600 clamp(20px,2.4vw,26px)/1.22 var(--display);letter-spacing:-.025em;margin:0 0 16px}
+.refs .none{font-size:14.5px;color:var(--muted);line-height:1.6}
+
+/* ---------- prev / next ---------- */
+.pager{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+  margin-top:clamp(44px,5vw,70px);
+}
+@media (max-width:620px){.pager{grid-template-columns:minmax(0,1fr)}}
+.pg{
+  display:block;padding:20px 22px;border:1px solid var(--line);border-radius:var(--r-lg);
+  text-decoration:none;color:inherit;background:var(--bg);min-width:0;
+  transition:border-color .22s var(--e-out),box-shadow .22s var(--e-out),transform .22s var(--e-out);
+}
+.pg:hover{border-color:transparent;box-shadow:var(--shadow);transform:translateY(-2px)}
+.pg span{
+  display:block;font:600 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+.pg b{display:block;font:600 16px/1.32 var(--display);letter-spacing:-.02em}
+.pg.next{text-align:right}
+.pager .pg.prev:only-child{grid-column:1}
+
+/* ---------- group list ---------- */
+.grouplist{
+  list-style:none;margin:clamp(34px,4vw,52px) 0 0;padding:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bg);
+}
+.grouplist li + li{border-top:1px solid var(--line)}
+.grouplist a{
+  display:flex;align-items:center;gap:16px;padding:19px 24px;
+  text-decoration:none;color:inherit;
+  transition:background .16s var(--e-out),padding-left .2s var(--e-out);
+}
+.grouplist a:hover{background:var(--brand-soft);padding-left:30px}
+.grouplist a b{font:550 16px/1.4 var(--sans);min-width:0;flex:1}
+.grouplist a .n{
+  font:600 11px/1 var(--mono);letter-spacing:.08em;color:var(--muted);flex:none;
+}
+
+/* ---------- footer note ---------- */
+.pid{
+  margin-top:clamp(36px,4vw,54px);padding-top:22px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--muted);text-align:center;
+}
+.pid code{
+  font:500 12px/1 var(--mono);background:var(--bg-2);border:1px solid var(--line);
+  border-radius:5px;padding:3px 6px;color:var(--ink-2);
+}
+.pid a{color:var(--brand-ink);text-decoration:none;font-weight:600}
+.pid a:hover{text-decoration:underline}
+.vid-box code{
+  font:500 12px/1 var(--mono);background:var(--bg);border:1px solid var(--line);
+  border-radius:5px;padding:3px 6px;color:var(--ink-2);
+}
+
+/* ---------- save to collection ---------- */
+.save-wrap{display:flex;justify-content:center;margin-top:22px}
+.save-btn{
+  display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:999px;
+  border:1.5px solid var(--line-2);background:var(--bg);color:var(--ink-2);cursor:pointer;
+  font:600 14px/1 var(--sans);
+  transition:border-color .18s var(--e-out),background .18s,color .18s,transform .12s var(--e-spring)}
+.save-btn:hover{border-color:var(--brand);color:var(--brand-ink);background:var(--brand-soft)}
+.save-btn:active{transform:scale(.96)}
+.save-btn svg{width:16px;height:16px}
+.save-btn[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.save-btn[aria-pressed="true"]:hover{background:var(--brand-ink);border-color:var(--brand-ink);color:var(--on-brand)}
+
+/* ============================================================
+   LIVE CONTENT — what replaces the "Not written yet" fields
+   once content/<page-id>.json exists. site.js fetches it and
+   swaps each .flds block for the written prose.
+   ============================================================ */
+
+.fld-live{font-size:16px;line-height:1.72;color:var(--ink-2)}
+.fld-live > :first-child{margin-top:0}
+.fld-live p{margin:0 0 16px}
+.fld-live p b:only-child,
+.fld-live p:has(> b:only-child){
+  /* a field heading: "<p><b>Mechanism of injury</b></p>" */
+  margin-bottom:8px;
+}
+.fld-live p > b:only-child{
+  display:block;font:600 11px/1.4 var(--mono);letter-spacing:.13em;
+  text-transform:uppercase;color:var(--brand);margin-top:28px;
+}
+.fld-live > p:first-child > b:only-child{margin-top:0}
+.fld-live b,.fld-live strong{font-weight:650;color:var(--ink)}
+.fld-live ul,.fld-live ol{margin:0 0 16px;padding-left:22px}
+.fld-live li{margin-bottom:8px;line-height:1.66}
+.fld-live li::marker{color:var(--muted)}
+.fld-live code{font:500 13.5px/1 var(--mono);background:var(--bg-2);
+  border:1px solid var(--line);border-radius:5px;padding:2px 5px}
+.fld-live a{color:var(--brand-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* ---- citation superscripts ---- */
+.fld-live sup{font-size:.68em;line-height:0;vertical-align:super}
+.fld-live sup a{
+  text-decoration:none;font-weight:700;color:var(--brand-ink);
+  background:var(--brand-soft);border-radius:4px;padding:2px 4px;margin-left:1px;
+  transition:background .16s var(--e-out),color .16s var(--e-out)}
+.fld-live sup a:hover{background:var(--brand);color:var(--on-brand)}
+
+/* ---- an unverified figure, left deliberately visible ---- */
+mark.verify{
+  background:var(--warn-soft);color:var(--warn);border:1px dashed var(--warn);
+  border-radius:5px;padding:1px 6px;font:600 12.5px/1.5 var(--mono);
+  text-transform:uppercase;letter-spacing:.06em}
+
+/* ---- tables ---- */
+.tbl-wrap{
+  overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-lg);
+  background:var(--bg);margin:0 0 20px;
+  -webkit-overflow-scrolling:touch}
+table.tpl{width:100%;border-collapse:collapse;font-size:14.5px;min-width:540px}
+table.tpl th{
+  text-align:left;font:600 10.5px/1.4 var(--mono);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);background:var(--bg-2);
+  padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:bottom}
+table.tpl td{padding:13px 14px;border-bottom:1px solid var(--line);
+  color:var(--ink-2);vertical-align:top;line-height:1.6}
+table.tpl tbody tr:last-child td{border-bottom:0}
+table.tpl tbody tr:hover td{background:var(--bg-2)}
+table.tpl td:first-child{color:var(--ink);font-weight:550}
+table.tpl td b{color:var(--coral-ink)}
+
+/* ---- the reference list ---- */
+.reflist{list-style:none;counter-reset:ref;margin:0;padding:0}
+.reflist li{
+  counter-increment:ref;position:relative;padding:18px 0 18px 46px;
+  border-top:1px solid var(--line);scroll-margin-top:calc(var(--top) + 24px)}
+.reflist li:first-child{border-top:0}
+.reflist li::before{
+  content:counter(ref);position:absolute;left:0;top:18px;
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  background:var(--brand-soft);color:var(--brand-ink);
+  font:700 12.5px/1 var(--mono)}
+.reflist li:target::before{background:var(--brand);color:var(--on-brand)}
+.reflist li:target{background:var(--brand-soft);border-radius:12px}
+.reflist .rc{display:block;font-size:15px;line-height:1.6;color:var(--ink-2)}
+.reflist .rm{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.reflist .rm em{
+  font-style:normal;font:600 10.5px/1 var(--mono);letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line-2);border-radius:6px;padding:5px 8px}
+.reflist .rm a{
+  font:600 12px/1 var(--mono);color:var(--brand-ink);text-decoration:none;
+  border:1px solid var(--brand);border-radius:6px;padding:5px 9px;
+  transition:background .16s var(--e-out),color .16s var(--e-out)}
+.reflist .rm a:hover{background:var(--brand);color:var(--on-brand)}
+.reflist .rm .open{margin-left:auto}
+
+@media (max-width:620px){
+  .fld-live{font-size:15.5px}
+  table.tpl{font-size:13.5px;min-width:460px}
+  .reflist li{padding-left:40px}
+}

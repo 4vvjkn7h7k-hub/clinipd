@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saved pages — CliniPD</title>
+<meta name="description" content="Your reading list on CliniPD — pages you saved to come back to.">
+<link rel="stylesheet" href="site.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+<style>
+.col-tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.col-list{display:grid;gap:2px;max-width:780px;margin:0 auto;text-align:left;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bg)}
+.col-list .row{display:flex;align-items:center;gap:14px;padding:17px 22px;
+  border-bottom:1px solid var(--line);min-width:0;transition:background .16s var(--e-out)}
+.col-list .row:last-child{border-bottom:0}
+.col-list .row:hover{background:var(--bg-2)}
+.col-list a{text-decoration:none;color:inherit;flex:1;min-width:0}
+.col-list a b{display:block;font:550 16px/1.4 var(--sans)}
+.col-list a span{display:block;font-size:12.8px;color:var(--muted);margin-top:3px}
+.col-rm{width:34px;height:34px;border-radius:50%;border:0;background:none;cursor:pointer;
+  color:var(--muted);display:grid;place-items:center;flex:none;transition:background .16s,color .16s}
+.col-rm:hover{background:var(--coral-soft);color:var(--coral)}
+.col-empty{text-align:center;padding:70px 24px;color:var(--muted);max-width:620px;margin:0 auto}
+.col-empty b{display:block;font:600 21px/1.3 var(--display);color:var(--ink);margin-bottom:10px}
+.col-empty p{font-size:15px;line-height:1.6;margin-bottom:22px}
+.note-box{max-width:700px;margin:34px auto 0;border:1px solid var(--line);background:var(--bg-2);
+  border-radius:14px;padding:18px 22px;font-size:13.8px;line-height:1.6;color:var(--ink-2);text-align:left}
+.note-box b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="top" id="site-top"></header>
+<section class="phead">
+  <div class="wrap">
+    <nav class="crumb"><a href="index.html">CliniPD</a> &nbsp;/&nbsp; Saved</nav>
+    <h1 class="h1">Your saved pages</h1>
+    <p class="lede" style="margin-top:16px">Pages you've saved while reading. A reading list you can come back to, export, or work through.</p>
+    <p style="margin-top:20px"><span class="pill t"><span class="dot"></span>Free · saved in this browser</span></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="col-tools" id="colTools" hidden>
+      <button class="btn" type="button" id="colExport">Export as a list</button>
+      <button class="btn ghost" type="button" id="colClear">Clear all</button>
+    </div>
+    <div class="col-list" id="colList" hidden data-rev="0"></div>
+    <div class="col-empty" id="colEmpty">
+      <b>Nothing saved yet</b>
+      <p>Open any page in the library and press <b>Save</b> to keep it here — a reading list you
+      can come back to.</p>
+      <a class="btn pri" href="conditions.html">Browse conditions</a>
+    </div>
+    <div class="note-box">
+      <b>These are stored in this browser only.</b> They don't follow you to your phone, and
+      clearing your browser data clears them. Syncing across devices needs an account, which is
+      the next thing being built.
+    </div>
+  </div>
+</section>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="site.js"></script>
+<script src="glossary.js"></script>
+<script>
+(function(){
+  var KEY='clinipd:saved';
+  var list=document.getElementById('colList'), empty=document.getElementById('colEmpty'),
+      tools=document.getElementById('colTools');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function write(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  var RM='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  function render(){
+    var a=read();
+    if(!a.length){ list.hidden=true; tools.hidden=true; empty.hidden=false; return; }
+    empty.hidden=true; list.hidden=false; tools.hidden=false;
+    list.innerHTML=a.map(function(x){
+      return '<div class="row" data-id="'+esc(x.i)+'">'+
+        '<a href="p/'+esc(x.i)+'.html"><b>'+esc(x.t)+'</b><span>'+esc(x.w||'')+'</span></a>'+
+        '<button class="col-rm" type="button" aria-label="Remove">'+RM+'</button></div>';
+    }).join('');
+  }
+  list.addEventListener('click', function(e){
+    var b=e.target.closest('.col-rm'); if(!b) return;
+    var id=b.closest('.row').dataset.id;
+    write(read().filter(function(x){ return x.i!==id; }));
+    render();
+  });
+  document.getElementById('colClear').addEventListener('click', function(){
+    write([]); render();
+  });
+  document.getElementById('colExport').addEventListener('click', async function(){
+    var txt=read().map(function(x){ return x.t+'  —  '+(x.w||'')+'  —  clinipd.com/p/'+x.i+'.html'; }).join('\n');
+    try{ await navigator.clipboard.writeText(txt); }catch(e){}
+    var b=this, was=b.textContent; b.textContent='Copied'; setTimeout(function(){b.textContent=was;},1500);
+  });
+  render();
+})();
+</script>
+</body>
+</html>

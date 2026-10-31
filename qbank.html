@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Question bank — CliniPD</title>
+<meta name="description" content="Exam-style questions with worked reasoning, grouped by topic.">
+<link rel="stylesheet" href="site.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+<link rel="stylesheet" href="listing.css">
+</head>
+<body>
+<header class="top" id="site-top"></header>
+
+<section class="az-head">
+  <div class="wrap">
+    <nav class="crumb"><a href="index.html">CliniPD</a> &nbsp;/&nbsp; <a href="library.html">Library</a> &nbsp;/&nbsp; Question bank</nav>
+    <h1 class="h1">Question banks A to Z</h1>
+    <p class="lede">Exam-style questions with worked reasoning, grouped by topic.</p>
+    <p style="margin-top:22px"><span class="pill c"><span class="dot"></span>Pro feature</span></p>
+  </div>
+</section>
+
+<div class="az-tools" id="azTools">
+  <div class="wrap">
+    <div class="az-srch" id="sbox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="Search 10 banks…" aria-label="Search Question bank" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <button class="x" id="x" type="button" aria-label="Clear search">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="az-filters" id="filters" role="group" aria-label="Category"></div>
+
+    <div class="az-sort">
+      <label for="sort">Sort
+        <select id="sort">
+          <option value="az">A to Z</option>
+          <option value="za">Z to A</option>
+          <option value="upd">Recently updated</option>
+          <option value="yld">Highest yield</option>
+        </select>
+      </label>
+      <label for="per">Per page
+        <select id="per">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+          <option value="0">All</option>
+        </select>
+      </label>
+    </div>
+
+    <nav class="az-bar" id="azbar" aria-label="Jump to letter"></nav>
+  </div>
+</div>
+
+<main class="wrap">
+  
+  <p class="az-count" id="count"></p>
+  <div class="az-body" id="body"></div>
+  <div class="az-none" id="none" hidden><b>Nothing matches that</b><p>Try a shorter word, or clear the filter.</p></div>
+  <nav class="pagi" id="pagi" aria-label="Pagination"></nav>
+  <p class="pagi-note" id="pnote"></p>
+</main>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="site.js"></script>
+<script src="glossary.js"></script>
+<script>
+/* ============================================================
+   Data for this index.
+     t  title        g  top-level group      r  where it sits
+     i  page id      f  flag (red|postop)    k  glossary term
+     y  yield 3=high 2=medium 1=standard     u  updated (ISO) or null
+   YIELD is provisional — see README §19. Override any id here.
+   ============================================================ */
+const ITEMS = [{"t":"Cardiorespiratory bank","i":"qbank-cardiorespiratory-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Foundations bank","i":"qbank-foundations-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Gerontology bank","i":"qbank-gerontology-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Mixed exam mode","i":"qbank-mixed-exam-mode","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"MSK bank","i":"qbank-msk-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Neurological bank","i":"qbank-neurological-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Paediatrics bank","i":"qbank-paediatrics-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Pain & specialty bank","i":"qbank-pain-and-specialty-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Pelvic health bank","i":"qbank-pelvic-health-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null},{"t":"Sports bank","i":"qbank-sports-bank","g":"Question bank","r":"Question bank","f":"","y":1,"u":null}];
+const GROUPS = ["Question bank"];
+const UNIT = "banks";
+
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sbox'),
+      x=document.getElementById('x'), body=document.getElementById('body'),
+      none=document.getElementById('none'), count=document.getElementById('count'),
+      filters=document.getElementById('filters'), sortSel=document.getElementById('sort'),
+      perSel=document.getElementById('per'), pagi=document.getElementById('pagi'),
+      pnote=document.getElementById('pnote'), azbar=document.getElementById('azbar'),
+      tools=document.getElementById('azTools');
+
+  var state={ term:'', group:'', sort:'az', per:50, page:1 };
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function norm(s){return s.toLowerCase();}
+  function letter(t){var c=t.trim().charAt(0).toUpperCase();return /[A-Z]/.test(c)?c:'#';}
+
+  /* ---- filter pills ---- */
+  filters.innerHTML = '<button type="button" data-g="" aria-pressed="true">All'
+    + '<span class="c">' + ITEMS.length + '</span></button>'
+    + GROUPS.map(function(g){
+        var n=ITEMS.filter(function(it){return it.g===g;}).length;
+        return '<button type="button" data-g="'+esc(g)+'" aria-pressed="false">'+esc(g)
+             + '<span class="c">'+n+'</span></button>';
+      }).join('');
+
+  function matches(){
+    var t=state.term.trim().toLowerCase();
+    return ITEMS.filter(function(it){
+      if(state.group && it.g!==state.group) return false;
+      if(!t) return true;
+      return norm(it.t).indexOf(t)>=0 || norm(it.r).indexOf(t)>=0;
+    });
+  }
+
+  function sorted(list){
+    var s=state.sort, out=list.slice();
+    if(s==='az') out.sort(function(a,b){return a.t.localeCompare(b.t);});
+    else if(s==='za') out.sort(function(a,b){return b.t.localeCompare(a.t);});
+    else if(s==='upd') out.sort(function(a,b){
+      if(a.u&&b.u&&a.u!==b.u) return a.u<b.u?1:-1;
+      if(a.u&&!b.u) return -1;
+      if(!a.u&&b.u) return 1;
+      return a.t.localeCompare(b.t);
+    });
+    else out.sort(function(a,b){
+      if(b.y!==a.y) return b.y-a.y;
+      return a.t.localeCompare(b.t);
+    });
+    return out;
+  }
+
+  function hi(label,t){
+    if(!t) return esc(label);
+    var i=label.toLowerCase().indexOf(t);
+    if(i<0) return esc(label);
+    return esc(label.slice(0,i))+'<mark>'+esc(label.slice(i,i+t.length))+'</mark>'+esc(label.slice(i+t.length));
+  }
+
+  var ARROW='<svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg>';
+
+  function rowHTML(it,t){
+    var cls='az-row'+(it.f?' '+it.f:'')+(it.k?' gl-link':'');
+    var gt=it.k?' data-gterm="'+esc(it.k)+'"':'';
+    var meta='';
+    if(state.sort==='yld' && it.y>1)
+      meta='<span class="yq '+(it.y===3?'hi':'med')+'">'+(it.y===3?'High yield':'Medium')+'</span>';
+    if(state.sort==='upd')
+      meta='<span class="yq">'+(it.u?esc(it.u):'Not updated')+'</span>';
+    return '<li><a class="'+cls+'" href="p/'+esc(it.i)+'.html"'+gt+'>'
+      + '<span class="d"></span><span class="tx"><b class="lbl">'+hi(it.t,t)+'</b>'
+      + '<em>'+esc(it.r)+'</em></span>'
+      + (meta?'<span class="meta">'+meta+'</span>':'') + ARROW + '</a></li>';
+  }
+
+  function render(){
+    var t=state.term.trim().toLowerCase();
+    var list=sorted(matches());
+    var total=list.length;
+    var per=state.per||total||1;
+    var pages=Math.max(1, Math.ceil(total/per));
+    if(state.page>pages) state.page=pages;
+    var from=(state.page-1)*per, to=state.per?Math.min(from+per,total):total;
+    var slice=list.slice(from,to);
+
+    var alpha=(state.sort==='az'||state.sort==='za');
+    azbar.hidden = !alpha || !!t;
+
+    if(!slice.length){ body.innerHTML=''; none.hidden=false; }
+    else {
+      none.hidden=true;
+      if(alpha){
+        var html='', cur=null, buf=[];
+        slice.forEach(function(it){
+          var L=letter(it.t);
+          if(L!==cur){
+            if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+            cur=L; buf=[];
+          }
+          buf.push(rowHTML(it,t));
+        });
+        if(cur!==null) html+='<section class="az-grp" id="L'+(cur==='#'?'num':cur)+'"><div class="az-l"><b>'+cur+'</b><i></i><span>'+buf.length+'</span></div><ul class="az-list">'+buf.join('')+'</ul></section>';
+        body.innerHTML=html;
+      } else {
+        body.innerHTML='<section class="az-grp"><ul class="az-list">'
+          + slice.map(function(it){return rowHTML(it,t);}).join('') + '</ul></section>';
+      }
+    }
+
+    count.textContent = total
+      ? (state.per ? (from+1)+'–'+to+' of '+total+' '+UNIT : total+' '+UNIT)
+      : 'No '+UNIT;
+
+    /* letters present anywhere in the current filter, for the jump bar */
+    if(alpha && !t){
+      var have={};
+      list.forEach(function(it){ have[letter(it.t)]=true; });
+      var L='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      azbar.innerHTML=L.map(function(c){
+        return '<button type="button" data-l="'+c+'"'+(have[c]?'':' disabled')+'>'+c+'</button>';
+      }).join('') + (have['#']?'<button type="button" data-l="#">#</button>':'');
+    }
+
+    drawPagi(pages,total);
+    if(window.glossLinks) glossLinks(body);
+  }
+
+  function drawPagi(pages,total){
+    if(!state.per || pages<=1){ pagi.innerHTML=''; pnote.textContent=''; return; }
+    var p=state.page, out=[];
+    out.push('<button type="button" class="nav" data-p="'+(p-1)+'"'+(p===1?' disabled':'')+' aria-label="Previous page">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6m0 0 5-5m-5 5 5 5"/></svg>Prev</button>');
+    var nums=[];
+    for(var i=1;i<=pages;i++){
+      if(i===1||i===pages||Math.abs(i-p)<=1) nums.push(i);
+      else if(nums[nums.length-1]!=='…') nums.push('…');
+    }
+    nums.forEach(function(n){
+      if(n==='…') out.push('<span class="gap">…</span>');
+      else out.push('<button type="button" data-p="'+n+'"'+(n===p?' aria-current="page"':'')+'>'+n+'</button>');
+    });
+    out.push('<button type="button" class="nav" data-p="'+(p+1)+'"'+(p===pages?' disabled':'')+' aria-label="Next page">Next'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></button>');
+    pagi.innerHTML=out.join('');
+    pnote.textContent='Page '+p+' of '+pages;
+  }
+
+  function toTop(){
+    var y=tools.getBoundingClientRect().top+window.scrollY-10;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+
+  var tmr=null;
+  q.addEventListener('input',function(){
+    box.classList.toggle('has',!!q.value);
+    clearTimeout(tmr); tmr=setTimeout(function(){ state.term=q.value; state.page=1; render(); },80);
+  });
+  x.addEventListener('click',function(){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); q.focus(); });
+  filters.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-g]'); if(!b) return;
+    state.group=b.dataset.g; state.page=1;
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c===b)); });
+    render();
+  });
+  sortSel.addEventListener('change',function(){ state.sort=sortSel.value; state.page=1; render(); });
+  perSel.addEventListener('change',function(){ state.per=parseInt(perSel.value,10); state.page=1; render(); });
+  pagi.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-p]'); if(!b||b.disabled) return;
+    state.page=parseInt(b.dataset.p,10); render(); toTop();
+  });
+  azbar.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-l]'); if(!b||b.disabled) return;
+    var L=b.dataset.l;
+    /* find which page that letter starts on, go there, then scroll to it */
+    var list=sorted(matches());
+    var idx=list.findIndex(function(it){ return letter(it.t)===L; });
+    if(idx<0) return;
+    if(state.per) state.page=Math.floor(idx/state.per)+1;
+    render();
+    var el=document.getElementById('L'+(L==='#'?'num':L));
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/' && document.activeElement!==q){ e.preventDefault(); q.focus(); }
+    if(e.key==='Escape' && document.activeElement===q){ q.value=''; state.term=''; state.page=1; box.classList.remove('has'); render(); }
+  });
+
+  var params=new URLSearchParams(location.search);
+  if(params.get('q')){ q.value=params.get('q'); state.term=q.value; box.classList.add('has'); }
+  if(params.get('g')){ state.group=params.get('g');
+    [].forEach.call(filters.children,function(c){ c.setAttribute('aria-pressed', String(c.dataset.g===state.group)); }); }
+
+  var onS=function(){ tools.classList.toggle('stuck', window.scrollY>170); };
+  window.addEventListener('scroll',onS,{passive:true}); onS();
+  render();
+})();
+</script>
+</body>
+</html>

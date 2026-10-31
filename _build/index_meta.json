@@ -1,0 +1,106 @@
+{
+ "counts": {
+  "cond": 416,
+  "test": 134,
+  "meas": 99,
+  "exer": 106,
+  "case": 22,
+  "osce": 28,
+  "bank": 10,
+  "fnd": 86,
+  "plac": 26
+ },
+ "groups": {
+  "cond": [
+   "Musculoskeletal",
+   "Sports & exercise",
+   "Cardiorespiratory",
+   "Pain & specialty",
+   "Neurological",
+   "Paediatrics",
+   "Pelvic health",
+   "Gerontology"
+  ],
+  "test": [
+   "Hip & groin",
+   "Lumbar spine & SIJ",
+   "Thoracic spine & ribs",
+   "Cervical spine",
+   "Wrist & hand",
+   "Ankle & foot",
+   "Knee",
+   "Shoulder",
+   "Cardiorespiratory",
+   "Neurological examination",
+   "Elbow",
+   "Vestibular & oculomotor"
+  ],
+  "meas": [
+   "Mobility & balance",
+   "Gerontology",
+   "PROMs \u00b7 lower limb",
+   "Neurological",
+   "Vestibular",
+   "Paediatric",
+   "Pelvic health",
+   "Cardiorespiratory",
+   "PROMs \u00b7 upper limb",
+   "Pain & psychosocial",
+   "Performance \u00b7 lower limb",
+   "PROMs \u00b7 spine"
+  ],
+  "exer": [
+   "Plyometrics & running drills",
+   "Hip & glutes",
+   "Spine & trunk",
+   "Shoulder & scapula",
+   "Cardiorespiratory",
+   "Balance & neuromotor",
+   "Knee & thigh",
+   "Dosage & prescription principles",
+   "Ankle & foot",
+   "Elbow, wrist & hand",
+   "Pelvic floor"
+  ],
+  "case": [
+   "Neurological",
+   "Pelvic health",
+   "Paediatrics",
+   "Gerontology",
+   "Cardiorespiratory",
+   "MSK",
+   "Pain & specialty",
+   "Sports"
+  ],
+  "osce": [
+   "Technique & treatment",
+   "Subjective history",
+   "Objective assessment",
+   "Emergency & deteriorating patient",
+   "Education & communication",
+   "Exercise prescription",
+   "Handover & documentation"
+  ],
+  "bank": [
+   "Question bank"
+  ],
+  "fnd": [
+   "Professional practice",
+   "Pharmacology for physios",
+   "Biomechanics",
+   "Imaging & investigations",
+   "Physiology & tissue science",
+   "Anatomy",
+   "Evidence-based practice",
+   "Clinical reasoning",
+   "Intervention principles",
+   "Australian health system",
+   "Red flags & screening",
+   "Glossary"
+  ],
+  "plac": [
+   "Placement settings",
+   "Placement toolkit"
+  ]
+ }
+}

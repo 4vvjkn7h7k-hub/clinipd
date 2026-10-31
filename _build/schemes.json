@@ -1,0 +1,112 @@
+[
+ {
+  "id": "",
+  "name": "Clinical",
+  "note": "Teal \u00b7 the default",
+  "sw": [
+   "#0A7E70",
+   "#DB3114",
+   "#0C2F2B",
+   "#F6FAFA"
+  ]
+ },
+ {
+  "id": "slate",
+  "name": "Slate",
+  "note": "Cool, institutional",
+  "sw": [
+   "#2563A8",
+   "#D1462E",
+   "#16222E",
+   "#F7FAFC"
+  ]
+ },
+ {
+  "id": "warm",
+  "name": "Warm",
+  "note": "Paper and ink",
+  "sw": [
+   "#8A5A2B",
+   "#B8452F",
+   "#2A2318",
+   "#FBF9F8"
+  ]
+ },
+ {
+  "id": "contrast",
+  "name": "Contrast",
+  "note": "Maximum legibility",
+  "sw": [
+   "#00563F",
+   "#B3200E",
+   "#000000",
+   "#F6F9F8"
+  ]
+ },
+ {
+  "id": "indigo",
+  "name": "Indigo",
+  "note": "Deep blue-violet",
+  "sw": [
+   "#4A4FB5",
+   "#D63E23",
+   "#1B1C38",
+   "#F9F9FC"
+  ]
+ },
+ {
+  "id": "forest",
+  "name": "Forest",
+  "note": "Dark green, natural",
+  "sw": [
+   "#2F6B41",
+   "#AE5E28",
+   "#17251B",
+   "#F8FAF8"
+  ]
+ },
+ {
+  "id": "plum",
+  "name": "Plum",
+  "note": "Purple, editorial",
+  "sw": [
+   "#6D3B8E",
+   "#CE3D68",
+   "#241530",
+   "#FAF8FB"
+  ]
+ },
+ {
+  "id": "crimson",
+  "name": "Crimson",
+  "note": "Red, high energy",
+  "sw": [
+   "#A8323C",
+   "#1F6F7A",
+   "#2B1416",
+   "#FCF8F8"
+  ]
+ },
+ {
+  "id": "ocean",
+  "name": "Ocean",
+  "note": "Cyan and navy",
+  "sw": [
+   "#0E6E8C",
+   "#BA581E",
+   "#0E2430",
+   "#F7FAFB"
+  ]
+ },
+ {
+  "id": "graphite",
+  "name": "Graphite",
+  "note": "Neutral, one accent",
+  "sw": [
+   "#44505C",
+   "#C14E2D",
+   "#1A1E22",
+   "#F8F9F9"
+  ]
+ }
+]

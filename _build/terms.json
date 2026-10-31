@@ -1,0 +1,606 @@
+[
+ {
+  "t": "irritability",
+  "d": "How easily symptoms are provoked, how severe they get, and how long they take to settle. Drives how vigorously you can assess and treat."
+ },
+ {
+  "t": "SIN factors",
+  "d": "Severity, Irritability and Nature \u00e2\u0080\u0094 the three judgements that set the limits of a physical examination."
+ },
+ {
+  "t": "end-feel",
+  "d": "The quality of resistance felt at the end of passive range. Normal end-feels are soft, firm or hard; an empty or springy end-feel suggests pathology."
+ },
+ {
+  "t": "concordant sign",
+  "d": "A test that reproduces the patient's own familiar pain, rather than just any pain. Far more useful than a positive test alone."
+ },
+ {
+  "t": "closed-packed position",
+  "d": "The joint position of maximal congruency and ligamentous tension, where accessory movement is least available."
+ },
+ {
+  "t": "loose-packed position",
+  "d": "The joint position of least congruency, where capsular laxity is greatest and accessory movement is most available. Used for mobilisation."
+ },
+ {
+  "t": "neurodynamics",
+  "d": "Assessment and treatment of the nervous system's capacity to tolerate movement and load \u00e2\u0080\u0094 testing mechanosensitivity rather than conduction."
+ },
+ {
+  "t": "arthrokinematics",
+  "d": "The accessory motion occurring at joint surfaces \u00e2\u0080\u0094 roll, spin and glide \u00e2\u0080\u0094 as distinct from the visible movement of the limb."
+ },
+ {
+  "t": "osteokinematics",
+  "d": "The gross, observable movement of bones about a joint axis, described in planes: flexion, abduction, rotation."
+ },
+ {
+  "t": "capsular pattern",
+  "d": "A characteristic proportional loss of passive range that suggests the joint capsule itself is the restricting structure."
+ },
+ {
+  "t": "differential diagnosis",
+  "d": "The set of conditions that could plausibly explain a presentation, and the reasoning used to separate them."
+ },
+ {
+  "t": "red flag",
+  "d": "A feature suggesting serious pathology that needs medical review rather than physiotherapy \u00e2\u0080\u0094 fracture, infection, malignancy, cauda equina."
+ },
+ {
+  "t": "yellow flag",
+  "d": "A psychosocial factor predicting delayed recovery \u00e2\u0080\u0094 fear-avoidance, low self-efficacy, catastrophising, unhelpful beliefs about pain."
+ },
+ {
+  "t": "nociceptive pain",
+  "d": "Pain arising from actual or threatened damage to non-neural tissue, driven by activation of nociceptors. Typically proportionate to load and eases with rest."
+ },
+ {
+  "t": "neuropathic pain",
+  "d": "Pain caused by a lesion or disease of the somatosensory nervous system. Often burning or shooting, in a neuroanatomically plausible distribution."
+ },
+ {
+  "t": "nociplastic pain",
+  "d": "Pain arising from altered nociception without clear tissue damage or somatosensory lesion. The third mechanistic descriptor recognised by the IASP."
+ },
+ {
+  "t": "central sensitisation",
+  "d": "Increased responsiveness of central nociceptive neurons to normal or subthreshold input. Clinically: widespread, disproportionate, slow-settling pain."
+ },
+ {
+  "t": "allodynia",
+  "d": "Pain from a stimulus that does not normally provoke pain \u00e2\u0080\u0094 light touch, clothing, a breeze."
+ },
+ {
+  "t": "hyperalgesia",
+  "d": "An exaggerated pain response to a stimulus that is normally painful."
+ },
+ {
+  "t": "kinesiophobia",
+  "d": "Fear of movement or re-injury. Measured with the Tampa Scale and a consistent predictor of poorer outcome."
+ },
+ {
+  "t": "catastrophising",
+  "d": "An exaggerated negative orientation toward pain \u00e2\u0080\u0094 rumination, magnification and helplessness. Strongly predicts persistent disability."
+ },
+ {
+  "t": "graded exposure",
+  "d": "Progressively confronting feared movements in a planned way, targeting the fear rather than the tissue."
+ },
+ {
+  "t": "sensitivity",
+  "d": "The proportion of people WITH the condition that a test correctly identifies. A highly sensitive test, when negative, helps rule the condition out."
+ },
+ {
+  "t": "specificity",
+  "d": "The proportion of people WITHOUT the condition that a test correctly clears. A highly specific test, when positive, helps rule the condition in."
+ },
+ {
+  "t": "likelihood ratio",
+  "d": "How much a test result shifts the probability of a condition. Above 10 or below 0.1 produces large, often decisive shifts."
+ },
+ {
+  "t": "pre-test probability",
+  "d": "Your estimate that the condition is present before testing \u00e2\u0080\u0094 from prevalence, history and examination. Test results modify it; they don't replace it."
+ },
+ {
+  "t": "post-test probability",
+  "d": "The revised probability of a condition after a test result has been applied to the pre-test probability."
+ },
+ {
+  "t": "MCID",
+  "d": "Minimal Clinically Important Difference \u00e2\u0080\u0094 the smallest change in a score that a patient would consider worthwhile."
+ },
+ {
+  "t": "MDC",
+  "d": "Minimal Detectable Change \u00e2\u0080\u0094 the smallest change exceeding measurement error. A change below the MDC cannot be distinguished from noise."
+ },
+ {
+  "t": "PROM",
+  "d": "Patient-Reported Outcome Measure \u00e2\u0080\u0094 a questionnaire completed by the patient about their own symptoms, function or quality of life."
+ },
+ {
+  "t": "NPRS",
+  "d": "Numeric Pain Rating Scale \u00e2\u0080\u0094 pain rated 0 to 10. MCID is roughly 2 points in most musculoskeletal populations."
+ },
+ {
+  "t": "VAS",
+  "d": "Visual Analogue Scale \u00e2\u0080\u0094 pain marked on a 100 mm line. Comparable to the NPRS but more sensitive to small change."
+ },
+ {
+  "t": "AKPS",
+  "d": "Anterior Knee Pain Scale (Kujala) \u00e2\u0080\u0094 a 13-item, 100-point measure of patellofemoral symptoms and function."
+ },
+ {
+  "t": "KOOS",
+  "d": "Knee injury and Osteoarthritis Outcome Score \u00e2\u0080\u0094 five subscales covering pain, symptoms, daily living, sport and quality of life."
+ },
+ {
+  "t": "confidence interval",
+  "d": "The range within which the true value plausibly lies. A wide interval means the estimate is imprecise, whatever the point estimate says."
+ },
+ {
+  "t": "effect size",
+  "d": "How large a difference is, independent of sample size. Roughly: 0.2 small, 0.5 moderate, 0.8 large."
+ },
+ {
+  "t": "number needed to treat",
+  "d": "How many people must receive an intervention for one additional person to benefit. Lower is better."
+ },
+ {
+  "t": "systematic review",
+  "d": "A review that searches, appraises and synthesises all eligible studies to a pre-specified protocol \u00e2\u0080\u0094 not the same as a narrative review."
+ },
+ {
+  "t": "randomised controlled trial",
+  "d": "A trial allocating participants to groups by chance, which balances known and unknown confounders. The strongest single-study design for effectiveness."
+ },
+ {
+  "t": "eccentric",
+  "d": "A muscle action where the muscle lengthens under load. Produces higher force and more delayed-onset soreness than concentric work."
+ },
+ {
+  "t": "concentric",
+  "d": "A muscle action where the muscle shortens under load."
+ },
+ {
+  "t": "isometric",
+  "d": "A muscle action producing force with no change in muscle length. Often used for analgesia and early loading in tendinopathy."
+ },
+ {
+  "t": "plyometric",
+  "d": "Training using a rapid stretch-shortening cycle \u00e2\u0080\u0094 jumping, hopping, bounding \u00e2\u0080\u0094 to develop reactive strength."
+ },
+ {
+  "t": "1RM",
+  "d": "One-repetition maximum \u00e2\u0080\u0094 the heaviest load that can be lifted once with acceptable technique. Used to prescribe relative intensity."
+ },
+ {
+  "t": "RPE",
+  "d": "Rating of Perceived Exertion \u00e2\u0080\u0094 how hard an effort felt, typically 0 to 10. Allows load to self-adjust on bad days."
+ },
+ {
+  "t": "MVC",
+  "d": "Maximal Voluntary Contraction \u00e2\u0080\u0094 the greatest force a muscle can generate voluntarily. Used as a reference for prescribing intensity."
+ },
+ {
+  "t": "load capacity",
+  "d": "How much load a tissue can tolerate before symptoms. Rehabilitation raises capacity; management reduces demand until the two meet."
+ },
+ {
+  "t": "proprioception",
+  "d": "The sense of joint position and movement, from receptors in muscle, tendon, joint capsule and skin."
+ },
+ {
+  "t": "progressive overload",
+  "d": "Gradually increasing demand so tissue continues to adapt. Without it, strength gains plateau."
+ },
+ {
+  "t": "time under tension",
+  "d": "The total duration a muscle is loaded during a set. A common variable for tendon loading protocols."
+ },
+ {
+  "t": "valgus",
+  "d": "Angulation where the distal segment deviates away from the midline \u00e2\u0080\u0094 knock-kneed at the knee."
+ },
+ {
+  "t": "varus",
+  "d": "Angulation where the distal segment deviates toward the midline \u00e2\u0080\u0094 bow-legged at the knee."
+ },
+ {
+  "t": "crepitus",
+  "d": "Audible or palpable grating, clicking or crackling in a joint. Common, usually benign, and poorly correlated with pathology."
+ },
+ {
+  "t": "effusion",
+  "d": "Excess fluid within a joint capsule. Graded by sweep test; a large tense effusion after trauma suggests haemarthrosis."
+ },
+ {
+  "t": "haemarthrosis",
+  "d": "Blood within a joint, usually appearing within two hours of injury. Strongly suggests ACL rupture, fracture or patellar dislocation."
+ },
+ {
+  "t": "retropatellar",
+  "d": "Behind the patella \u00e2\u0080\u0094 describing pain arising from the patellofemoral joint surface."
+ },
+ {
+  "t": "peripatellar",
+  "d": "Around the margins of the patella."
+ },
+ {
+  "t": "trochlea",
+  "d": "The grooved articular surface of the distal femur in which the patella tracks."
+ },
+ {
+  "t": "theatre sign",
+  "d": "Anterior knee pain after prolonged sitting with the knee flexed. Characteristic of patellofemoral pain."
+ },
+ {
+  "t": "apprehension",
+  "d": "A patient's protective reaction and fear during a test that threatens joint stability \u00e2\u0080\u0094 a positive finding in itself."
+ },
+ {
+  "t": "antalgic gait",
+  "d": "A limp adopted to reduce time or load on a painful limb, shortening the stance phase on that side."
+ },
+ {
+  "t": "Trendelenburg sign",
+  "d": "Pelvic drop on the unsupported side during single-leg stance, indicating hip abductor weakness on the stance side."
+ },
+ {
+  "t": "dermatome",
+  "d": "The area of skin supplied by a single spinal nerve root. Used to localise radicular involvement."
+ },
+ {
+  "t": "myotome",
+  "d": "The group of muscles supplied by a single spinal nerve root. Tested by resisted contraction."
+ },
+ {
+  "t": "radiculopathy",
+  "d": "Dysfunction of a spinal nerve root producing pain, sensory change, weakness or reflex loss in that root's distribution."
+ },
+ {
+  "t": "referred pain",
+  "d": "Pain felt away from its source, without nerve root involvement. Typically vague, non-dermatomal and deep."
+ },
+ {
+  "t": "auscultation",
+  "d": "Listening to breath or heart sounds with a stethoscope to identify added sounds, reduced air entry or abnormal rhythm."
+ },
+ {
+  "t": "atelectasis",
+  "d": "Collapse of alveoli or a lung segment, reducing gas exchange. Common after surgery and responsive to lung volume strategies."
+ },
+ {
+  "t": "SpO2",
+  "d": "Peripheral oxygen saturation measured by pulse oximetry. Unreliable with poor perfusion, movement, or carbon monoxide."
+ },
+ {
+  "t": "tidal volume",
+  "d": "The volume of air moved in a single normal breath \u00e2\u0080\u0094 roughly 500 ml in an adult at rest."
+ },
+ {
+  "t": "ACBT",
+  "d": "Active Cycle of Breathing Technique \u00e2\u0080\u0094 breathing control, thoracic expansion and forced expiration, cycled to clear secretions."
+ },
+ {
+  "t": "PEP",
+  "d": "Positive Expiratory Pressure \u00e2\u0080\u0094 exhaling against resistance to splint airways open and mobilise secretions."
+ },
+ {
+  "t": "dyspnoea",
+  "d": "The subjective sensation of breathlessness. Not reliably proportional to oxygen saturation."
+ },
+ {
+  "t": "spasticity",
+  "d": "Velocity-dependent increase in muscle tone from upper motor neuron lesion \u00e2\u0080\u0094 faster passive movement meets more resistance."
+ },
+ {
+  "t": "hemiplegia",
+  "d": "Complete paralysis of one side of the body, usually following stroke or brain injury."
+ },
+ {
+  "t": "hemiparesis",
+  "d": "Weakness, rather than complete paralysis, of one side of the body."
+ },
+ {
+  "t": "ataxia",
+  "d": "Impaired coordination of voluntary movement, typically from cerebellar dysfunction. Produces inaccurate, poorly timed movement."
+ },
+ {
+  "t": "neglect",
+  "d": "Failure to attend to one side of space or body, most often after right hemisphere stroke. Distinct from a visual field loss."
+ },
+ {
+  "t": "BPPV",
+  "d": "Benign Paroxysmal Positional Vertigo \u00e2\u0080\u0094 brief positional vertigo from displaced otoconia in a semicircular canal. Highly treatable."
+ },
+ {
+  "t": "nystagmus",
+  "d": "Involuntary rhythmic eye movement. Its direction and behaviour help localise vestibular pathology."
+ },
+ {
+  "t": "CPD",
+  "d": "Continuing Professional Development. Physiotherapists registered in Australia must complete 20 hours each year and keep a portfolio for five years."
+ },
+ {
+  "t": "Ahpra",
+  "d": "The Australian Health Practitioner Regulation Agency \u00e2\u0080\u0094 administers registration and accreditation for regulated health professions."
+ },
+ {
+  "t": "scope of practice",
+  "d": "The range of activities a practitioner is educated, competent and authorised to perform."
+ },
+ {
+  "t": "SUFE",
+  "d": "Slipped Upper Femoral Epiphysis \u00e2\u0080\u0094 displacement through the proximal femoral growth plate in adolescents. A must-not-miss cause of hip or knee pain."
+ },
+ {
+  "t": "RED-S",
+  "d": "Relative Energy Deficiency in Sport \u00e2\u0080\u0094 impaired function across multiple systems from low energy availability."
+ },
+ {
+  "t": "prognosis",
+  "d": "The expected course and outcome of a condition \u00e2\u0080\u0094 what you can honestly tell a patient on day one."
+ },
+ {
+  "t": "collagen",
+  "d": "The main structural protein of tendon, ligament, bone and skin. Type I dominates tendon and bone; type II dominates articular cartilage."
+ },
+ {
+  "t": "tenocyte",
+  "d": "The resident cell of tendon. Produces and maintains collagen and ground substance, and responds to mechanical load."
+ },
+ {
+  "t": "fibroblast",
+  "d": "The cell that lays down collagen and extracellular matrix during repair. Becomes a myofibroblast during contraction of a healing wound."
+ },
+ {
+  "t": "extracellular matrix",
+  "d": "The non-cellular scaffold around cells \u00e2\u0080\u0094 collagen, elastin, proteoglycans and water. Its composition determines a tissue's mechanical behaviour."
+ },
+ {
+  "t": "proteoglycan",
+  "d": "A heavily glycosylated protein that binds water in cartilage and tendon, giving the tissue its compressive stiffness."
+ },
+ {
+  "t": "synovium",
+  "d": "The membrane lining a joint cavity. Produces synovial fluid and is the primary site of inflammation in inflammatory arthritis."
+ },
+ {
+  "t": "articular cartilage",
+  "d": "The hyaline cartilage covering joint surfaces. Avascular, aneural, and has very limited capacity to heal once damaged."
+ },
+ {
+  "t": "subchondral bone",
+  "d": "The bone immediately beneath articular cartilage. Richly innervated \u00e2\u0080\u0094 a likely pain source in osteoarthritis, where the cartilage itself is not."
+ },
+ {
+  "t": "enthesis",
+  "d": "The attachment of tendon or ligament to bone. A transitional zone of fibrocartilage, and a common site of overuse pathology."
+ },
+ {
+  "t": "periosteum",
+  "d": "The vascular, densely innervated membrane covering bone. Highly pain-sensitive, which is why bone stress injury hurts so specifically."
+ },
+ {
+  "t": "fascia",
+  "d": "Sheets of connective tissue that envelop and separate muscles and organs, transmitting force between them."
+ },
+ {
+  "t": "sarcomere",
+  "d": "The contractile unit of skeletal muscle. Its length determines how much force a muscle can generate at a given joint angle."
+ },
+ {
+  "t": "motor unit",
+  "d": "A single motor neuron and every muscle fibre it supplies. Force is graded by recruiting more units and firing them faster."
+ },
+ {
+  "t": "size principle",
+  "d": "Motor units are recruited smallest-first. Heavy or rapid effort is required to recruit the largest, fastest, most trainable units."
+ },
+ {
+  "t": "muscle spindle",
+  "d": "A stretch receptor inside muscle that senses length and rate of change. The afferent limb of the stretch reflex."
+ },
+ {
+  "t": "Golgi tendon organ",
+  "d": "A receptor at the musculotendinous junction sensing tension. Inhibits its own muscle when tension is high."
+ },
+ {
+  "t": "reciprocal inhibition",
+  "d": "Contraction of a muscle is accompanied by reflex inhibition of its antagonist."
+ },
+ {
+  "t": "stretch-shortening cycle",
+  "d": "A rapid eccentric contraction immediately followed by a concentric one. Stores and returns elastic energy, producing more force than concentric alone."
+ },
+ {
+  "t": "cross-bridge",
+  "d": "The myosin head binding to actin. Cycling cross-bridges shorten the sarcomere and generate force."
+ },
+ {
+  "t": "hypertrophy",
+  "d": "Increase in muscle cross-sectional area from added contractile protein. Distinct from early strength gains, which are mostly neural."
+ },
+ {
+  "t": "atrophy",
+  "d": "Loss of muscle mass from disuse, denervation, ageing or illness. Begins within days of immobilisation."
+ },
+ {
+  "t": "neuroplasticity",
+  "d": "The nervous system's capacity to reorganise structure and function in response to experience, training or injury. The basis of neurological rehabilitation."
+ },
+ {
+  "t": "motor learning",
+  "d": "The relatively permanent change in movement capability from practice. Driven by task specificity, repetition and meaningful feedback."
+ },
+ {
+  "t": "DOMS",
+  "d": "Delayed Onset Muscle Soreness \u00e2\u0080\u0094 soreness peaking 24 to 72 hours after unaccustomed eccentric work. Normal, self-limiting, and not tissue damage."
+ },
+ {
+  "t": "VO2 max",
+  "d": "The maximum rate of oxygen consumption during incremental exercise. The standard measure of aerobic capacity."
+ },
+ {
+  "t": "lactate threshold",
+  "d": "The exercise intensity at which blood lactate begins rising disproportionately. A strong predictor of endurance performance."
+ },
+ {
+  "t": "homeostasis",
+  "d": "The maintenance of a stable internal environment. Training works by disturbing it enough to provoke adaptation."
+ },
+ {
+  "t": "inflammation",
+  "d": "The vascular and cellular response to injury \u00e2\u0080\u0094 redness, heat, swelling, pain and loss of function. Necessary for repair, harmful when prolonged."
+ },
+ {
+  "t": "oedema",
+  "d": "Excess fluid in the interstitial space. Limits range, inhibits muscle reflexively, and slows healing if it persists."
+ },
+ {
+  "t": "fibrosis",
+  "d": "Excess deposition of disorganised collagen during repair, producing stiffness and reduced tissue compliance."
+ },
+ {
+  "t": "necrosis",
+  "d": "Uncontrolled cell death from injury, with inflammation. Distinct from apoptosis, which is programmed and orderly."
+ },
+ {
+  "t": "ischaemia",
+  "d": "Inadequate blood supply to a tissue relative to its demand. Produces pain, dysfunction and, if prolonged, infarction."
+ },
+ {
+  "t": "infarction",
+  "d": "Tissue death caused by loss of blood supply."
+ },
+ {
+  "t": "tendinopathy",
+  "d": "Persistent tendon pain and loss of function with load. A failed healing response and disorganised matrix, not primarily inflammation \u00e2\u0080\u0094 which is why 'tendinitis' is outdated."
+ },
+ {
+  "t": "degeneration",
+  "d": "Progressive structural deterioration of tissue. Common on imaging in asymptomatic people, so a poor explanation for pain on its own."
+ },
+ {
+  "t": "osteophyte",
+  "d": "A bony outgrowth at a joint margin, formed in response to altered load. A radiographic feature of osteoarthritis, not a pain source in itself."
+ },
+ {
+  "t": "subluxation",
+  "d": "Partial, transient loss of joint congruity that reduces spontaneously \u00e2\u0080\u0094 distinct from a dislocation, which does not."
+ },
+ {
+  "t": "dislocation",
+  "d": "Complete loss of contact between joint surfaces, requiring reduction."
+ },
+ {
+  "t": "avulsion",
+  "d": "A tendon or ligament pulling away taking a fragment of bone with it. More common than mid-substance rupture in skeletally immature patients."
+ },
+ {
+  "t": "bone stress injury",
+  "d": "A spectrum from stress reaction to stress fracture, caused by load exceeding the bone's capacity to remodel."
+ },
+ {
+  "t": "osteoporosis",
+  "d": "Reduced bone mineral density and disrupted microarchitecture, raising fracture risk. Responsive to progressive resistance and impact loading."
+ },
+ {
+  "t": "sarcopenia",
+  "d": "Age-related loss of muscle mass, strength and function. A central driver of frailty, and reversible with resistance training."
+ },
+ {
+  "t": "contracture",
+  "d": "Fixed shortening of soft tissue limiting passive range. Develops quickly in immobilised or spastic limbs."
+ },
+ {
+  "t": "heterotopic ossification",
+  "d": "Bone forming in soft tissue where it should not, often after trauma, burns or neurological injury. Presents as rapidly reducing range with a firm end-feel."
+ },
+ {
+  "t": "compartment syndrome",
+  "d": "Raised pressure within a closed fascial compartment compromising perfusion. Acute compartment syndrome is a surgical emergency."
+ },
+ {
+  "t": "haemostasis",
+  "d": "The first phase of healing \u00e2\u0080\u0094 vasoconstriction and clot formation, over minutes to hours."
+ },
+ {
+  "t": "proliferation",
+  "d": "The healing phase from roughly day three to three weeks, where fibroblasts lay down disorganised type III collagen and new vessels form."
+ },
+ {
+  "t": "remodelling",
+  "d": "The final healing phase, from weeks to over a year, where collagen reorganises along lines of stress and converts from type III to type I. The phase loading most influences."
+ },
+ {
+  "t": "granulation tissue",
+  "d": "New connective tissue and capillaries formed during proliferation \u00e2\u0080\u0094 fragile, and the substrate for later remodelling."
+ },
+ {
+  "t": "angiogenesis",
+  "d": "Formation of new blood vessels, essential to repair and a feature of tendinopathy where it is often accompanied by nerve ingrowth."
+ },
+ {
+  "t": "mechanotransduction",
+  "d": "How cells convert mechanical load into biochemical signals that change tissue structure. The reason loading is the primary treatment for tendon and bone."
+ },
+ {
+  "t": "Wolff's law",
+  "d": "Bone remodels in response to the loads placed on it \u00e2\u0080\u0094 strengthening where loaded, weakening where unloaded."
+ },
+ {
+  "t": "Davis\u2019 law",
+  "d": "The soft-tissue analogue of Wolff's law: connective tissue remodels along the lines of stress applied to it."
+ },
+ {
+  "t": "SAID principle",
+  "d": "Specific Adaptation to Imposed Demand \u00e2\u0080\u0094 tissue adapts to precisely the demand placed on it, which is why rehabilitation must resemble the target task."
+ },
+ {
+  "t": "kinetic chain",
+  "d": "The linked segments through which force is transmitted. Closed-chain movements fix the distal segment; open-chain movements leave it free."
+ },
+ {
+  "t": "moment arm",
+  "d": "The perpendicular distance from a joint axis to a force's line of action. Longer moment arm, more torque for the same force."
+ },
+ {
+  "t": "torque",
+  "d": "The rotational effect of a force about a joint axis \u00e2\u0080\u0094 force multiplied by moment arm."
+ },
+ {
+  "t": "ground reaction force",
+  "d": "The force the ground exerts back on the body. Peaks at around two to three times body weight in running."
+ },
+ {
+  "t": "centre of mass",
+  "d": "The point where body mass is evenly distributed. Its position relative to the base of support determines stability."
+ },
+ {
+  "t": "base of support",
+  "d": "The area beneath and between the points of contact with the ground. A wider base means greater stability but less mobility."
+ },
+ {
+  "t": "scapulohumeral rhythm",
+  "d": "The coordinated ratio of glenohumeral to scapulothoracic motion during elevation, around 2:1 after the first 30 degrees."
+ },
+ {
+  "t": "force couple",
+  "d": "Two or more muscles acting in different directions to produce rotation \u00e2\u0080\u0094 as the deltoid and rotator cuff do at the shoulder."
+ },
+ {
+  "t": "viscoelasticity",
+  "d": "Connective tissue behaving as both a viscous fluid and an elastic solid, so its response depends on how fast and how long load is applied."
+ },
+ {
+  "t": "creep",
+  "d": "Progressive deformation of tissue under sustained constant load. The basis of prolonged stretch and of end-range postural strain."
+ },
+ {
+  "t": "hysteresis",
+  "d": "Energy lost as heat during a load-unload cycle. Why repeated loading warms and softens connective tissue."
+ }
+]

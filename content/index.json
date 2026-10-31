@@ -1,0 +1,18 @@
+{
+ "msk-knee-patellofemoral-pain": {
+  "newestSource": 2021,
+  "refs": 8,
+  "reviewed": null,
+  "reviewedBy": null,
+  "sections": 16,
+  "status": "draft"
+ },
+ "msk-shoulder-acromioclavicular-joint-injury": {
+  "newestSource": 2023,
+  "refs": 10,
+  "reviewed": null,
+  "reviewedBy": null,
+  "sections": 16,
+  "status": "draft"
+ }
+}

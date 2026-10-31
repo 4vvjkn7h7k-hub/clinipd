@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glossary of physio terms — CliniPD</title>
+<meta name="description" content="Glossary of physio terms — Glossary. Glossary on CliniPD.">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../article.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);}catch(e){}</script>
+</head>
+<body>
+<header class="top" id="site-top"></header>
+
+<article>
+<section class="art-head">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="../index.html">CliniPD</a><span class="sep">/</span><a href="../foundations.html">Foundations</a><span class="sep">/</span><a href="foundations-glossary.html">Glossary</a><span class="sep">/</span><span aria-current="page">Glossary of physio terms</span></nav>
+    <p class="kind">Glossary</p>
+    <h1 class="h1">Glossary of physio terms</h1>
+    <p class="lede">Glossary</p>
+    <div class="chips"><span class="chip empty">Not written yet</span><span class="chip">1 sections</span><span class="chip">0 references</span></div>
+  </div>
+</section>
+
+<div class="wrap art-wrap">
+    <div class="save-wrap">
+      <button class="save-btn" id="saveBtn" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16l-7-3.4L5 20Z"/></svg>
+        <span>Save</span>
+      </button>
+    </div>
+
+  
+
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol><li><a href="#s1">Terms</a></li><li><a href="#references">References</a></li></ol>
+  </nav>
+
+  <section class="sec-a" id="s1"><h2><span class="sn">01</span>Terms</h2><div class="flds"><div class="fld wide"><span>Not written yet</span></div></div></section>
+
+  <section class="refs" id="references">
+    <h2>References</h2>
+    <p class="none">No references yet. Every claim on this page will carry a numbered source before it is marked written.</p>
+  </section>
+
+  <nav class="pager" aria-label="Nearby pages"><a class="pg next" href="../foundations.html"><span>Back to</span><b>All foundations</b></a></nav>
+
+  <p class="pid">Page id <code>foundations-glossary-glossary-of-physio-terms</code> · <a href="../foundations.html">All foundations</a> · <a href="../app.html#foundations-glossary-glossary-of-physio-terms">Open in the workspace</a></p>
+</div>
+</article>
+
+<footer class="foot" id="site-foot"></footer>
+<script src="../site.js"></script>
+<script src="../glossary.js"></script>
+<script>
+(function(){
+  var KEY='clinipd:saved';
+  var btn=document.getElementById('saveBtn'); if(!btn) return;
+  var id=(location.pathname.split('/').pop()||'').replace(/\.html$/,'');
+  var title=(document.querySelector('h1')||{}).textContent||id;
+  var where=(document.querySelector('.art-head .lede')||{}).textContent||'';
+  function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function write(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  function has(){ return read().some(function(x){ return x.i===id; }); }
+  function paint(){
+    var on=has();
+    btn.setAttribute('aria-pressed', String(on));
+    btn.querySelector('span').textContent = on ? 'Saved' : 'Save';
+  }
+  btn.addEventListener('click', function(){
+    var a=read();
+    if(has()) a=a.filter(function(x){ return x.i!==id; });
+    else a.unshift({i:id, t:title.trim(), w:where.trim()});
+    write(a); paint();
+  });
+  paint();
+})();
+</script>
+
+</body>
+</html>

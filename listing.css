@@ -1,0 +1,152 @@
+/* ============================================================
+   CliniPD — A to Z listings and the library hub
+   Loaded after site.css by every index page (conditions, tests,
+   measures, exercises, cases, osce, qbank, foundations,
+   placement) and by library.html, so the hub and the lists are
+   the same object by construction rather than by copy-paste.
+   ============================================================ */
+.az-head{padding:clamp(52px,6vw,92px) 0 clamp(34px,4vw,50px);background:var(--bg-2);text-align:center}
+.az-head .h1{max-width:18ch;margin-inline:auto}
+.az-head .lede{margin-top:20px}
+.az-head .crumb{font:500 13.5px/1 var(--sans);color:var(--muted);margin-bottom:20px}
+.az-head .crumb a{text-decoration:none;color:var(--brand-ink)}
+.az-head .crumb a:hover{text-decoration:underline}
+
+.az-tools{position:sticky;top:var(--top);z-index:40;background:var(--bg);
+  border-bottom:1px solid var(--line);padding:20px 0 16px;transition:box-shadow .25s var(--e-out)}
+.az-tools.stuck{box-shadow:0 4px 22px rgb(0 0 0 / .06)}
+
+.az-srch{display:flex;align-items:center;gap:12px;background:var(--bg-2);
+  border:1.5px solid var(--line);border-radius:999px;padding:5px 7px 5px 22px;
+  max-width:540px;margin:0 auto;transition:border-color .2s var(--e-out),background .2s,box-shadow .2s}
+.az-srch:focus-within{border-color:var(--brand);background:var(--bg);box-shadow:0 0 0 4px var(--brand-soft)}
+.az-srch svg{width:18px;height:18px;color:var(--muted);flex:none}
+.az-srch input{flex:1;min-width:0;border:0;outline:0;background:none;color:var(--ink);
+  font:400 16px/1 var(--sans);padding:13px 0}
+.az-srch input::placeholder{color:var(--muted)}
+.az-srch .x{flex:none;width:34px;height:34px;border-radius:50%;border:0;cursor:pointer;
+  background:none;color:var(--muted);display:none;place-items:center}
+.az-srch .x:hover{background:var(--bg-3);color:var(--ink)}
+.az-srch.has .x{display:grid}
+.az-srch kbd{font:600 11px/1 var(--mono);color:var(--muted);background:var(--bg);
+  border:1px solid var(--line);border-radius:6px;padding:5px 7px;flex:none}
+.az-srch.has kbd{display:none}
+
+/* ---- group filter pills ---- */
+.az-filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+/* On a phone, twelve wrapped pills turn the sticky bar into a third of the
+   screen. One swipeable row instead, bled to the viewport edges and masked
+   at both ends so it reads as scrollable. */
+@media (max-width:720px){
+  .az-filters{
+    flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;
+    padding:2px 18px 4px;margin-inline:-18px;
+    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16px,#000 calc(100% - 16px),transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 16px,#000 calc(100% - 16px),transparent 100%);
+  }
+  .az-filters::-webkit-scrollbar{display:none}
+  .az-filters button{flex:none;scroll-snap-align:center}
+}
+.az-filters button{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 15px;border-radius:999px;border:1px solid var(--line);
+  background:var(--bg);color:var(--ink-2);font:550 13.5px/1 var(--sans);cursor:pointer;
+  transition:background .18s var(--e-out),border-color .18s,color .18s,transform .12s var(--e-spring)}
+.az-filters button:hover{border-color:var(--line-2);background:var(--bg-2);color:var(--ink)}
+.az-filters button:active{transform:scale(.96)}
+.az-filters button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.az-filters button .c{font:600 10.5px/1 var(--mono);opacity:.72}
+
+/* ---- sort row ---- */
+.az-sort{display:flex;gap:14px;justify-content:center;align-items:center;
+  flex-wrap:wrap;margin-top:16px}
+.az-sort label{display:inline-flex;align-items:center;gap:8px;
+  font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.az-sort select{
+  border:1px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);
+  font:550 13.5px/1 var(--sans);padding:9px 34px 9px 15px;cursor:pointer;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23718' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;background-size:11px;
+  transition:border-color .18s var(--e-out),box-shadow .18s}
+.az-sort select:hover{border-color:var(--line-2)}
+.az-sort select:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+
+.az-bar{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin-top:16px}
+.az-bar[hidden]{display:none}
+.az-bar button{
+  min-width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:9px;
+  background:none;cursor:pointer;
+  font:600 14px/1 var(--sans);color:var(--brand-ink);
+  transition:background .16s var(--e-out),color .16s,transform .14s var(--e-spring)}
+.az-bar button:hover:not(:disabled){background:var(--brand-soft);transform:translateY(-1px)}
+.az-bar button:disabled{color:var(--line-2);cursor:default}
+
+.az-count{text-align:center;margin:30px 0 0;
+  font:500 12.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.az-body{max-width:820px;margin:0 auto;padding-bottom:10px}
+.az-grp{margin-top:clamp(30px,3.4vw,46px);scroll-margin-top:calc(var(--top) + 190px)}
+.az-l{display:flex;align-items:center;gap:16px;margin-bottom:4px}
+.az-l b{width:44px;height:44px;flex:none;display:grid;place-items:center;border-radius:13px;
+  background:var(--brand);color:var(--on-brand);font:600 19px/1 var(--display)}
+.az-l i{flex:1;height:1px;background:var(--line);display:block}
+.az-l span{font:600 11px/1 var(--mono);letter-spacing:.1em;color:var(--muted);flex:none}
+
+.az-list{list-style:none;margin:0;padding:0;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--bg)}
+.az-list li + li{border-top:1px solid var(--line)}
+.az-row{display:flex;align-items:center;gap:16px;padding:19px 26px;
+  text-decoration:none;color:inherit;min-width:0;
+  transition:background .16s var(--e-out),padding-left .22s var(--e-out)}
+.az-row:hover{background:var(--brand-soft);padding-left:34px}
+.az-row .d{width:7px;height:7px;border-radius:50%;background:var(--line-2);flex:none}
+.az-row.red .d{background:var(--coral)}
+.az-row.postop .d{background:var(--warn)}
+.az-row .tx{min-width:0;flex:1}
+.az-row .tx b{display:block;font:550 17px/1.4 var(--sans);letter-spacing:-.005em}
+.az-row.red .tx b{color:var(--coral-ink)}
+.az-row .tx em{display:block;font-style:normal;font-size:13.5px;color:var(--muted);margin-top:3px}
+.az-row .meta{flex:none;display:flex;align-items:center;gap:10px}
+.az-row .yq{font:600 9.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 8px;border-radius:6px;border:1px solid var(--line-2);color:var(--muted)}
+.az-row .yq.hi{color:var(--coral);border-color:var(--coral);background:var(--coral-soft)}
+.az-row .yq.med{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+.az-row .go{width:18px;height:18px;flex:none;color:var(--line-2);
+  transition:transform .22s var(--e-spring),color .18s}
+.az-row:hover .go{transform:translateX(4px);color:var(--brand)}
+.az-row mark{background:var(--brand-soft);color:var(--brand-ink);border-radius:3px;padding:0 2px;font-weight:700}
+.gl-link .lbl{border-bottom:1.5px dotted var(--brand);padding-bottom:1px}
+
+/* ---- pagination ---- */
+.pagi{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;
+  margin-top:clamp(36px,4vw,54px)}
+.pagi button{
+  min-width:42px;height:42px;padding:0 13px;border-radius:12px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink-2);
+  font:600 14.5px/1 var(--sans);cursor:pointer;
+  transition:background .16s var(--e-out),border-color .16s,color .16s,transform .12s var(--e-spring)}
+.pagi button:hover:not(:disabled):not([aria-current]){background:var(--bg-2);border-color:var(--line-2);color:var(--ink)}
+.pagi button:active:not(:disabled){transform:scale(.95)}
+.pagi button[aria-current="page"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.pagi button:disabled{opacity:.4;cursor:default}
+.pagi .gap{color:var(--muted);padding:0 4px;font-weight:600}
+.pagi .nav{display:inline-flex;align-items:center;gap:7px}
+.pagi .nav svg{width:15px;height:15px}
+.pagi-note{text-align:center;margin-top:16px;font-size:13px;color:var(--muted)}
+
+.az-none{text-align:center;padding:70px 20px;color:var(--muted)}
+.az-none b{display:block;font:600 20px/1.3 var(--display);color:var(--ink);margin-bottom:8px}
+.az-key{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:24px;
+  font-size:13.5px;color:var(--muted)}
+.az-key span{display:inline-flex;align-items:center;gap:8px}
+.az-key i{width:7px;height:7px;border-radius:50%;display:block}
+@media (max-width:620px){
+  .az-row{padding:16px 18px;gap:12px}
+  .az-row:hover{padding-left:24px}
+  .az-row .yq{display:none}
+  .az-l b{width:38px;height:38px;font-size:17px}
+  .az-sort{gap:10px}
+}

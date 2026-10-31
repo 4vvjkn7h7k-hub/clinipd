@@ -1,0 +1,619 @@
+{
+ "presentation": [
+  {
+   "t": "Overview",
+   "f": [
+    "Definition (1–2 sentences)",
+    "Also known as",
+    "Classification or grading",
+    "Three-point summary"
+   ]
+  },
+  {
+   "t": "Epidemiology & risk factors",
+   "f": [
+    "Prevalence and incidence",
+    "Typical patient",
+    "Modifiable risk factors",
+    "Non-modifiable risk factors"
+   ]
+  },
+  {
+   "t": "Pathoanatomy & mechanism",
+   "f": [
+    "Structures involved",
+    "Mechanism of injury or onset",
+    "Pathophysiology",
+    "Natural history"
+   ]
+  },
+  {
+   "t": "Clinical presentation",
+   "f": [
+    "Area and nature of symptoms",
+    "Aggravating and easing factors",
+    "24-hour pattern",
+    "Irritability (SIN)",
+    "Functional limitations"
+   ]
+  },
+  {
+   "t": "Differential diagnosis",
+   "f": [
+    "Red flags for this presentation"
+   ]
+  },
+  {
+   "t": "Subjective examination",
+   "f": [
+    "Patient goals and expectations",
+    "Psychosocial screen"
+   ]
+  },
+  {
+   "t": "Objective examination",
+   "f": [
+    "Observation",
+    "Range of motion",
+    "Strength testing",
+    "Neurological screen",
+    "Functional tests"
+   ]
+  },
+  {
+   "t": "Imaging & investigations",
+   "f": [
+    "Decision rule for imaging",
+    "Preferred modality",
+    "When to refer on"
+   ]
+  },
+  {
+   "t": "Outcome measures",
+   "f": []
+  },
+  {
+   "t": "Management",
+   "f": []
+  },
+  {
+   "t": "Education & self-management",
+   "f": [
+    "Key messages",
+    "Load and activity advice",
+    "Self-management plan"
+   ]
+  },
+  {
+   "t": "Medical & surgical management",
+   "f": [
+    "When to refer",
+    "Medical options",
+    "Surgical options and post-op protocol"
+   ]
+  },
+  {
+   "t": "Prognosis",
+   "f": [
+    "Expected timeframes",
+    "Factors linked to better or worse outcomes"
+   ]
+  },
+  {
+   "t": "Return to sport or work",
+   "f": [
+    "Criteria",
+    "Testing battery",
+    "Graded return plan"
+   ]
+  },
+  {
+   "t": "Clinical pearls & exam traps",
+   "f": [
+    "Clinical pearls",
+    "Common exam traps",
+    "Viva questions"
+   ]
+  },
+  {
+   "t": "Evidence summary",
+   "f": [
+    "Clinical practice guideline"
+   ]
+  }
+ ],
+ "region": [
+  {
+   "t": "Region overview",
+   "f": [
+    "Functional anatomy",
+    "Key structures",
+    "Presentations at a glance"
+   ]
+  },
+  {
+   "t": "Assessment approach",
+   "f": [
+    "Subjective priorities",
+    "Objective sequence",
+    "Clearing adjacent regions"
+   ]
+  },
+  {
+   "t": "Red flags for this region",
+   "f": []
+  },
+  {
+   "t": "Imaging decision rules",
+   "f": [
+    "Rules used for this region",
+    "When to refer"
+   ]
+  },
+  {
+   "t": "Region outcome measures",
+   "f": []
+  },
+  {
+   "t": "High-yield exam topics",
+   "f": [
+    "Most examined presentations",
+    "Must-know special tests",
+    "Must-know anatomy"
+   ]
+  }
+ ],
+ "cgroup": [
+  {
+   "t": "Section overview",
+   "f": [
+    "What this section covers",
+    "Shared pathophysiology or principles",
+    "Presentations at a glance"
+   ]
+  },
+  {
+   "t": "Shared assessment approach",
+   "f": [
+    "Subjective priorities",
+    "Objective assessment",
+    "Screening and precautions"
+   ]
+  },
+  {
+   "t": "Red flags & precautions",
+   "f": []
+  },
+  {
+   "t": "Common outcome measures",
+   "f": []
+  },
+  {
+   "t": "High-yield exam topics",
+   "f": [
+    "Most examined topics",
+    "Must-know assessments"
+   ]
+  }
+ ],
+ "domain": [
+  {
+   "t": "Domain overview",
+   "f": [
+    "Scope of practice in this domain",
+    "Settings where you see it",
+    "How it is examined"
+   ]
+  },
+  {
+   "t": "Core assessment framework",
+   "f": [
+    "Subjective framework",
+    "Objective framework",
+    "Outcome measure set"
+   ]
+  },
+  {
+   "t": "Placement links",
+   "f": [
+    "Placement settings",
+    "Placement toolkit pages"
+   ]
+  }
+ ],
+ "root": [
+  {
+   "t": "About this library",
+   "f": [
+    "What belongs here",
+    "How pages are structured",
+    "How it links to presentations"
+   ]
+  }
+ ],
+ "collection": [
+  {
+   "t": "Section overview",
+   "f": [
+    "What this section covers",
+    "How to use it"
+   ]
+  }
+ ],
+ "test": [
+  {
+   "t": "Purpose",
+   "f": [
+    "What the test assesses",
+    "Target structure or condition",
+    "Used for presentations"
+   ]
+  },
+  {
+   "t": "Technique",
+   "f": [
+    "Patient position",
+    "Therapist position and hand placement",
+    "Procedure step by step",
+    "Positive finding"
+   ]
+  },
+  {
+   "t": "Video demonstration",
+   "f": []
+  },
+  {
+   "t": "Common technique errors",
+   "f": [
+    "Error 1 and correction",
+    "Error 2 and correction",
+    "Error 3 and correction"
+   ]
+  },
+  {
+   "t": "Diagnostic accuracy",
+   "f": []
+  },
+  {
+   "t": "Clusters & interpretation",
+   "f": [
+    "Test clusters",
+    "Interpreting with other findings"
+   ]
+  },
+  {
+   "t": "Exam tips",
+   "f": [
+    "How it is assessed in OSCEs",
+    "Viva questions"
+   ]
+  }
+ ],
+ "measure": [
+  {
+   "t": "Purpose",
+   "f": [
+    "Construct measured",
+    "ICF level",
+    "Population validated in"
+   ]
+  },
+  {
+   "t": "Format & administration",
+   "f": [
+    "Number of items",
+    "Time to complete",
+    "Patient instructions",
+    "Equipment"
+   ]
+  },
+  {
+   "t": "Scoring & interpretation",
+   "f": [
+    "Score range",
+    "Direction of scoring",
+    "How to calculate",
+    "Interpretation bands"
+   ]
+  },
+  {
+   "t": "Psychometrics",
+   "f": []
+  },
+  {
+   "t": "Normative values",
+   "f": []
+  },
+  {
+   "t": "Licensing & access",
+   "f": [
+    "Copyright status",
+    "Where to obtain",
+    "Can it be reproduced here?"
+   ]
+  },
+  {
+   "t": "Related presentations",
+   "f": [
+    "Presentations that use this measure"
+   ]
+  }
+ ],
+ "exercise": [
+  {
+   "t": "Purpose",
+   "f": [
+    "Target muscles or capacity",
+    "Used for presentations"
+   ]
+  },
+  {
+   "t": "Setup",
+   "f": [
+    "Starting position",
+    "Equipment"
+   ]
+  },
+  {
+   "t": "Execution & cues",
+   "f": [
+    "Movement",
+    "Verbal cues",
+    "Tactile cues"
+   ]
+  },
+  {
+   "t": "Video demonstration",
+   "f": []
+  },
+  {
+   "t": "Common errors",
+   "f": [
+    "Error 1 and correction",
+    "Error 2 and correction"
+   ]
+  },
+  {
+   "t": "Dosage by goal",
+   "f": []
+  },
+  {
+   "t": "Progression chain",
+   "f": []
+  },
+  {
+   "t": "Precautions & contraindications",
+   "f": [
+    "Precautions",
+    "Contraindications"
+   ]
+  }
+ ],
+ "technique": [
+  {
+   "t": "Indications",
+   "f": [
+    "Indications",
+    "Expected effect"
+   ]
+  },
+  {
+   "t": "Contraindications & precautions",
+   "f": [
+    "Absolute contraindications",
+    "Relative contraindications and precautions"
+   ]
+  },
+  {
+   "t": "Equipment & setup",
+   "f": [
+    "Equipment",
+    "Patient position"
+   ]
+  },
+  {
+   "t": "Procedure",
+   "f": [
+    "Step-by-step procedure",
+    "Patient instructions"
+   ]
+  },
+  {
+   "t": "Parameters",
+   "f": []
+  },
+  {
+   "t": "Monitoring & stop criteria",
+   "f": [
+    "What to monitor",
+    "When to stop"
+   ]
+  },
+  {
+   "t": "Video demonstration",
+   "f": []
+  },
+  {
+   "t": "Evidence summary",
+   "f": []
+  }
+ ],
+ "topic": [
+  {
+   "t": "Learning objectives",
+   "f": [
+    "Objective 1",
+    "Objective 2",
+    "Objective 3"
+   ]
+  },
+  {
+   "t": "Core concepts",
+   "f": [
+    "Concept 1",
+    "Concept 2",
+    "Concept 3"
+   ]
+  },
+  {
+   "t": "Key definitions",
+   "f": []
+  },
+  {
+   "t": "Clinical application",
+   "f": [
+    "Where this shows up clinically",
+    "Worked example"
+   ]
+  },
+  {
+   "t": "Common exam questions",
+   "f": [
+    "Question 1",
+    "Question 2"
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "t": "Terms",
+   "f": []
+  }
+ ],
+ "placement": [
+  {
+   "t": "Setting overview",
+   "f": [
+    "Typical day",
+    "Team and roles",
+    "Caseload"
+   ]
+  },
+  {
+   "t": "Before day one",
+   "f": [
+    "Reading list",
+    "Skills to revise",
+    "What to bring"
+   ]
+  },
+  {
+   "t": "Common presentations",
+   "f": [
+    "Presentations you will see most"
+   ]
+  },
+  {
+   "t": "Key assessments & outcome measures",
+   "f": []
+  },
+  {
+   "t": "Safety & precautions",
+   "f": [
+    "Precautions specific to this setting",
+    "Escalation pathway"
+   ]
+  },
+  {
+   "t": "Handover & documentation",
+   "f": [
+    "Handover format",
+    "Documentation conventions"
+   ]
+  },
+  {
+   "t": "Reflection prompts",
+   "f": [
+    "Prompt 1",
+    "Prompt 2"
+   ]
+  }
+ ],
+ "bank": [
+  {
+   "t": "Bank overview",
+   "f": [
+    "Topics covered",
+    "Exam this bank prepares for"
+   ]
+  },
+  {
+   "t": "Question types",
+   "f": []
+  },
+  {
+   "t": "Coverage by topic",
+   "f": []
+  }
+ ],
+ "case": [
+  {
+   "t": "Case brief",
+   "f": [
+    "Setting",
+    "Patient",
+    "Referral"
+   ]
+  },
+  {
+   "t": "Stages",
+   "f": []
+  },
+  {
+   "t": "Marking rubric",
+   "f": []
+  },
+  {
+   "t": "Linked articles",
+   "f": [
+    "Presentations",
+    "Special tests",
+    "Outcome measures"
+   ]
+  }
+ ],
+ "station": [
+  {
+   "t": "Station brief",
+   "f": [
+    "Candidate instructions",
+    "Examiner instructions",
+    "Simulated patient script"
+   ]
+  },
+  {
+   "t": "Timing",
+   "f": [
+    "Reading time",
+    "Station time"
+   ]
+  },
+  {
+   "t": "Marking checklist",
+   "f": []
+  },
+  {
+   "t": "Global rating",
+   "f": []
+  },
+  {
+   "t": "Model performance",
+   "f": []
+  },
+  {
+   "t": "Common fails",
+   "f": [
+    "Common fail 1",
+    "Common fail 2"
+   ]
+  },
+  {
+   "t": "Linked articles",
+   "f": [
+    "Presentations",
+    "Special tests",
+    "Techniques"
+   ]
+  }
+ ]
+}
