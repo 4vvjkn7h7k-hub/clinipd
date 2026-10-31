@@ -10,37 +10,36 @@
 
 <style>
 :root{
-  --site-wrap: 1580px;
+  --site-wrap: 1550px;
 }
 .wrap{max-width: var(--site-wrap);}
 .hero .wrap{max-width: 1600px;}
 
-/* ============ HERO ============ */
 .hero{padding:clamp(22px,2vw,34px) 0 0}
 .hero-shell{
   position:relative;border-radius:34px;overflow:hidden;
   min-height:clamp(560px,55vw,760px);display:block;
   isolation:isolate;
   background:
-    radial-gradient(circle at 25% 20%, rgba(118, 169, 199, .18), transparent 26%),
-    radial-gradient(circle at 73% 18%, rgba(114, 221, 224, .10), transparent 28%),
+    radial-gradient(circle at 25% 20%, rgba(118, 169, 199, .18), transparent 22%),
+    radial-gradient(circle at 75% 14%, rgba(114, 221, 224, .08), transparent 24%),
     linear-gradient(100deg, #061b2d 0%, #0b273f 24%, #0d2f47 54%, #0a2240 100%);
   border:1px solid rgba(164, 196, 210, .12);
   box-shadow:0 28px 90px rgba(2,11,21,.25);
 }
 .hero-shell::before{
   content:"";position:absolute;inset:0;background:
-    linear-gradient(90deg, rgba(4,15,24,.84) 0%, rgba(8,25,36,.70) 30%, rgba(10,25,35,.44) 56%, rgba(10,24,35,.12) 100%);
+    linear-gradient(90deg, rgba(4,15,24,.82) 0%, rgba(8,25,36,.72) 32%, rgba(10,25,35,.46) 58%, rgba(10,24,35,.12) 100%);
   z-index:0;
 }
 .hero-shell::after{
-  content:"";position:absolute;right:-170px;top:-140px;width:820px;height:820px;border-radius:50%;
-  border:1px solid rgba(143,205,222,.28);background:rgba(76,132,151,.04); z-index:0;
+  content:"";position:absolute;right:-150px;top:-120px;width:860px;height:860px;border-radius:50%;
+  border:1px solid rgba(143,205,222,.22);background:rgba(76,132,151,.04); z-index:0;
 }
 .hero-grid{
   position:relative;z-index:1;
   display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:10px;
-  min-height:clamp(560px,55vw,760px);padding:clamp(28px,3vw,52px) clamp(20px,2vw,42px);
+  min-height:clamp(560px,55vw,760px);padding:clamp(30px,3vw,54px) clamp(22px,2vw,48px);
 }
 .hero-copy{max-width:700px;padding-left:2px;padding-right:16px}
 .hero-for{display:inline-flex;align-items:center;justify-content:center;gap:9px;
@@ -85,10 +84,11 @@
   box-shadow:0 0 0 32px rgba(36,110,147,.08), 0 0 0 70px rgba(36,110,147,.04);
 }
 .hero-visual img{
-  position:relative;z-index:1;width:min(500px,58vw);max-width:100%;
-  border:1px solid rgba(255,255,255,.32);background:#f5f5f5;
-  border-radius:18px;object-fit:cover;box-shadow:0 36px 60px rgba(0,0,0,.18);
-  filter:saturate(.88) contrast(1.02);opacity:.95;
+  position:relative;z-index:1;width:min(520px,58vw);max-width:100%;
+  height:auto;object-fit:cover;border-radius:30px;
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 36px 60px rgba(0,0,0,.18);
+  filter:saturate(.9) contrast(1.02);opacity:.96;
   transform:translateX(10px) rotate(-2deg);
 }
 
@@ -108,7 +108,6 @@
   .hero-note{text-align:left}
 }
 
-/* ================= old animation band ================= */
 .mq{overflow:hidden;width:100%;max-width:100vw;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);margin-top:46px}
 .mq-in{display:flex;gap:14px;width:max-content;animation:mq 24s linear infinite;will-change:transform}
 .mq:hover .mq-in{animation-play-state:paused}
@@ -116,7 +115,6 @@
 @media (prefers-reduced-motion:reduce){.mq-in{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
 .mq .pill{white-space:nowrap}
 
-/* ============ STAT BAND ============ */
 .statband{padding:var(--gap) 0;text-align:center}
 .statband .lede{margin-inline:auto}
 .stat b.counting{color:var(--brand)}
@@ -127,7 +125,6 @@
 
 <header class="top" id="site-top"></header>
 
-<!-- ======================= HERO ======================= -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-shell">
@@ -176,7 +173,6 @@
   </div>
 </section>
 
-<!-- ======================= STAT BAND ======================= -->
 <section class="statband">
   <div class="wrap">
     <div class="eyebrow" data-rev="0">What's in the library</div>
@@ -213,8 +209,6 @@
   </div>
 </section>
 
-
-<!-- ======================= SCROLL-FADE BAND ======================= -->
 <section class="band-img" data-band>
   <img src="img/break-1.jpg" alt="" loading="lazy">
   <div class="band-in">
@@ -227,7 +221,6 @@
   </div>
 </section>
 
-<!-- ======================= WHAT YOU GET ======================= -->
 <section class="sec">
   <div class="wrap">
     <div class="eyebrow" data-rev="0">Three things, one place</div>
@@ -268,7 +261,6 @@
   </div>
 </section>
 
-<!-- ======================= PRICING ======================= -->
 <section class="sec alt">
   <div class="wrap">
     <div class="eyebrow" data-rev="0">What costs money</div>
@@ -297,8 +289,6 @@
   </div>
 </section>
 
-
-<!-- ======================= SCROLL-FADE BAND 2 ======================= -->
 <section class="band-img" data-band>
   <img src="img/break-2.jpg" alt="" loading="lazy">
   <div class="band-in">
@@ -311,7 +301,6 @@
   </div>
 </section>
 
-<!-- ======================= CONTRIBUTE ======================= -->
 <section class="sec">
   <div class="wrap">
     <div class="eyebrow" data-rev="0">Contribute to CliniPD</div>
@@ -353,7 +342,6 @@
   </div>
 </section>
 
-<!-- ======================= CTA ======================= -->
 <section class="band">
   <div class="wrap">
     <h2 class="h2" data-rev="0">Start with the knee.</h2>
@@ -370,7 +358,6 @@
 <script src="site.js"></script>
 <script src="glossary.js"></script>
 <script>
-/* ---- marquee of what's covered ---- */
 (function(){
   var host = document.getElementById('mq');
   if(!host) return;
@@ -381,7 +368,6 @@
   var html = items.map(function(t){ return '<span class="pill">'+t+'</span>'; }).join('');
   host.innerHTML = html + html;
 })();
-
 </script>
 </body>
 </html>
