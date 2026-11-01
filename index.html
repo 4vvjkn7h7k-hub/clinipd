@@ -1,7 +1,325 @@
-    body:has(.hero) .hero{background:linear-gradient(180deg,#f8fbfd 0%,#fff 82%)!important;border-bottom:0}
-    body:has(.hero) .hero .wrap{display:block}
-    body:has(.hero) .hero .h1{max-width:15ch;margin-inline:auto}
-    body:has(.hero) .hero .lede{max-width:58ch;margin-inline:auto}
-    body:has(.hero) .hero img,
-    body:has(.hero) .hero .hero-art,
-    body:has(.hero) .hero .hero-img{border-radius:20px!important;box-shadow:var(--shadow)!important}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CliniPD — the clinical reference physios actually open</title>
+<meta name="description" content="Search free, evidence-based physiotherapy pages — every presentation, special test, outcome measure and exercise, written to one template and carrying its own references.">
+<link rel="stylesheet" href="site.css">
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);if(!_m && window.matchMedia('(prefers-color-scheme: dark)').matches)_r.setAttribute('data-theme','dark');}catch(e){}</script>
+
+<style>
+/* ============ HERO ============ */
+.hero{padding:clamp(34px,4vw,56px) 0 0}
+.hero-panel{
+  position:relative;border-radius:var(--r-xl);overflow:hidden;
+  min-height:clamp(440px,54vw,620px);display:grid;place-items:center;
+  isolation:isolate;
+}
+.hero-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero-panel::after{   /* brand duotone wash — keeps type legible over any photo */
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(170deg,
+      color-mix(in srgb, var(--deep) 70%, transparent) 0%,
+      color-mix(in srgb, var(--deep) 50%, transparent) 46%,
+      color-mix(in srgb, var(--deep) 76%, transparent) 100%),
+    linear-gradient(120deg,
+      color-mix(in srgb, var(--brand) 26%, transparent) 0%,
+      transparent 60%);
+}
+.hero-in{padding:clamp(42px,6vw,76px) clamp(20px,5vw,60px);text-align:center;
+  width:100%;max-width:960px;min-width:0}
+
+/* The hero arrives in sequence rather than as one block fade: panel,
+   then badge, headline, sub-line, search, buttons, footnote. On load,
+   not on scroll — it is already in view. */
+.hero-panel{animation:heroPanel .86s var(--e-out) both}
+@keyframes heroPanel{from{opacity:0;transform:translateY(18px) scale(.988)}to{opacity:1;transform:none}}
+.hero-panel img{transform:scale(1.13);transform-origin:52% 44%}
+.hero-in > *{animation:heroUp .76s var(--e-out) both}
+.hero-in > *:nth-child(1){animation-delay:.20s}
+.hero-in > *:nth-child(2){animation-delay:.30s}
+.hero-in > *:nth-child(3){animation-delay:.42s}
+.hero-in > *:nth-child(4){animation-delay:.54s}
+.hero-in > *:nth-child(5){animation-delay:.64s}
+.hero-in > *:nth-child(6){animation-delay:.74s}
+@keyframes heroUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* the two promo cards follow the hero in, not the scroll observer */
+.promos{animation:heroUp .76s var(--e-out) .86s both}
+
+/* who this is for — said once, at the top, before anything else */
+.hero-for{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  flex-wrap:wrap;margin:0 auto clamp(20px,2.4vw,28px);max-width:100%;
+  padding:9px 17px 9px 14px;border-radius:999px;
+  background:rgb(255 255 255 / .12);border:1px solid rgb(255 255 255 / .26);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  font:600 11.5px/1.35 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.hero-for .d{width:7px;height:7px;border-radius:50%;flex:none;
+  background:color-mix(in srgb, var(--brand) 50%, #fff);animation:forPulse 2.8s var(--e-in-out) infinite}
+@keyframes forPulse{
+  0%,100%{box-shadow:0 0 0 0 rgb(255 255 255 / .34)}
+  60%,100%{box-shadow:0 0 0 9px rgb(255 255 255 / 0)}
+}
+@media (max-width:520px){.hero-for{font-size:10px;letter-spacing:.1em;padding:8px 14px 8px 12px}}
+@media (prefers-reduced-motion:reduce){.hero-for .d{animation:none}}
+
+.hero h1{font:600 clamp(31px,4.9vw,60px)/1.08 var(--display);letter-spacing:-.035em;color:#fff}
+.hero h1 em{font-style:normal;color:color-mix(in srgb, var(--brand) 48%, #fff)}
+.hero .sub{color:color-mix(in srgb, var(--bg) 78%, var(--brand));font-size:clamp(15.5px,1.6vw,18.5px);line-height:1.6;
+  max-width:60ch;margin:22px auto 0}
+
+/* search */
+.hsearch{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;
+  padding:7px 7px 7px 22px;max-width:580px;margin:34px auto 0;
+  box-shadow:0 14px 44px rgb(0 0 0 / .26)}
+.hsearch svg.mag{width:19px;height:19px;color:var(--muted);flex:none}
+.hsearch input{flex:1;min-width:0;border:0;outline:0;background:none;
+  font:400 16.5px/1 var(--sans);color:#0C2F2B;padding:12px 0}
+.hsearch input::placeholder{color:#8AA3A0}
+.hsearch button{flex:none;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--brand);color:#fff;display:grid;place-items:center;transition:background .18s,transform .18s}
+.hsearch button:hover{background:var(--brand-ink);transform:scale(1.06)}
+.hsearch button svg{width:19px;height:19px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.hero-note{margin-top:26px;font:500 13.5px/1 var(--sans);color:color-mix(in srgb, var(--bg) 62%, var(--brand));letter-spacing:.01em}
+
+/* two promo cards under the hero */
+.promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+@media (max-width:760px){.promos{grid-template-columns:minmax(0,1fr)}}
+.promo{position:relative;border-radius:var(--r-xl);overflow:hidden;padding:34px 32px;
+  display:flex;flex-direction:column;min-height:252px;text-decoration:none;text-align:left;
+  transition:transform .24s,box-shadow .24s}
+.promo:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.promo.a{background:linear-gradient(145deg,var(--brand),var(--brand-ink))}
+.promo.b{background:linear-gradient(145deg,var(--coral),var(--coral-ink))}
+.promo h3{color:#fff;font-size:22px;margin-bottom:10px}
+.promo p{color:rgb(255 255 255 / .88);font-size:15px;line-height:1.58;max-width:36ch}
+.promo .cfoot{margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between}
+.promo .tagr{font:700 9.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;border:1px solid rgb(255 255 255 / .45);border-radius:6px;padding:5px 8px}
+.promo .arw{background:#fff;color:var(--deep)}
+.promo:hover .arw{transform:translateX(4px);background:#fff}
+
+/* ============ STAT BAND — the animated numbers ============ */
+.statband{padding:var(--gap) 0;text-align:center}
+.statband .lede{margin-inline:auto}
+.stat b.counting{color:var(--brand)}
+.stat b{transition:color .5s ease}
+
+
+/* ============ MARQUEE ============ */
+/* full-bleed: lives OUTSIDE .wrap so it can clip against the viewport */
+.mq{overflow:hidden;width:100%;max-width:100vw;
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);margin-top:46px}
+.mq-in{display:flex;gap:14px;width:max-content;animation:mq 42s linear infinite}
+.mq:hover .mq-in{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-in{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+.mq .pill{white-space:nowrap}
+
+/* ============ PLANS ============ */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:960px;margin:48px auto 0}
+@media (max-width:760px){.plans{grid-template-columns:minmax(0,1fr)}}
+.plan{border:1.5px solid var(--line);border-radius:var(--r-xl);padding:34px 30px;
+  background:var(--bg);text-align:left;min-width:0}
+.plan.pro{border-color:var(--coral);background:var(--bg)}
+.plan .pr{font:300 46px/1 var(--display);letter-spacing:-.04em;margin:18px 0 6px}
+.plan .pr small{font:600 12px/1 var(--mono);color:var(--muted);letter-spacing:.08em}
+.plan ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:11px}
+.plan li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.52;color:var(--ink-2)}
+.plan li svg{width:17px;height:17px;flex:none;margin-top:3px;color:var(--brand)}
+.plan.pro li svg{color:var(--coral)}
+.plan-x{font-size:15px;line-height:1.6;color:var(--muted);margin:18px 0 0}
+
+/* ============ CTA ============ */
+.band{text-align:center;padding:var(--gap) 0}
+  .band .h2{margin-bottom:18px}
+
+/* Homepage refresh: editorial clinical reference direction */
+.hero{padding-top:clamp(24px,4vw,52px)}
+.hero-panel{border-radius:0;min-height:clamp(560px,61vw,700px);place-items:stretch;background:#0b2135}
+.hero-panel img{object-position:58% center;filter:saturate(.72) contrast(1.04)}
+.hero-panel::after{background:linear-gradient(90deg,rgba(7,27,45,.97) 0%,rgba(7,27,45,.88) 35%,rgba(7,27,45,.3) 70%,rgba(7,27,45,.18) 100%)}
+.hero-in{max-width:720px;padding:clamp(56px,8vw,112px) clamp(24px,6vw,88px);text-align:left;align-self:center;margin:0}
+.hero-for{margin:0 0 26px;padding:0;background:none;border:0;border-radius:0;backdrop-filter:none;color:#b9d8dc;justify-content:flex-start;font-size:11px;letter-spacing:.16em}
+.hero-for .d{background:#9bd2d0}
+.hero h1{font-size:clamp(42px,6.2vw,78px);line-height:1.02;letter-spacing:-.05em;max-width:10ch}
+.hero h1 em{color:#a9d7d5}
+.hero .sub{margin:26px 0 0;color:#d2e0e2;max-width:47ch;font-size:clamp(16px,1.5vw,19px);line-height:1.65}
+.hsearch{margin:34px 0 0;max-width:560px;border-radius:5px;padding:6px 6px 6px 18px}
+.hsearch button{border-radius:4px;background:#0d7f82}
+.hero-cta{justify-content:flex-start;margin-top:22px}
+.hero-note{margin-top:22px;color:#b9cbd0}
+.promos{grid-template-columns:1.15fr .85fr;gap:0;margin-top:0}
+.promo{border-radius:0;min-height:220px;padding:30px 32px}
+.promo.a{background:#0d7f82}.promo.b{background:#e7f0ef;color:#0b2135}
+.promo.b h3,.promo.b p{color:#0b2135}.promo.b p{color:#31505a}.promo.b .tagr{color:#0d6c70;border-color:#8bb9b7}.promo.b .arw{background:#0b2135;color:#fff}
+.statband{padding-top:clamp(78px,10vw,132px)}
+.eyebrow{letter-spacing:.17em}
+.h2{font-size:clamp(34px,4.8vw,58px);letter-spacing:-.045em}
+.statband .lede,.sec .lede{max-width:58ch}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0}
+.band-img{border-radius:0!important}
+.sec.alt{background:#f2f5f4}
+.card,.plan{border-radius:4px}
+.card.link.pic{box-shadow:none;border:1px solid var(--line);transition:transform .3s var(--e-out),box-shadow .3s var(--e-out)}
+.card.link.pic:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgb(11 33 53 / .12)}
+.card .photo{filter:saturate(.72)}
+@media (max-width:760px){.promos{grid-template-columns:1fr}.hero-panel{min-height:650px}.hero-panel::after{background:linear-gradient(180deg,rgba(7,27,45,.78),rgba(7,27,45,.96))}.hero-in{padding:48px 20px 32px}.hero h1{max-width:12ch}}
+@media (prefers-reduced-motion:reduce){.hero-panel,.hero-in > *, .promos{animation:none!important}.card.link.pic:hover,.promo:hover{transform:none}}
+
+/* Keep homepage styles on the light default and let the site theme system take over in dark mode. */
+html[data-theme="light"] body:has(.hero),
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body:has(.hero) {
+    --ink:#10243e;
+    --ink-2:#40526a;
+    --muted:#718096;
+    --bg:#ffffff;
+    --bg-2:#f7f9fb;
+    --bg-3:#eef3f7;
+    --line:#dce5ed;
+    --line-2:#c1cfdb;
+    --brand:#2f7790;
+    --brand-ink:#245e77;
+    --brand-soft:#e7f2f5;
+    --deep:#102d4b;
+    --r:14px;
+    --r-lg:20px;
+    --r-xl:28px;
+    --shadow:0 12px 35px rgb(16 45 75 / .09);
+  }
+}
+body:has(.hero) .top{background:rgb(255 255 255 / .88);box-shadow:none}
+body:has(.hero) .brand-mk{border-radius:8px!important;background:var(--deep)!important}
+body:has(.hero) .btn{border-radius:999px!important}
+body:has(.hero) .btn.pri{background:var(--deep)!important;border-color:var(--deep)!important}
+body:has(.hero) .sec{text-align:center}
+body:has(.hero) .sec > .wrap > *{margin-inline:auto}
+body:has(.hero) .hero{text-align:center!important;background:linear-gradient(180deg,#f8fbfd 0%,#fff 82%)!important;border-bottom:0}
+body:has(.hero) .hero .wrap{display:block}
+body:has(.hero) .hero .h1{max-width:15ch;margin-inline:auto}
+body:has(.hero) .hero .lede{max-width:58ch;margin-inline:auto}
+body:has(.hero) .hero img,
+body:has(.hero) .hero .hero-art,
+body:has(.hero) .hero .hero-img{border-radius:20px!important;box-shadow:var(--shadow)!important}
+body:has(.hero) .card,
+body:has(.hero) .tile,
+body:has(.hero) .feature,
+body:has(.hero) .panel,
+body:has(.hero) .quote,
+body:has(.hero) .callout{border-radius:var(--r-lg)!important;box-shadow:var(--shadow)!important;border-color:var(--line)!important}
+body:has(.hero) .cards,
+body:has(.hero) .tiles,
+body:has(.hero) .features{gap:clamp(16px,2vw,28px)!important;background:transparent;border:0}
+body:has(.hero) .cards > *,
+body:has(.hero) .tiles > *,
+body:has(.hero) .features > *{border:1px solid var(--line)!important;border-radius:var(--r-lg)!important}
+@media (max-width:760px){body:has(.hero) .hero .h1{max-width:16ch}}
+</style>
+</head>
+<body>
+
+<header class="top" id="site-top"></header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-panel">
+      <!-- swap img/hero.jpg for your own photo, 1600×900 or larger -->
+      <img src="img/hero.jpg" alt="">
+      <div class="hero-in">
+        <div class="hero-for"><span class="d"></span>For physiotherapists &amp; physio students</div>
+        <h1>Search free, evidence-based<br><em>physiotherapy pages</em><br>written to one standard.</h1>
+        <p class="sub">Built for physios and physiotherapy students — every presentation, special test, outcome measure and exercise, each carrying its own references, and each telling you how to reason clinically.</p>
+        <form class="hsearch" onsubmit="event.preventDefault();var v=this.querySelector('input').value.trim();location.href='library.html'+(v?'?q='+encodeURIComponent(v):'');">
+          <svg class="mag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+          <input type="search" placeholder="Search a condition, test or measure" aria-label="Search CliniPD">
+          <button type="submit" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+          </button>
+        </form>
+        <div class="hero-cta">
+          <a class="btn light big" href="library.html">Open the library</a>
+          <a class="btn big" href="cases.html" style="background:transparent;border-color:rgb(255 255 255 / .35);color:#fff">See a worked case</a>
+        </div>
+        <p class="hero-note">Free, no account needed · Built in Perth, Western Australia</p>
+      </div>
+    </div>
+
+    <div class="promos">
+      <a class="promo a" href="cpd.html">
+        <h3>CPD that logs itself</h3>
+        <p>Read a page, bank the hours. Export an audit-ready portfolio when you renew your registration.</p>
+        <div class="cfoot"><span class="tagr">Pro</span>
+          <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
+        </div>
+      </a>
+      <a class="promo b" href="research.html">
+        <h3>The research feed</h3>
+        <p>New trials, reviews and guidelines in your domains — each summarised in one line, so ten seconds decides your evening.</p>
+        <div class="cfoot"><span class="tagr">Pro</span>
+          <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= STAT BAND ======================= -->
+<section class="statband">
+  <div class="wrap">
+    <div class="eyebrow" data-rev="0">A reference library for physios</div>
+    <h2 class="h2" data-rev="40">Built once. Kept useful.</h2>
+    <p class="lede" style="margin-top:18px" data-rev="80">No page is a stub with a paragraph and a hopeful link. Every one answers the same seventeen questions in the same order.</p>
+
+    <div class="stats" style="margin-top:62px" data-rev="0">
+      <div class="stat">
+        <b data-count="927">0</b>
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5V5.5Zm7 0A1.5 1.5 0 0 1 12.5 4H18a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 18 20h-5.5a1.5 1.5 0 0 1-1.5-1.5v-13Z"/></svg></span>
+        <span>Pages of structure across eight clinical domains</span>
+      </div>
+      <div class="stat">
+        <b data-count="416">0</b>
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.4A4.6 4.6 0 0 1 12 6.5 4.6 4.6 0 0 1 19 10.6C19 15.6 12 20 12 20Z"/></svg></span>
+        <span>Clinical presentations, from patellofemoral pain to stroke</span>
+      </div>
+      <div class="stat">
+        <b data-count="134">0</b>
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+        <span>Special tests with sensitivity, specificity and likelihood ratios</span>
+      </div>
+      <div class="stat">
+        <b data-count="17">0</b>
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v16l-7-3.4L5 20Z"/></svg></span>
+        <span>Sections on every single page, in the same order</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mq" aria-hidden="true">
+    <div class="mq-in" id="mq"></div>
+  </div>
+</section>
+
+<footer class="foot" id="site-foot"></footer>
+
+<script src="site.js"></script>
+<script src="glossary.js"></script>
+<script>
+(function(){
+  var host = document.getElementById('mq');
+  if(!host) return;
+  var items = ['Musculoskeletal','Patellofemoral pain','Stroke rehabilitation','COPD','ACL reconstruction',
+    'Falls & balance','Vestibular','Lumbar radiculopathy','Rotator cuff','Persistent pain','Paediatric gait',
+    'Pelvic health','Cardiac rehab','Hamstring strain','Frozen shoulder','Achilles tendinopathy',
+    'Parkinson’s disease','Post-operative chest','Knee osteoarthritis','Return to sport'];
+  var html = items.map(function(t){ return '<span class="pill">'+t+'</span>'; }).join('');
+  host.innerHTML = html + html;
+})();
+</script>
+</body>
+</html>
