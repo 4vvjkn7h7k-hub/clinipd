@@ -5,7 +5,8 @@
    placement) and by library.html, so the hub and the lists are
    the same object by construction rather than by copy-paste.
    ============================================================ */
-.az-head{padding:clamp(52px,6vw,92px) 0 clamp(34px,4vw,50px);background:var(--bg-2);text-align:center}
+.az-head{padding:clamp(52px,6vw,92px) 0 clamp(34px,4vw,50px);background:var(--bg-2);text-align:left;border-bottom:1px solid var(--line)}
+.az-head .h1,.az-head .lede{margin-left:0;margin-right:0}
 .az-head .h1{max-width:18ch;margin-inline:auto}
 .az-head .lede{margin-top:20px}
 .az-head .crumb{font:500 13.5px/1 var(--sans);color:var(--muted);margin-bottom:20px}
