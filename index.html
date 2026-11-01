@@ -169,7 +169,40 @@
 .card .photo{filter:saturate(.72)}
 @media (max-width:760px){.promos{grid-template-columns:1fr}.hero-panel{min-height:650px}.hero-panel::after{background:linear-gradient(180deg,rgba(7,27,45,.78),rgba(7,27,45,.96))}.hero-in{padding:48px 24px}.hero h1{max-width:12ch}.promo{min-height:190px}}
 @media (prefers-reduced-motion:reduce){.hero-panel,.hero-in > *, .promos{animation:none!important}.card.link.pic:hover,.promo:hover{transform:none}}
-</style>
+
+    /* Keep readable copy black while preserving the editorial accent colors. */
+    body,
+    p,
+    li,
+    label,
+    dt,
+    dd,
+    blockquote,
+    .card__text,
+    .feature-card__body,
+    .resource-card__body,
+    .section-intro,
+    .muted,
+    .supporting-text {
+      color: #111827;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    button,
+    .eyebrow,
+    .kicker,
+    .accent,
+    .tag,
+    .badge {
+      color: revert;
+    }
+  </style>
 </head>
 <body>
 
