@@ -202,7 +202,52 @@
     .badge {
       color: revert;
     }
-  </style>
+  /* Homepage-only visual direction: premium, spacious, and softer than clinical reference pages. */
+body:has(.hero){
+  --ink:#10243e;
+  --ink-2:#40526a;
+  --muted:#718096;
+  --bg:#ffffff;
+  --bg-2:#f7f9fb;
+  --bg-3:#eef3f7;
+  --line:#dce5ed;
+  --line-2:#c1cfdb;
+  --brand:#2f7790;
+  --brand-ink:#245e77;
+  --brand-soft:#e7f2f5;
+  --deep:#102d4b;
+  --r:14px;
+  --r-lg:20px;
+  --r-xl:28px;
+  --shadow:0 12px 35px rgb(16 45 75 / .09);
+}
+body:has(.hero) .top{background:rgb(255 255 255 / .88);box-shadow:none}
+body:has(.hero) .brand-mk{border-radius:8px!important;background:var(--deep)!important}
+body:has(.hero) .btn{border-radius:999px!important}
+body:has(.hero) .btn.pri{background:var(--deep)!important;border-color:var(--deep)!important}
+body:has(.hero) .sec{text-align:center}
+body:has(.hero) .sec > .wrap > *{margin-inline:auto}
+body:has(.hero) .hero{text-align:center!important;background:linear-gradient(180deg,#f8fbfd 0%,#fff 82%)!important;border-bottom:0}
+body:has(.hero) .hero .wrap{display:block}
+body:has(.hero) .hero .h1{max-width:15ch;margin-inline:auto}
+body:has(.hero) .hero .lede{max-width:58ch;margin-inline:auto}
+body:has(.hero) .hero img,
+body:has(.hero) .hero .hero-art,
+body:has(.hero) .hero .hero-img{border-radius:20px!important;box-shadow:var(--shadow)!important}
+body:has(.hero) .card,
+body:has(.hero) .tile,
+body:has(.hero) .feature,
+body:has(.hero) .panel,
+body:has(.hero) .quote,
+body:has(.hero) .callout{border-radius:var(--r-lg)!important;box-shadow:var(--shadow)!important;border-color:var(--line)!important}
+body:has(.hero) .cards,
+body:has(.hero) .tiles,
+body:has(.hero) .features{gap:clamp(16px,2vw,28px)!important;background:transparent;border:0}
+body:has(.hero) .cards > *,
+body:has(.hero) .tiles > *,
+body:has(.hero) .features > *{border:1px solid var(--line)!important;border-radius:var(--r-lg)!important}
+@media (max-width:760px){body:has(.hero) .hero .h1{max-width:16ch}}
+</style>
 </head>
 <body>
 
