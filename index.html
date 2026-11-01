@@ -135,7 +135,40 @@
 
 /* ============ CTA ============ */
 .band{text-align:center;padding:var(--gap) 0}
-.band .h2{margin-bottom:18px}
+  .band .h2{margin-bottom:18px}
+
+/* Homepage refresh: editorial clinical reference direction */
+.hero{padding-top:clamp(24px,4vw,52px)}
+.hero-panel{border-radius:0;min-height:clamp(560px,61vw,700px);place-items:stretch;background:#0b2135}
+.hero-panel img{object-position:58% center;filter:saturate(.72) contrast(1.04)}
+.hero-panel::after{background:linear-gradient(90deg,rgba(7,27,45,.97) 0%,rgba(7,27,45,.88) 35%,rgba(7,27,45,.3) 70%,rgba(7,27,45,.18) 100%)}
+.hero-in{max-width:720px;padding:clamp(56px,8vw,112px) clamp(24px,6vw,88px);text-align:left;align-self:center;margin:0}
+.hero-for{margin:0 0 26px;padding:0;background:none;border:0;border-radius:0;backdrop-filter:none;color:#b9d8dc;justify-content:flex-start;font-size:11px;letter-spacing:.16em}
+.hero-for .d{background:#9bd2d0}
+.hero h1{font-size:clamp(42px,6.2vw,78px);line-height:1.02;letter-spacing:-.05em;max-width:10ch}
+.hero h1 em{color:#a9d7d5}
+.hero .sub{margin:26px 0 0;color:#d2e0e2;max-width:47ch;font-size:clamp(16px,1.5vw,19px);line-height:1.65}
+.hsearch{margin:34px 0 0;max-width:560px;border-radius:5px;padding:6px 6px 6px 18px}
+.hsearch button{border-radius:4px;background:#0d7f82}
+.hero-cta{justify-content:flex-start;margin-top:22px}
+.hero-note{margin-top:22px;color:#b9cbd0}
+.promos{grid-template-columns:1.15fr .85fr;gap:0;margin-top:0}
+.promo{border-radius:0;min-height:220px;padding:30px 32px}
+.promo.a{background:#0d7f82}.promo.b{background:#e7f0ef;color:#0b2135}
+.promo.b h3,.promo.b p{color:#0b2135}.promo.b p{color:#31505a}.promo.b .tagr{color:#0d6c70;border-color:#8bb9b7}.promo.b .arw{background:#0b2135;color:#fff}
+.statband{padding-top:clamp(78px,10vw,132px)}
+.eyebrow{letter-spacing:.17em}
+.h2{font-size:clamp(34px,4.8vw,58px);letter-spacing:-.045em}
+.statband .lede,.sec .lede{max-width:58ch}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0}
+.band-img{border-radius:0!important}
+.sec.alt{background:#f2f5f4}
+.card,.plan{border-radius:4px}
+.card.link.pic{box-shadow:none;border:1px solid var(--line);transition:transform .3s var(--e-out),box-shadow .3s var(--e-out)}
+.card.link.pic:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgb(11 33 53 / .12)}
+.card .photo{filter:saturate(.72)}
+@media (max-width:760px){.promos{grid-template-columns:1fr}.hero-panel{min-height:650px}.hero-panel::after{background:linear-gradient(180deg,rgba(7,27,45,.78),rgba(7,27,45,.96))}.hero-in{padding:48px 24px}.hero h1{max-width:12ch}.promo{min-height:190px}}
+@media (prefers-reduced-motion:reduce){.hero-panel,.hero-in > *, .promos{animation:none!important}.card.link.pic:hover,.promo:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -189,8 +222,8 @@
 <!-- ======================= STAT BAND ======================= -->
 <section class="statband">
   <div class="wrap">
-    <div class="eyebrow" data-rev="0">What's in the library</div>
-    <h2 class="h2" data-rev="40">Built once, properly.</h2>
+    <div class="eyebrow" data-rev="0">A reference library for physios</div>
+    <h2 class="h2" data-rev="40">Built once. Kept useful.</h2>
     <p class="lede" style="margin-top:18px" data-rev="80">No page is a stub with a paragraph and a hopeful link. Every one answers the same seventeen questions in the same order.</p>
 
     <div class="stats" style="margin-top:62px" data-rev="0">
@@ -241,35 +274,35 @@
 <!-- ======================= WHAT YOU GET ======================= -->
 <section class="sec">
   <div class="wrap">
-    <div class="eyebrow" data-rev="0">Three things, one place</div>
-    <h2 class="h2" data-rev="40">Look it up. Test yourself.<br>Prove you did it.</h2>
+    <div class="eyebrow" data-rev="0">A clinical learning system</div>
+    <h2 class="h2" data-rev="40">Reference the evidence.<br>Rehearse the practice.</h2>
 
     <div class="grid g3" style="margin-top:52px">
       <a class="card link pic" href="library.html" data-rev="0">
         <img class="photo" src="img/card-library.jpg" alt="">
         <div class="body">
-          <h3>The library</h3>
-          <p>Every presentation, test, measure and exercise — written to one template, referenced throughout, and dated so you can see how current the evidence is.</p>
+          <h3>Anatomy &amp; assessment</h3>
+          <p>Conditions, anatomy, special tests, outcome measures and exercises — written to one template, referenced throughout, and dated so you can see how current the evidence is.</p>
           <div class="cfoot"><span class="tag free">Free forever</span>
             <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
           </div>
         </div>
       </a>
-      <a class="card link pic" href="questions.html" data-rev="80">
+      <a class="card link pic" href="qbank.html" data-rev="80">
         <img class="photo" src="img/card-questions.jpg" alt="">
         <div class="body">
-          <h3>The question bank</h3>
+          <h3>MCQ question bank</h3>
           <p>Exam-style questions with worked reasoning on every option — why the wrong ones are wrong — each traced back to the page it came from.</p>
           <div class="cfoot"><span class="tag pro">Pro</span>
             <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
           </div>
         </div>
       </a>
-      <a class="card link pic" href="cpd.html" data-rev="160">
+      <a class="card link pic" href="osce.html" data-rev="160">
         <img class="photo" src="img/card-cpd.jpg" alt="">
         <div class="body">
-          <h3>CPD and compliance</h3>
-          <p>Hours logged as you read, with the reference, the date and your reflection — exported in a form that survives an audit.</p>
+          <h3>OSCE &amp; clinical reasoning</h3>
+          <p>Work through clinical cases, practical stations and marking criteria so your knowledge transfers confidently from page to patient.</p>
           <div class="cfoot"><span class="tag pro">Pro</span>
             <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
           </div>
