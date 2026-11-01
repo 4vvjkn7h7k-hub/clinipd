@@ -32,12 +32,50 @@
 .chip.warn{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
 
 /* one readable column, centred */
-.art-wrap{max-width:760px;padding-bottom:40px}
+.art-wrap{max-width:1120px;padding-bottom:40px;display:grid;grid-template-columns:190px minmax(0,760px) 220px;gap:clamp(24px,4vw,56px);align-items:start}
+.art-wrap > .toc{grid-column:1;grid-row:1 / span 20;position:sticky;top:calc(var(--top) + 24px);margin-top:clamp(40px,5vw,64px);padding:18px 0;border:0;border-top:2px solid var(--deep);border-bottom:1px solid var(--line);background:transparent;border-radius:0}
+.art-wrap > .toc h2{color:var(--deep);margin-bottom:14px}
+.art-wrap > .toc ol{columns:1}
+.art-wrap > .toc a{font-size:12.5px}
+.art-wrap > .vid,.art-wrap > .sec-a,.art-wrap > .refs,.art-wrap > .pager,.art-wrap > .pid{grid-column:2}
+.art-wrap > .vid{margin-top:clamp(40px,5vw,64px)}
+.art-wrap > .sec-a{margin-top:clamp(36px,4vw,54px)}
+.art-wrap > .sec-a:first-of-type{margin-top:0}
+@media (max-width:920px){
+  .art-wrap{display:block;max-width:760px}
+  .art-wrap > .toc{position:relative;top:auto;margin-top:40px;padding:20px 22px;border:1px solid var(--line);background:var(--bg-2);border-radius:4px}
+  .art-wrap > .toc ol{columns:2}
+}
+
+/* ---------- physiotherapy pathway ------------------------- */
+.pathway-rail{
+  grid-column:1 / -1;
+  display:flex;align-items:center;gap:24px;
+  padding:14px 0 16px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:var(--ink-2);
+}
+.pathway-kicker{
+  flex:none;
+  font:600 10px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brand-ink);max-width:150px;
+}
+.pathway-rail ol{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;flex:1;margin:0;padding:0;list-style:none}
+.pathway-rail li{display:flex;align-items:center;gap:8px;min-width:0}
+.pathway-rail li b{font:600 10px/1 var(--mono);color:var(--brand)}
+.pathway-rail li span{font-size:12px;white-space:nowrap}
+@media (max-width:920px){
+  .pathway-rail{display:block;margin:32px 0 0}
+  .pathway-kicker{display:block;margin-bottom:14px;max-width:none}
+  .pathway-rail ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}
+}
+@media (max-width:520px){.pathway-rail ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* ---------- on this page ---------- */
 .toc{
-  margin:clamp(40px,5vw,64px) 0 0;padding:26px 30px;
-  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-2);
+  margin:clamp(40px,5vw,64px) 0 0;padding:20px 22px;
+  border:1px solid var(--line);border-radius:4px;background:var(--bg-2);
 }
 .toc h2{
   font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
@@ -91,6 +129,10 @@
   font:600 12px/1 var(--mono);color:var(--brand);flex:none;
   letter-spacing:.06em;
 }
+.sec-a:nth-of-type(2) > h2 .sn,.sec-a:nth-of-type(3) > h2 .sn{color:#8b5cf6}
+.sec-a:nth-of-type(4) > h2 .sn,.sec-a:nth-of-type(5) > h2 .sn{color:#0f766e}
+.sec-a:nth-of-type(6) > h2 .sn,.sec-a:nth-of-type(7) > h2 .sn{color:#b45309}
+.sec-a:nth-of-type(n+8) > h2 .sn{color:#2563eb}
 .flds{display:grid;gap:12px}
 .fld{
   border:1px dashed var(--line-2);border-radius:14px;

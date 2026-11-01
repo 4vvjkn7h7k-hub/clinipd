@@ -1467,3 +1467,78 @@ body{animation:pageIn .34s var(--e-out) both}
 @media (prefers-reduced-motion:reduce){
   body{animation:none}
 }
+
+/* ============================================================
+   CLINIPD EDITORIAL SYSTEM
+   A quieter, publication-led layer for the full static site.
+   The existing classes and interactions remain the source of truth;
+   these refinements change their visual language without changing
+   page structure or behaviour.
+   ============================================================ */
+:root{
+  --ink:#121d2a;
+  --ink-2:#344253;
+  --muted:#667487;
+  --bg:#fffefa;
+  --bg-2:#f5f6f4;
+  --bg-3:#e9eeeb;
+  --line:#d9e0dc;
+  --line-2:#b7c5bf;
+  --brand:#176b68;
+  --brand-ink:#0f514f;
+  --brand-soft:#e6f0ed;
+  --deep:#102b35;
+  --r:4px;
+  --r-lg:6px;
+  --r-xl:8px;
+  --shadow:0 1px 2px rgb(16 43 53 / .04),0 8px 24px rgb(16 43 53 / .05);
+  --shadow-lg:0 10px 36px rgb(16 43 53 / .12);
+  --gap:clamp(64px,8vw,112px);
+}
+
+body{color:var(--ink);background:var(--bg)}
+.top{background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.top.stuck{box-shadow:0 2px 14px rgb(16 43 53 / .07)}
+.brand-mk{border-radius:3px!important;background:var(--deep)!important}
+.brand-tx{letter-spacing:-.045em}
+.brand-for{letter-spacing:.16em!important;color:var(--muted)!important}
+.nav-a{font-size:13px!important;letter-spacing:.01em}
+.btn{border-radius:3px!important;box-shadow:none!important}
+.btn.pri{background:var(--deep)!important;border-color:var(--deep)!important}
+.btn.pri:hover{background:var(--brand-ink)!important;border-color:var(--brand-ink)!important}
+.btn.ghost{border-color:var(--line-2)!important}
+.sec{text-align:left}
+.sec > .wrap > *{margin-inline:0}
+.sec > .wrap > .h2,.sec > .wrap > .lede,.sec > .wrap > .eyebrow{max-width:68ch}
+.eyebrow{letter-spacing:.16em!important;color:var(--brand-ink)!important}
+.h1,.h2,.h3{letter-spacing:-.035em}
+.lede{color:var(--ink-2)!important;max-width:62ch}
+.card,.tile,.feature,.panel,.quote,.callout{border-radius:4px!important;box-shadow:none!important;border-color:var(--line)!important}
+.card:hover,.tile:hover,.feature:hover{box-shadow:var(--shadow)!important;transform:translateY(-2px)}
+.card p,.tile p,.feature p{color:var(--ink-2)}
+.cards,.tiles,.features{gap:1px!important;background:var(--line);border:1px solid var(--line)}
+.cards > *, .tiles > *, .features > *{background:var(--bg);border-radius:0!important;border:0!important}
+
+/* Search, filters and buttons read as tools in a reference library. */
+.az-tools{background:color-mix(in srgb,var(--bg) 97%,transparent);border-bottom-color:var(--line)}
+.az-srch{border-radius:4px;background:var(--bg);border-color:var(--line-2);box-shadow:none}
+.az-srch:focus-within{box-shadow:0 0 0 3px var(--brand-soft)}
+.az-filters button,.az-sort select{border-radius:3px;background:var(--bg);box-shadow:none}
+.az-filters button[aria-pressed="true"],.pagi button[aria-current="page"]{background:var(--deep);border-color:var(--deep)}
+.az-list{border-radius:4px;box-shadow:none}
+.az-row{padding-block:17px}
+.az-row:hover{background:var(--bg-2)}
+.az-l b{border-radius:3px;background:var(--deep)}
+
+/* Home hero: editorial split instead of a centred marketing stack. */
+.hero{text-align:left!important;background:var(--bg-2)!important;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:clamp(32px,7vw,104px);align-items:center}
+.hero .wrap > *{margin-inline:0!important}
+.hero .h1{max-width:12ch}
+.hero .lede{max-width:52ch}
+.hero .hero-art,.hero .hero-img,.hero img{border-radius:4px!important;box-shadow:none!important}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero .h1{max-width:16ch}}
+
+@media (prefers-reduced-motion:reduce){
+  .card:hover,.tile:hover,.feature:hover{transform:none}
+}

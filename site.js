@@ -759,6 +759,27 @@ async function articleContent() {
   if (window.glossInit) $$(".fld-live").forEach(el => glossInit(el));
 }
 
+/* ---------- clinical pathway rail ------------------------- */
+function clinicalPathway() {
+  const wrap = document.querySelector(".art-wrap");
+  if (!wrap || wrap.querySelector(".pathway-rail")) return;
+
+  const rail = document.createElement("div");
+  rail.className = "pathway-rail";
+  rail.setAttribute("aria-label", "Physiotherapy clinical pathway");
+  rail.innerHTML = `
+    <span class="pathway-kicker">Physiotherapy clinical pathway</span>
+    <ol>
+      <li><b>01</b><span>Understand</span></li>
+      <li><b>02</b><span>Assess</span></li>
+      <li><b>03</b><span>Investigate</span></li>
+      <li><b>04</b><span>Manage</span></li>
+      <li><b>05</b><span>Rehabilitate</span></li>
+      <li><b>06</b><span>Reason</span></li>
+    </ol>`;
+  wrap.insertBefore(rail, wrap.firstElementChild);
+}
+
 /* ---------- boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   buildNav();
@@ -769,4 +790,5 @@ document.addEventListener("DOMContentLoaded", () => {
   progress();
   heroDrift();
   articleContent();
+  clinicalPathway();
 });
