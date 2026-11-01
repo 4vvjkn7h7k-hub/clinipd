@@ -47,6 +47,31 @@
   .art-wrap > .toc ol{columns:2}
 }
 
+/* ---------- physiotherapy pathway ------------------------- */
+.pathway-rail{
+  grid-column:1 / -1;
+  display:flex;align-items:center;gap:24px;
+  padding:14px 0 16px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:var(--ink-2);
+}
+.pathway-kicker{
+  flex:none;
+  font:600 10px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brand-ink);max-width:150px;
+}
+.pathway-rail ol{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;flex:1;margin:0;padding:0;list-style:none}
+.pathway-rail li{display:flex;align-items:center;gap:8px;min-width:0}
+.pathway-rail li b{font:600 10px/1 var(--mono);color:var(--brand)}
+.pathway-rail li span{font-size:12px;white-space:nowrap}
+@media (max-width:920px){
+  .pathway-rail{display:block;margin:32px 0 0}
+  .pathway-kicker{display:block;margin-bottom:14px;max-width:none}
+  .pathway-rail ol{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}
+}
+@media (max-width:520px){.pathway-rail ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* ---------- on this page ---------- */
 .toc{
   margin:clamp(40px,5vw,64px) 0 0;padding:20px 22px;
@@ -104,6 +129,10 @@
   font:600 12px/1 var(--mono);color:var(--brand);flex:none;
   letter-spacing:.06em;
 }
+.sec-a:nth-of-type(2) > h2 .sn,.sec-a:nth-of-type(3) > h2 .sn{color:#8b5cf6}
+.sec-a:nth-of-type(4) > h2 .sn,.sec-a:nth-of-type(5) > h2 .sn{color:#0f766e}
+.sec-a:nth-of-type(6) > h2 .sn,.sec-a:nth-of-type(7) > h2 .sn{color:#b45309}
+.sec-a:nth-of-type(n+8) > h2 .sn{color:#2563eb}
 .flds{display:grid;gap:12px}
 .fld{
   border:1px dashed var(--line-2);border-radius:14px;
