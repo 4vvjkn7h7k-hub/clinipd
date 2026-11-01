@@ -6,7 +6,7 @@
 <title>CliniPD — the clinical reference physios actually open</title>
 <meta name="description" content="Search free, evidence-based physiotherapy pages — every presentation, special test, outcome measure and exercise, written to one template and carrying its own references.">
 <link rel="stylesheet" href="site.css">
-<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);if(!_s&&!_f&&!_m){_r.setAttribute("data-scheme","ocean");}}catch(e){}</script>
+<script>try{var _r=document.documentElement,_s=localStorage.getItem("clinipd:scheme"),_f=localStorage.getItem("clinipd:font"),_m=localStorage.getItem("clinipd:mode");if(_s)_r.setAttribute("data-scheme",_s);if(_f)_r.setAttribute("data-font",_f);if(_m)_r.setAttribute("data-theme",_m);if(!_m && window.matchMedia('(prefers-color-scheme: dark)').matches)_r.setAttribute('data-theme','dark');}catch(e){}</script>
 
 <style>
 /* ============ HERO ============ */
@@ -167,59 +167,30 @@
 .card.link.pic{box-shadow:none;border:1px solid var(--line);transition:transform .3s var(--e-out),box-shadow .3s var(--e-out)}
 .card.link.pic:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgb(11 33 53 / .12)}
 .card .photo{filter:saturate(.72)}
-@media (max-width:760px){.promos{grid-template-columns:1fr}.hero-panel{min-height:650px}.hero-panel::after{background:linear-gradient(180deg,rgba(7,27,45,.78),rgba(7,27,45,.96))}.hero-in{padding:48px 24px}.hero h1{max-width:12ch}.promo{min-height:190px}}
+@media (max-width:760px){.promos{grid-template-columns:1fr}.hero-panel{min-height:650px}.hero-panel::after{background:linear-gradient(180deg,rgba(7,27,45,.78),rgba(7,27,45,.96))}.hero-in{padding:48px 20px 32px}.hero h1{max-width:12ch}}
 @media (prefers-reduced-motion:reduce){.hero-panel,.hero-in > *, .promos{animation:none!important}.card.link.pic:hover,.promo:hover{transform:none}}
 
-    /* Keep readable copy black while preserving the editorial accent colors. */
-    body,
-    p,
-    li,
-    label,
-    dt,
-    dd,
-    blockquote,
-    .card__text,
-    .feature-card__body,
-    .resource-card__body,
-    .section-intro,
-    .muted,
-    .supporting-text {
-      color: #111827;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    a,
-    button,
-    .eyebrow,
-    .kicker,
-    .accent,
-    .tag,
-    .badge {
-      color: revert;
-    }
-  /* Homepage-only visual direction: premium, spacious, and softer than clinical reference pages. */
-body:has(.hero){
-  --ink:#10243e;
-  --ink-2:#40526a;
-  --muted:#718096;
-  --bg:#ffffff;
-  --bg-2:#f7f9fb;
-  --bg-3:#eef3f7;
-  --line:#dce5ed;
-  --line-2:#c1cfdb;
-  --brand:#2f7790;
-  --brand-ink:#245e77;
-  --brand-soft:#e7f2f5;
-  --deep:#102d4b;
-  --r:14px;
-  --r-lg:20px;
-  --r-xl:28px;
-  --shadow:0 12px 35px rgb(16 45 75 / .09);
+/* Keep homepage styles on the light default and let the site theme system take over in dark mode. */
+html[data-theme="light"] body:has(.hero),
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body:has(.hero) {
+    --ink:#10243e;
+    --ink-2:#40526a;
+    --muted:#718096;
+    --bg:#ffffff;
+    --bg-2:#f7f9fb;
+    --bg-3:#eef3f7;
+    --line:#dce5ed;
+    --line-2:#c1cfdb;
+    --brand:#2f7790;
+    --brand-ink:#245e77;
+    --brand-soft:#e7f2f5;
+    --deep:#102d4b;
+    --r:14px;
+    --r-lg:20px;
+    --r-xl:28px;
+    --shadow:0 12px 35px rgb(16 45 75 / .09);
+  }
 }
 body:has(.hero) .top{background:rgb(255 255 255 / .88);box-shadow:none}
 body:has(.hero) .brand-mk{border-radius:8px!important;background:var(--deep)!important}
@@ -262,7 +233,7 @@ body:has(.hero) .features > *{border:1px solid var(--line)!important;border-radi
       <div class="hero-in">
         <div class="hero-for"><span class="d"></span>For physiotherapists &amp; physio students</div>
         <h1>Search free, evidence-based<br><em>physiotherapy pages</em><br>written to one standard.</h1>
-        <p class="sub">Built for physios and physiotherapy students — every presentation, special test, outcome measure and exercise, each carrying its own references, and each telling you how old the evidence is.</p>
+        <p class="sub">Built for physios and physiotherapy students — every presentation, special test, outcome measure and exercise, each carrying its own references, and each telling you how to reason clinically.</p>
         <form class="hsearch" onsubmit="event.preventDefault();var v=this.querySelector('input').value.trim();location.href='library.html'+(v?'?q='+encodeURIComponent(v):'');">
           <svg class="mag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
           <input type="search" placeholder="Search a condition, test or measure" aria-label="Search CliniPD">
@@ -307,12 +278,12 @@ body:has(.hero) .features > *{border:1px solid var(--line)!important;border-radi
     <div class="stats" style="margin-top:62px" data-rev="0">
       <div class="stat">
         <b data-count="927">0</b>
-        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5v-13ZM13 4h5.5A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5H13V4Z"/></svg></span>
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5V5.5Zm7 0A1.5 1.5 0 0 1 12.5 4H18a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 18 20h-5.5a1.5 1.5 0 0 1-1.5-1.5v-13Z"/></svg></span>
         <span>Pages of structure across eight clinical domains</span>
       </div>
       <div class="stat">
         <b data-count="416">0</b>
-        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.4A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 7 4.6C19 15.6 12 20 12 20Z"/></svg></span>
+        <span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.4A4.6 4.6 0 0 1 12 6.5 4.6 4.6 0 0 1 19 10.6C19 15.6 12 20 12 20Z"/></svg></span>
         <span>Clinical presentations, from patellofemoral pain to stroke</span>
       </div>
       <div class="stat">
@@ -334,166 +305,11 @@ body:has(.hero) .features > *{border:1px solid var(--line)!important;border-radi
   </div>
 </section>
 
-
-<!-- ======================= SCROLL-FADE BAND ======================= -->
-<section class="band-img" data-band>
-  <!-- swap img/break-1.jpg for your own photo, 2000x1200 or larger -->
-  <img src="img/break-1.jpg" alt="" loading="lazy">
-  <div class="band-in">
-    <div class="band-tx">
-      <div class="eyebrow">Written for the clinic, not the exam hall</div>
-      <h2>Everything here has to survive contact with a real patient.</h2>
-      <p>If a dosage cannot be traced to a source, it does not go on the page. If the evidence is thin, the page says so instead of rounding it up into confidence.</p>
-      <div class="cta"><a class="btn light big" href="evidence.html">How we reference</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= WHAT YOU GET ======================= -->
-<section class="sec">
-  <div class="wrap">
-    <div class="eyebrow" data-rev="0">A clinical learning system</div>
-    <h2 class="h2" data-rev="40">Reference the evidence.<br>Rehearse the practice.</h2>
-
-    <div class="grid g3" style="margin-top:52px">
-      <a class="card link pic" href="library.html" data-rev="0">
-        <img class="photo" src="img/card-library.jpg" alt="">
-        <div class="body">
-          <h3>Anatomy &amp; assessment</h3>
-          <p>Conditions, anatomy, special tests, outcome measures and exercises — written to one template, referenced throughout, and dated so you can see how current the evidence is.</p>
-          <div class="cfoot"><span class="tag free">Free forever</span>
-            <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
-          </div>
-        </div>
-      </a>
-      <a class="card link pic" href="qbank.html" data-rev="80">
-        <img class="photo" src="img/card-questions.jpg" alt="">
-        <div class="body">
-          <h3>MCQ question bank</h3>
-          <p>Exam-style questions with worked reasoning on every option — why the wrong ones are wrong — each traced back to the page it came from.</p>
-          <div class="cfoot"><span class="tag pro">Pro</span>
-            <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
-          </div>
-        </div>
-      </a>
-      <a class="card link pic" href="osce.html" data-rev="160">
-        <img class="photo" src="img/card-cpd.jpg" alt="">
-        <div class="body">
-          <h3>OSCE &amp; clinical reasoning</h3>
-          <p>Work through clinical cases, practical stations and marking criteria so your knowledge transfers confidently from page to patient.</p>
-          <div class="cfoot"><span class="tag pro">Pro</span>
-            <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= PRICING ======================= -->
-<section class="sec alt">
-  <div class="wrap">
-    <div class="eyebrow" data-rev="0">What costs money</div>
-    <h2 class="h2" data-rev="40">The library is free. Forever.</h2>
-    <p class="lede" style="margin-top:18px" data-rev="80">Reference content belongs in the open — that is how it gets used, shared and trusted. You pay for the tools that save you time and keep your learning proof in one place.</p>
-
-    <div class="plans">
-      <div class="plan" data-rev="0">
-        <h3 class="h3">Free</h3>
-        <p class="dim" style="font-size:14.5px;margin-top:6px">For students, and any clinician looking something up.</p>
-        <div class="pr">$0 <small>ALWAYS</small></div>
-        <p class="plan-x">The whole reference library, every worked case, the video demos, Anki export and the full reference list on every page.</p>
-        <div style="margin-top:26px"><a class="btn" href="library.html">Open the library</a></div>
-      </div>
-      <div class="plan pro" data-rev="90">
-        <h3 class="h3">Pro <span class="tag pro" style="vertical-align:4px">Clinicians</span></h3>
-        <p class="dim" style="font-size:14.5px;margin-top:6px">For registered clinicians with twenty hours a year to prove.</p>
-        <div class="pr">TBC <small>PER MONTH</small></div>
-        <p class="plan-x">Adds the question bank, the research feed, CPD hours logged as you read, and a portfolio export that survives an audit.</p>
-        <div style="margin-top:26px"><a class="btn coral" href="pricing.html#trial">Start a free trial</a></div>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:26px" data-rev="0">
-      <a href="pricing.html" style="font:600 14px/1 var(--sans);color:var(--brand-ink);text-decoration:none">See the full comparison &rarr;</a>
-    </p>
-  </div>
-</section>
-
-
-<!-- ======================= SCROLL-FADE BAND 2 ======================= -->
-<section class="band-img" data-band>
-  <!-- swap img/break-2.jpg for your own photo, 2000x1200 or larger -->
-  <img src="img/break-2.jpg" alt="" loading="lazy">
-  <div class="band-in">
-    <div class="band-tx">
-      <div class="eyebrow">Twenty hours a year, every year</div>
-      <h2>The learning you already do should count for something.</h2>
-      <p>Courses, reading, the thing you looked up between patients — it all counts, and most of it never gets written down. CliniPD banks it as you go, with the date and the source attached, so your CPD is never a scramble at the end of the year.</p>
-      <div class="cta"><a class="btn light big" href="cpd.html">See how logging works</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= CONTRIBUTE ======================= -->
-<section class="sec">
-  <div class="wrap">
-    <div class="eyebrow" data-rev="0">Contribute to CliniPD</div>
-    <h2 class="h2" data-rev="40">Built by physios, for physios.</h2>
-    <p class="lede" style="margin-top:18px" data-rev="80">Share a protocol, bring your cohort, or report on your whole team. Everything submitted is reviewed by a physiotherapist before it goes live.</p>
-
-    <div class="grid g3" style="margin-top:52px">
-      <a class="card link pic" href="upload.html" data-rev="0">
-        <img class="photo" src="img/give-students.jpg" alt="">
-        <div class="body">
-          <h3>Individuals</h3>
-          <p>Protocols, handouts, assessment forms and teaching resources. Submit it with its references and we check it before publishing.</p>
-          <div class="cfoot"><span class="tag free">Free</span>
-            <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
-          </div>
-        </div>
-      </a>
-      <a class="card link pic" href="universities.html" data-rev="80">
-        <img class="photo" src="img/give-clinicians.jpg" alt="">
-        <div class="body">
-          <h3>Universities</h3>
-          <p>A cohort page mapped to your unit outlines, in your reading order, under your unit code — so students read what you examine.</p>
-          <div class="cfoot"><span class="tag">Talk to us</span>
-            <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
-          </div>
-        </div>
-      </a>
-      <a class="card link pic" href="clinics.html" data-rev="160">
-        <img class="photo" src="img/give-teams.jpg" alt="">
-        <div class="body">
-          <h3>Clinics</h3>
-          <p>Team accounts with shared CPD reporting, so a practice principal can see where the whole team sits long before November.</p>
-          <div class="cfoot"><span class="tag">Talk to us</span>
-            <span class="arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m0 0-5-5m5 5-5 5"/></svg></span>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= CTA ======================= -->
-<section class="band">
-  <div class="wrap">
-    <h2 class="h2" data-rev="0">Start with the knee.</h2>
-    <p class="lede" data-rev="60">Eight presentations, fully referenced, free to read. If it isn't better than what you're using now, close the tab.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px" data-rev="120">
-      <a class="btn pri big" href="msk.html">Open the library</a>
-      <a class="btn big" href="cases.html">Work a case first</a>
-    </div>
-  </div>
-</section>
-
 <footer class="foot" id="site-foot"></footer>
 
 <script src="site.js"></script>
 <script src="glossary.js"></script>
 <script>
-/* ---- marquee of what's covered ---- */
 (function(){
   var host = document.getElementById('mq');
   if(!host) return;
@@ -502,9 +318,8 @@ body:has(.hero) .features > *{border:1px solid var(--line)!important;border-radi
     'Pelvic health','Cardiac rehab','Hamstring strain','Frozen shoulder','Achilles tendinopathy',
     'Parkinson’s disease','Post-operative chest','Knee osteoarthritis','Return to sport'];
   var html = items.map(function(t){ return '<span class="pill">'+t+'</span>'; }).join('');
-  host.innerHTML = html + html;          /* doubled so the loop is seamless */
+  host.innerHTML = html + html;
 })();
-
 </script>
 </body>
 </html>
