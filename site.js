@@ -676,6 +676,7 @@ async function articleContent() {
   if (!data || !data.sections) return;
 
   const refs = Array.isArray(data.refs) ? data.refs : [];
+  const images = Array.isArray(data.images) ? data.images : [];
 
   /* --- 1. the sections ------------------------------------- */
   let filled = 0, missing = [];
@@ -693,6 +694,22 @@ async function articleContent() {
     const live = document.createElement("div");
     live.className = "fld-live";
     live.innerHTML = String(html);
+
+    /* images placed in this section (top-level "images" array, never
+       inline markup — keeps section HTML to plain prose/tables) */
+    images.filter(im => im && im.section === name).forEach(im => {
+      if (!im.file) return;
+      const fig = document.createElement("figure");
+      fig.className = "art-fig";
+      const credit = [im.credit, im.licence].filter(Boolean).join(" · ");
+      const src = im.sourceUrl
+        ? `<a href="${esc(im.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(credit || "source")}</a>`
+        : esc(credit);
+      fig.innerHTML = `<img src="${BASE}img/conditions/${esc(id)}/${esc(im.file)}" alt="${esc(im.alt || "")}" loading="lazy">`
+        + (im.caption || credit ? `<figcaption>${im.caption ? `<span class="cap">${esc(im.caption)}</span>` : ""}${src ? `<span class="credit">${src}</span>` : ""}</figcaption>` : "");
+      live.appendChild(fig);
+    });
+
     body.replaceWith(live);
     filled++;
   });
@@ -775,6 +792,49 @@ async function articleContent() {
 
   /* --- 6. hover glossary over the new prose ----------------- */
   if (window.glossInit) $$(".fld-live").forEach(el => glossInit(el));
+
+  /* --- 7. video overview — categorised YouTube embeds -------- */
+  renderVideos($(".art-wrap > .vid"), Array.isArray(data.videos) ? data.videos : []);
+}
+
+const VIDEO_CATEGORY_LABEL = {
+  anatomy: "Anatomy",
+  pathology: "Pathology",
+  assessment: "Assessment",
+  "special-tests": "Special tests",
+  rehabilitation: "Rehabilitation",
+};
+
+/* Renders privacy-enhanced (youtube-nocookie.com), lazy-loaded, no-autoplay
+   embeds grouped by category. If "videos" is empty, the section is left
+   exactly as it shipped — the honest "No video yet" skeleton — so pages
+   without videos are completely unaffected. */
+function renderVideos(section, videos) {
+  const list = videos.filter(v => v && v.youtubeId && VIDEO_CATEGORY_LABEL[v.category]);
+  if (!section || !list.length) return;
+
+  const chip = section.querySelector("h2 .chip");
+  if (chip) {
+    chip.classList.remove("empty");
+    chip.textContent = list.length === 1 ? "1 video" : `${list.length} videos`;
+  }
+
+  const wrap = document.createElement("div");
+  wrap.className = "vid-list";
+  wrap.innerHTML = list.map(v => `
+    <div class="vid-item">
+      <p class="vid-cat">${esc(VIDEO_CATEGORY_LABEL[v.category])}</p>
+      <div class="vid-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/${esc(v.youtubeId)}?rel=0"
+          title="${esc(v.title || VIDEO_CATEGORY_LABEL[v.category])}" loading="lazy"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      ${v.title ? `<p class="vid-cap">${esc(v.title)}</p>` : ""}
+    </div>`).join("");
+
+  const box = section.querySelector(".vid-box");
+  if (box) box.replaceWith(wrap);
 }
 
 /* ---------- clinical pathway rail ------------------------- */

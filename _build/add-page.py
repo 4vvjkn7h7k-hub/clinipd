@@ -16,6 +16,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = set("p b i ul ol li sup table thead tbody tr th td code a div br strong em".split())
 CAP = datetime.date.today().year + 1
 
+VIDEO_CATEGORIES = {"anatomy", "pathology", "assessment", "special-tests", "rehabilitation"}
+YOUTUBE_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+
 
 def die(msg):
     print("\n  ERROR  " + msg)
@@ -143,6 +146,46 @@ def main():
 
     nverify = sum(len(re.findall(r"\[verify", str(h), re.I)) for h in data["sections"].values())
 
+    # ---- videos (optional top-level "videos" array) ----
+    videos = data.get("videos") or []
+    if not isinstance(videos, list):
+        errors.append('"videos" must be a list')
+        videos = []
+    for i, v in enumerate(videos):
+        if not isinstance(v, dict):
+            errors.append("videos[%d] is not an object" % i)
+            continue
+        cat = v.get("category")
+        if cat not in VIDEO_CATEGORIES:
+            errors.append("videos[%d] category %r is not one of %s"
+                          % (i, cat, ", ".join(sorted(VIDEO_CATEGORIES))))
+        yid = v.get("youtubeId")
+        if not yid or not YOUTUBE_ID_RE.match(str(yid)):
+            errors.append("videos[%d] youtubeId %r is not a valid 11-character YouTube id "
+                          "(paste the id from the URL, not the whole link)" % (i, yid))
+
+    # ---- images (optional top-level "images" array) ----
+    images = data.get("images") or []
+    if not isinstance(images, list):
+        errors.append('"images" must be a list')
+        images = []
+    img_dir = os.path.join(ROOT, "img", "conditions", pid)
+    for i, im in enumerate(images):
+        if not isinstance(im, dict):
+            errors.append("images[%d] is not an object" % i)
+            continue
+        if im.get("section") not in want:
+            errors.append("images[%d] section %r does not match any section on this page"
+                          % (i, im.get("section")))
+        f = im.get("file")
+        if not f:
+            errors.append("images[%d] has no file" % i)
+        elif not os.path.isfile(os.path.join(img_dir, str(f))):
+            errors.append("images[%d] file not found: img/conditions/%s/%s" % (i, pid, f))
+        for field in ("alt", "credit", "sourceUrl", "licence"):
+            if not str(im.get(field, "")).strip():
+                errors.append("images[%d] is missing required field %r" % (i, field))
+
     # ---- newest source year (a page range looks exactly like a year) ----
     years = []
     for r in refs:
@@ -159,6 +202,10 @@ def main():
     print("  Tables    %d" % sum(str(h).count('<table') for h in data["sections"].values()))
     if nverify:
         print("  Verify    %d figure(s) still marked [verify]" % nverify)
+    if videos:
+        print("  Videos    %d" % len(videos))
+    if images:
+        print("  Images    %d" % len(images))
 
     for w in warnings:
         print("\n  WARNING  " + w)
@@ -181,6 +228,8 @@ def main():
         "sections": len(want) - len(missing) - len(empty),
         "refs": len(refs),
         "newestSource": newest,
+        "videos": len(videos),
+        "images": len(images),
         "reviewed": prev.get("reviewed"),
         "reviewedBy": prev.get("reviewedBy"),
     }
