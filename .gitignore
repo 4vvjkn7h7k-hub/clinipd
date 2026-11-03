@@ -2,3 +2,4 @@
 _build/*.png
 _build/schemes.css
 node_modules/
+.wrangler/

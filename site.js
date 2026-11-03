@@ -642,17 +642,35 @@ function heroDrift() {
    written prose in: sections, references, citation links and the
    status chips. If it does not exist, the page is left exactly as
    it is — an honest empty page, not a broken one.
+
+   content/index.json is the manifest of every page-id that has been
+   written. It's checked first (one small, always-200 request, shared
+   across every page load) so unwritten pages never have to fire a
+   per-article request that's guaranteed to 404.
 -------------------------------------------------------------- */
+let _contentManifest = null;
+function contentManifest() {
+  if (!_contentManifest) {
+    _contentManifest = fetch(BASE + "content/index.json", { cache: "no-cache" })
+      .then(r => (r.ok ? r.json() : null))
+      .catch(() => null);
+  }
+  return _contentManifest;
+}
+
 async function articleContent() {
   const tag = $(".pid code");
   if (!tag) return;                       /* not an article page */
   const id = tag.textContent.trim();
   if (!id) return;
 
+  const manifest = await contentManifest();
+  if (!manifest || !Object.prototype.hasOwnProperty.call(manifest, id)) return; /* nothing written yet */
+
   let data;
   try {
     const r = await fetch(BASE + "content/" + id + ".json", { cache: "no-cache" });
-    if (!r.ok) return;                    /* nothing written yet */
+    if (!r.ok) return;                    /* manifest said written but file missing — leave the skeleton */
     data = await r.json();
   } catch (e) { return; }                 /* offline or file:// — leave the skeleton */
   if (!data || !data.sections) return;
