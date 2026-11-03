@@ -113,6 +113,32 @@
 .vid-box p{font-size:13.5px;color:var(--muted);margin:0;max-width:48ch;line-height:1.55}
 .vid-box iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--r-lg)}
 
+/* ---------- categorised video list (multiple videos per page) ---------- */
+.vid-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.vid-item{display:flex;flex-direction:column;gap:8px}
+.vid-cat{
+  font:600 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;
+  color:var(--brand-ink);margin:0;
+}
+.vid-frame{border-radius:var(--r-lg);overflow:hidden;background:var(--bg-2)}
+.vid-frame iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.vid-cap{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
+
+/* ---------- in-article images ---------- */
+.art-fig{margin:20px 0 0;text-align:center}
+.art-fig img{
+  max-width:100%;height:auto;border-radius:var(--r-lg);border:1px solid var(--line);
+  display:block;margin:0 auto;
+}
+.art-fig figcaption{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.art-fig figcaption .cap{display:block;color:var(--ink-2)}
+.art-fig figcaption .credit{display:block;margin-top:2px}
+.art-fig figcaption .credit a{color:var(--brand-ink);text-decoration:none}
+.art-fig figcaption .credit a:hover{text-decoration:underline}
+@media (max-width:640px){
+  .vid-list{grid-template-columns:1fr}
+}
+
 /* ---------- the sections ---------- */
 .sec-a{
   margin-top:clamp(40px,5vw,64px);
