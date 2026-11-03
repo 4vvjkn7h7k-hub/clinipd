@@ -19,6 +19,11 @@ CAP = datetime.date.today().year + 1
 VIDEO_CATEGORIES = {"anatomy", "pathology", "assessment", "special-tests", "rehabilitation"}
 YOUTUBE_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
+# RESEARCH-STANDARD.md §1.2 / §9 — warnings only, never hard errors (these
+# need human judgement, not a strict schema).
+NHMRC_LEVEL_RE = re.compile(r"^(NHMRC (I|II|III-1|III-2|III-3|IV)|Expert consensus)$")
+DOI_OR_URL_RE = re.compile(r"^(10\.\d{4,9}/\S+|https?://\S+)$", re.I)
+
 
 def die(msg):
     print("\n  ERROR  " + msg)
@@ -143,6 +148,22 @@ def main():
                         % ", ".join(map(str, nodoi)))
     if not refs:
         warnings.append("no references at all")
+
+    # ---- evidence-level shape (RESEARCH-STANDARD.md §1.2) ----
+    badlevel = [i + 1 for i, r in enumerate(refs)
+                if not NHMRC_LEVEL_RE.match(str(r.get("level", "")).strip())]
+    if badlevel:
+        warnings.append("reference(s) %s have a level that isn't \"NHMRC I/II/III-1/III-2/III-3/IV\" "
+                        "or \"Expert consensus\" — see RESEARCH-STANDARD.md §1"
+                        % ", ".join(map(str, badlevel)))
+
+    # ---- doi field must be a real DOI or a real URL, not a bare string ----
+    baddoi = [i + 1 for i, r in enumerate(refs)
+              if str(r.get("doi", "")).strip() and not DOI_OR_URL_RE.match(str(r.get("doi", "")).strip())]
+    if baddoi:
+        warnings.append("reference(s) %s have a \"doi\" field that is neither a DOI (10.x/...) "
+                        "nor a real http(s) URL — see RESEARCH-STANDARD.md §9"
+                        % ", ".join(map(str, baddoi)))
 
     nverify = sum(len(re.findall(r"\[verify", str(h), re.I)) for h in data["sections"].values())
 
